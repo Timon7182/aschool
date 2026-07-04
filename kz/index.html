@@ -22,16 +22,16 @@
   <meta property="og:title" content="A School — Алматыдағы білім беру орталығы">
   <meta property="og:description" content="Мектепке дайындық, ұзартылған күн тобы, «10-ы 1-де» пакеті, ағылшын тілі және IELTS. Әрбір курс үшін тегін сынақ күні.">
   <meta property="og:url" content="https://timon7182.github.io/aschool/kz/index.html">
-  <meta property="og:image" content="https://timon7182.github.io/aschool/assets/img/logo.svg">
+  <meta property="og:image" content="https://timon7182.github.io/aschool/assets/img/logo-full.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="A School — Алматыдағы білім беру орталығы">
   <meta name="twitter:description" content="Мектепке дайындық, ұзартылған күн тобы, «10-ы 1-де» пакеті, ағылшын тілі және IELTS. Тегін сынақ күні.">
-  <meta name="twitter:image" content="https://timon7182.github.io/aschool/assets/img/logo.svg">
+  <meta name="twitter:image" content="https://timon7182.github.io/aschool/assets/img/logo-full.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +50,7 @@
     "description": "Алматыдағы балаларға арналған білім беру орталығы: мектепке дайындық, ұзартылған күн тобы, «10-ы 1-де» пакеті, ағылшын тілі және IELTS.",
     "inLanguage": "kk",
     "url": "https://timon7182.github.io/aschool/",
-    "logo": "https://timon7182.github.io/aschool/assets/img/logo.svg",
+    "logo": "https://timon7182.github.io/aschool/assets/img/logo-full.png",
     "telephone": "+7-700-123-45-67",
     "address": {
       "@type": "PostalAddress",
@@ -71,19 +71,18 @@
 <!-- ══════════ HEADER ══════════ -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo-link" href="#top" aria-label="A School — басты бетке">
-      <img src="../assets/img/logo.svg" alt="A School" width="200" height="56">
+    <a class="logo-link" href="index.html" aria-label="A School — басты бетке">
+      <img src="../assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+      <span class="logo-word">A SCHOOL</span>
     </a>
 
     <!-- Desktop -->
     <div class="header-desktop">
       <nav class="main-nav" aria-label="Негізгі навигация">
-        <a class="nav-link" href="#programs">Бағдарламалар</a>
-        <a class="nav-link" href="#package">«10-ы 1-де»</a>
         <a class="nav-link" href="#why">Орталық туралы</a>
-        <a class="nav-link" href="#teachers">Педагогтар</a>
+        <a class="nav-link" href="#programs">Бағдарламалар</a>
+        <a class="nav-link" href="#teachers">Ұстаздар</a>
         <a class="nav-link" href="#reviews">Пікірлер</a>
-        <a class="nav-link" href="#faq">Сұрақтар</a>
         <a class="nav-link" href="#contacts">Байланыс</a>
       </nav>
       <div class="header-actions">
@@ -91,24 +90,14 @@
           <a href="../index.html" hreflang="ru">RU</a>
           <a class="active" href="index.html" aria-current="true">ҚАЗ</a>
         </div>
-        <div class="social-row">
-          <a class="social-btn" data-social="instagram" href="https://www.instagram.com/aschool_kz" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">IG</a>
-          <a class="social-btn" data-social="tiktok" href="https://www.tiktok.com/@aschool_kz" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">TT</a>
-          <a class="social-btn" data-social="telegram" href="https://t.me/aschool_kz" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">TG</a>
-          <a class="social-btn" data-social="threads" href="https://www.threads.com/@aschool_kz" target="_blank" rel="noopener" title="Threads" aria-label="Threads">@</a>
-        </div>
-        <!-- TODO: заменить номер WhatsApp -->
-        <a class="btn wa-btn" href="https://wa.me/77001234567" target="_blank" rel="noopener">
-          <span class="wa-dot"></span> WhatsApp
-        </a>
+        <button class="btn wa-btn" type="button" data-modal-open>Тегін сабақ</button>
       </div>
     </div>
 
     <!-- Compact (mobile) -->
     <div class="header-compact">
       <div class="spacer"></div>
-      <!-- TODO: заменить номер WhatsApp -->
-      <a class="btn wa-btn" href="https://wa.me/77001234567" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="btn wa-btn" type="button" data-modal-open>Тегін сабақ</button>
       <button class="burger" type="button" data-menu-open aria-label="Мәзірді ашу" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -120,7 +109,10 @@
 <div class="menu-overlay" id="menuOverlay"></div>
 <aside class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Мобильді мәзір">
   <div class="mobile-menu-head">
-    <img src="../assets/img/logo.svg" alt="A School" width="150" height="42">
+    <a class="logo-link" href="index.html" aria-label="A School — басты бетке">
+      <img src="../assets/img/logo-mark.png" alt="A School" style="height:40px;width:auto;">
+      <span class="logo-word">A SCHOOL</span>
+    </a>
     <button class="menu-close" type="button" data-menu-close aria-label="Мәзірді жабу">✕</button>
   </div>
   <div class="lang-toggle" style="margin-bottom:16px;" role="group" aria-label="Тіл таңдау">
@@ -128,22 +120,13 @@
     <a class="active" href="index.html" aria-current="true">ҚАЗ</a>
   </div>
   <nav class="mobile-nav" aria-label="Мобильді навигация">
-    <a href="#programs">Бағдарламалар</a>
-    <a href="#package">«10-ы 1-де»</a>
     <a href="#why">Орталық туралы</a>
-    <a href="#teachers">Педагогтар</a>
+    <a href="#programs">Бағдарламалар</a>
+    <a href="#teachers">Ұстаздар</a>
     <a href="#reviews">Пікірлер</a>
-    <a href="#faq">Сұрақтар</a>
     <a href="#contacts">Байланыс</a>
   </nav>
-  <div class="mobile-social">
-    <a data-social="instagram" href="https://www.instagram.com/aschool_kz" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-    <a data-social="tiktok" href="https://www.tiktok.com/@aschool_kz" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
-    <a data-social="telegram" href="https://t.me/aschool_kz" target="_blank" rel="noopener" aria-label="Telegram">TG</a>
-    <a data-social="threads" href="https://www.threads.com/@aschool_kz" target="_blank" rel="noopener" aria-label="Threads">@</a>
-  </div>
-  <!-- TODO: заменить номер WhatsApp -->
-  <a class="wa-block" href="https://wa.me/77001234567" target="_blank" rel="noopener">WhatsApp-та жазу</a>
+  <button class="btn wa-btn mobile-trial" type="button" data-modal-open>Тегін сабақ</button>
 </aside>
 
 <main>
@@ -186,13 +169,10 @@
 
     <!-- Фото-ұясы -->
     <div style="flex: 1; min-width: 320px; position: relative; align-self: stretch; display: flex; justify-content: center; padding-bottom: 56px;">
-      <img src="../assets/img/logo.svg" alt="" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 120%; max-width: 620px; opacity: 0.08; pointer-events: none;">
-      <!-- Фото-ұясы: нақты оқушы суретімен ауыстырыңыз -->
-      <div class="photo-slot" data-photo-slot style="position: relative; z-index: 2; width: min(100%, 420px); min-height: 420px; border-radius: 32px; background: linear-gradient(135deg, #EFE9FC, #E0F2EA);">
-        <div class="slot-inner">
-          <span class="ms" style="font-size: 84px; color: #8B6FE0;">school</span>
-          <span class="slot-caption" style="position: static;">Сурет: A School оқушылары</span>
-        </div>
+      <img src="../assets/img/logo-mark.png" alt="" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 120%; max-width: 620px; opacity: 0.08; pointer-events: none;">
+      <!-- A School оқушысының суреті -->
+      <div class="photo-slot" style="position: relative; z-index: 2; width: min(100%, 420px); min-height: 420px; border-radius: 32px;">
+        <img src="../assets/img/hero-girl.jpg" alt="A School оқушысы" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; border-radius: 32px;">
       </div>
       <div style="position: absolute; top: 4%; left: 2%; z-index: 3; width: 68px; height: 68px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 32px; color: #6C4BC7; animation: floaty 5s ease-in-out infinite;"><span class="ms">menu_book</span></div>
       <div style="position: absolute; top: 18%; left: 82%; z-index: 3; width: 62px; height: 62px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 34px; color: #1F8A5B; animation: floaty2 6s ease-in-out infinite;"><span class="ms">abc</span></div>
@@ -248,7 +228,10 @@
         <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">1–5 сынып</span>
       </div>
       <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Ұзартылған күн тобы</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Ұзартылған күн тобы</h3>
+          <a class="btn btn-soft" href="bagdarlamalar/uzartylgan-kun-toby.html">Толығырақ →</a>
+        </div>
         <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Үй тапсырмасын орындау, жылдам оқу, көркем жазу. Аптасына 5 рет, 10 оқушыдан тұратын топта, мектептен және мектепке дейін жеткізу.</p>
         <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
           <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Сабақтар орындалды — кеш отбасымен
@@ -274,7 +257,7 @@
       <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
           <h3 style="font-weight: 800; font-size: 21px; margin: 0;">«10-ы 1-де» пакеті</h3>
-          <a class="btn btn-soft" href="#package">Толығырақ →</a>
+          <a class="btn btn-soft" href="bagdarlamalar/paket-10-1.html">Толығырақ →</a>
         </div>
         <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Жан-жақты дамуға арналған 10 бағыт: ағылшын және қазақ тілдері, арт-студия, жасыл сынып, шахмат, IT, хореография, нейрогимнастика, логика және ментальды арифметика.</p>
         <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
@@ -299,7 +282,10 @@
         <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">IELTS</span>
       </div>
       <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Ағылшын тілі · IELTS</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Ағылшын тілі · IELTS</h3>
+          <a class="btn btn-soft" href="bagdarlamalar/agylshyn-ielts.html">Толығырақ →</a>
+        </div>
         <p style="font-size: 14.5px; color: #6B6580; margin: 0;">IELTS халықаралық емтиханына дайындық. Нәтижелерді 140-тан астам елдегі 12 000-нан астам ұйым қабылдайды — университеттер, жұмыс берушілер және иммиграциялық органдар.</p>
         <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
           <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Бүкіл әлемде бағаланатын артықшылық
@@ -638,16 +624,19 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div style="flex: 1.2; min-width: 240px;">
-        <img src="../assets/img/logo.svg" alt="A School" width="200" height="56" style="margin-bottom: 16px; filter: brightness(1.15);">
+        <a class="logo-link" href="index.html" style="margin-bottom: 16px;" aria-label="A School — басты бетке">
+          <img src="../assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+          <span class="logo-word">A SCHOOL</span>
+        </a>
         <p style="margin: 0; font-size: 14px; max-width: 320px; line-height: 1.7;">Алматыдағы білім беру орталығы: мектепке дайындық, ұзартылған күн тобы, «10-ы 1-де» пакеті, ағылшын тілі және IELTS. Қуанышпен және мейіріммен оқытамыз.</p>
       </div>
       <div style="flex: 1; min-width: 170px;">
         <div class="footer-col-title">Оқыту</div>
         <div class="footer-links">
           <a href="bagdarlamalar/mektepke-dayindyk.html">Мектепке дайындық</a>
-          <a href="#programs">Ұзартылған күн тобы</a>
-          <a href="#package">«10-ы 1-де» пакеті</a>
-          <a href="#programs">Ағылшын тілі · IELTS</a>
+          <a href="bagdarlamalar/uzartylgan-kun-toby.html">Ұзартылған күн тобы</a>
+          <a href="bagdarlamalar/paket-10-1.html">«10-ы 1-де» пакеті</a>
+          <a href="bagdarlamalar/agylshyn-ielts.html">Ағылшын тілі · IELTS</a>
         </div>
       </div>
       <div style="flex: 1; min-width: 170px;">

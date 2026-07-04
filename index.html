@@ -22,16 +22,16 @@
   <meta property="og:title" content="A School — образовательный центр в Алматы">
   <meta property="og:description" content="Подготовка к школе, продлёнка, пакет «10 в 1», английский и IELTS. Бесплатный пробный день для каждого курса.">
   <meta property="og:url" content="https://timon7182.github.io/aschool/index.html">
-  <meta property="og:image" content="https://timon7182.github.io/aschool/assets/img/logo.svg">
+  <meta property="og:image" content="https://timon7182.github.io/aschool/assets/img/logo-full.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="A School — образовательный центр в Алматы">
   <meta name="twitter:description" content="Подготовка к школе, продлёнка, пакет «10 в 1», английский и IELTS. Бесплатный пробный день.">
-  <meta name="twitter:image" content="https://timon7182.github.io/aschool/assets/img/logo.svg">
+  <meta name="twitter:image" content="https://timon7182.github.io/aschool/assets/img/logo-full.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +49,7 @@
     "name": "A School",
     "description": "Образовательный центр для детей в Алматы: подготовка к школе, продлёнка, пакет «10 в 1», английский и IELTS.",
     "url": "https://timon7182.github.io/aschool/",
-    "logo": "https://timon7182.github.io/aschool/assets/img/logo.svg",
+    "logo": "https://timon7182.github.io/aschool/assets/img/logo-full.png",
     "telephone": "+7-700-123-45-67",
     "address": {
       "@type": "PostalAddress",
@@ -70,19 +70,18 @@
 <!-- ══════════ HEADER ══════════ -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo-link" href="#top" aria-label="A School — на главную">
-      <img src="assets/img/logo.svg" alt="A School" width="200" height="56">
+    <a class="logo-link" href="index.html" aria-label="A School — на главную">
+      <img src="assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+      <span class="logo-word">A SCHOOL</span>
     </a>
 
     <!-- Desktop -->
     <div class="header-desktop">
       <nav class="main-nav" aria-label="Основная навигация">
-        <a class="nav-link" href="#programs">Программы</a>
-        <a class="nav-link" href="#package">Пакет «10 в 1»</a>
         <a class="nav-link" href="#why">О центре</a>
+        <a class="nav-link" href="#programs">Программы</a>
         <a class="nav-link" href="#teachers">Педагоги</a>
         <a class="nav-link" href="#reviews">Отзывы</a>
-        <a class="nav-link" href="#faq">Вопросы</a>
         <a class="nav-link" href="#contacts">Контакты</a>
       </nav>
       <div class="header-actions">
@@ -90,24 +89,14 @@
           <a class="active" href="index.html" aria-current="true">RU</a>
           <a href="kz/index.html" hreflang="kk">ҚАЗ</a>
         </div>
-        <div class="social-row">
-          <a class="social-btn" data-social="instagram" href="https://www.instagram.com/aschool_kz" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">IG</a>
-          <a class="social-btn" data-social="tiktok" href="https://www.tiktok.com/@aschool_kz" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">TT</a>
-          <a class="social-btn" data-social="telegram" href="https://t.me/aschool_kz" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">TG</a>
-          <a class="social-btn" data-social="threads" href="https://www.threads.com/@aschool_kz" target="_blank" rel="noopener" title="Threads" aria-label="Threads">@</a>
-        </div>
-        <!-- TODO: заменить номер WhatsApp -->
-        <a class="btn wa-btn" href="https://wa.me/77001234567" target="_blank" rel="noopener">
-          <span class="wa-dot"></span> WhatsApp
-        </a>
+        <button class="btn wa-btn" type="button" data-modal-open>Пробный урок</button>
       </div>
     </div>
 
     <!-- Compact (mobile) -->
     <div class="header-compact">
       <div class="spacer"></div>
-      <!-- TODO: заменить номер WhatsApp -->
-      <a class="btn wa-btn" href="https://wa.me/77001234567" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="btn wa-btn" type="button" data-modal-open>Пробный урок</button>
       <button class="burger" type="button" data-menu-open aria-label="Открыть меню" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -119,7 +108,10 @@
 <div class="menu-overlay" id="menuOverlay"></div>
 <aside class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Мобильное меню">
   <div class="mobile-menu-head">
-    <img src="assets/img/logo.svg" alt="A School" width="150" height="42">
+    <a class="logo-link" href="index.html" aria-label="A School — на главную">
+      <img src="assets/img/logo-mark.png" alt="A School" style="height:40px;width:auto;">
+      <span class="logo-word">A SCHOOL</span>
+    </a>
     <button class="menu-close" type="button" data-menu-close aria-label="Закрыть меню">✕</button>
   </div>
   <div class="lang-toggle" style="margin-bottom:16px;" role="group" aria-label="Выбор языка">
@@ -127,22 +119,13 @@
     <a href="kz/index.html" hreflang="kk">ҚАЗ</a>
   </div>
   <nav class="mobile-nav" aria-label="Мобильная навигация">
-    <a href="#programs">Программы</a>
-    <a href="#package">Пакет «10 в 1»</a>
     <a href="#why">О центре</a>
+    <a href="#programs">Программы</a>
     <a href="#teachers">Педагоги</a>
     <a href="#reviews">Отзывы</a>
-    <a href="#faq">Вопросы</a>
     <a href="#contacts">Контакты</a>
   </nav>
-  <div class="mobile-social">
-    <a data-social="instagram" href="https://www.instagram.com/aschool_kz" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-    <a data-social="tiktok" href="https://www.tiktok.com/@aschool_kz" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
-    <a data-social="telegram" href="https://t.me/aschool_kz" target="_blank" rel="noopener" aria-label="Telegram">TG</a>
-    <a data-social="threads" href="https://www.threads.com/@aschool_kz" target="_blank" rel="noopener" aria-label="Threads">@</a>
-  </div>
-  <!-- TODO: заменить номер WhatsApp -->
-  <a class="wa-block" href="https://wa.me/77001234567" target="_blank" rel="noopener">Написать в WhatsApp</a>
+  <button class="btn wa-btn mobile-trial" type="button" data-modal-open>Пробный урок</button>
 </aside>
 
 <main>
@@ -185,13 +168,10 @@
 
     <!-- Фото-слот с плавающими иконками -->
     <div style="flex: 1; min-width: 320px; position: relative; align-self: stretch; display: flex; justify-content: center; padding-bottom: 56px;">
-      <img src="assets/img/logo.svg" alt="" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 120%; max-width: 620px; opacity: 0.08; pointer-events: none;">
-      <!-- Фото-слот: заменить на реальное фото ученика -->
-      <div class="photo-slot" data-photo-slot style="position: relative; z-index: 2; width: min(100%, 420px); min-height: 420px; border-radius: 32px; background: linear-gradient(135deg, #EFE9FC, #E0F2EA);">
-        <div class="slot-inner">
-          <span class="ms" style="font-size: 84px; color: #8B6FE0;">school</span>
-          <span class="slot-caption" style="position: static;">Фото: ученики A School</span>
-        </div>
+      <img src="assets/img/logo-mark.png" alt="" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 120%; max-width: 620px; opacity: 0.08; pointer-events: none;">
+      <!-- Фото ученицы A School -->
+      <div class="photo-slot" style="position: relative; z-index: 2; width: min(100%, 420px); min-height: 420px; border-radius: 32px;">
+        <img src="assets/img/hero-girl.jpg" alt="Ученица A School" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; border-radius: 32px;">
       </div>
       <div style="position: absolute; top: 4%; left: 2%; z-index: 3; width: 68px; height: 68px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 32px; color: #6C4BC7; animation: floaty 5s ease-in-out infinite;"><span class="ms">menu_book</span></div>
       <div style="position: absolute; top: 18%; left: 82%; z-index: 3; width: 62px; height: 62px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 34px; color: #1F8A5B; animation: floaty2 6s ease-in-out infinite;"><span class="ms">abc</span></div>
@@ -247,7 +227,10 @@
         <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">1–5 класс</span>
       </div>
       <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Продлёнка</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Продлёнка</h3>
+          <a class="btn btn-soft" href="programs/prodlenka.html">Подробнее →</a>
+        </div>
         <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Выполнение домашних заданий, навыки чтения и красивое письмо. 5 дней в неделю, группы до 10 учеников, развозка из школы и в школу.</p>
         <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
           <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Уроки сделаны — вечер свободен для семьи
@@ -273,7 +256,7 @@
       <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
           <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Пакет «10 в 1»</h3>
-          <a class="btn btn-soft" href="#package">Подробнее →</a>
+          <a class="btn btn-soft" href="programs/paket-10-v-1.html">Подробнее →</a>
         </div>
         <p style="font-size: 14.5px; color: #6B6580; margin: 0;">10 направлений для всестороннего развития: английский и казахский языки, арт-студия, зелёный класс, шахматы, IT, хореография, нейрогимнастика, логика и ментальная арифметика.</p>
         <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
@@ -298,7 +281,10 @@
         <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">IELTS</span>
       </div>
       <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Английский · IELTS</h3>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Английский · IELTS</h3>
+          <a class="btn btn-soft" href="programs/english-ielts.html">Подробнее →</a>
+        </div>
         <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Подготовка к международному экзамену IELTS. Результаты принимают более 12 000 организаций в 140+ странах — университеты, работодатели и иммиграционные органы.</p>
         <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
           <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Преимущество, которое ценится во всём мире
@@ -637,16 +623,19 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div style="flex: 1.2; min-width: 240px;">
-        <img src="assets/img/logo.svg" alt="A School" width="200" height="56" style="margin-bottom: 16px; filter: brightness(1.15);">
+        <a class="logo-link" href="index.html" style="margin-bottom: 16px;" aria-label="A School — на главную">
+          <img src="assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+          <span class="logo-word">A SCHOOL</span>
+        </a>
         <p style="margin: 0; font-size: 14px; max-width: 320px; line-height: 1.7;">Образовательный центр в Алматы: подготовка к школе, продлёнка, пакет «10 в 1», английский и IELTS. Учим с удовольствием и заботой.</p>
       </div>
       <div style="flex: 1; min-width: 170px;">
         <div class="footer-col-title">Обучение</div>
         <div class="footer-links">
           <a href="programs/podgotovka-k-shkole.html">Подготовка к школе</a>
-          <a href="#programs">Продлёнка</a>
-          <a href="#package">Пакет «10 в 1»</a>
-          <a href="#programs">Английский · IELTS</a>
+          <a href="programs/prodlenka.html">Продлёнка</a>
+          <a href="programs/paket-10-v-1.html">Пакет «10 в 1»</a>
+          <a href="programs/english-ielts.html">Английский · IELTS</a>
         </div>
       </div>
       <div style="flex: 1; min-width: 170px;">

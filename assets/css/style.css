@@ -186,7 +186,18 @@ h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; }
   gap: 20px;
 }
 .logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-.logo-link img { height: 46px; width: auto; display: block; }
+.logo-link img { height: 48px; width: auto; display: block; }
+.logo-word {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 21px;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  line-height: 1;
+  white-space: nowrap;
+}
+.site-footer .logo-word { color: #fff; }
+.mobile-menu-head .logo-link img { height: 40px; }
 
 .main-nav { display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center; flex-wrap: wrap; }
 .nav-link {
@@ -301,6 +312,7 @@ h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; }
   font-weight: 800; text-decoration: none;
   padding: 14px; border-radius: 16px;
 }
+.mobile-menu .mobile-trial { width: 100%; margin-top: 18px; padding: 14px; font-size: 15px; }
 
 /* ============================================================
    Карточки (общий hover-lift)
