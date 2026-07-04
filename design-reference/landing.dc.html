@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A School — образовательный центр в Алматы</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #FDFCFF; -webkit-font-smoothing: antialiased; }
+    @keyframes floaty { 0% { transform: translateY(0px); } 50% { transform: translateY(-14px); } 100% { transform: translateY(0px); } }
+    @keyframes floaty2 { 0% { transform: translateY(0px) rotate(-4deg); } 50% { transform: translateY(-10px) rotate(4deg); } 100% { transform: translateY(0px) rotate(-4deg); } }
+    @keyframes blobdrift { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-24px) scale(1.06); } 100% { transform: translate(0,0) scale(1); } }
+  </style>
+</helmet>
+
+<div style="font-family: 'Manrope', sans-serif; color: #241E38; background: #FDFCFF; overflow-x: clip; font-size: 16px; line-height: 1.6;">
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header data-screen-label="Header" style="position: sticky; top: 0; z-index: 90; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); background: rgba(253,252,255,0.78); border-bottom: 1px solid rgba(108,75,199,0.10);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 20px;">
+      <a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0;">
+        <img src="assets/logo.png" alt="A School" style="height: 46px; width: auto; display: block;">
+      </a>
+
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <nav style="display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center; flex-wrap: wrap;">
+          <sc-for list="{{ navItems }}" as="nv" hint-placeholder-count="6">
+            <a href="{{ nv.href }}" style="font-size: 14.5px; font-weight: 600; color: #4A4460; text-decoration: none; padding: 8px 12px; border-radius: 12px; transition: all .2s;" style-hover="background: rgba(108,75,199,0.08); color: #6C4BC7;">{{ nv.label }}</a>
+          </sc-for>
+        </nav>
+        <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+          <div style="display: flex; background: rgba(108,75,199,0.08); border-radius: 999px; padding: 3px;">
+            <button onClick="{{ setRu }}" style="border: none; cursor: pointer; font-family: 'Manrope'; font-weight: 700; font-size: 13px; padding: 6px 14px; border-radius: 999px; background: {{ ruBg }}; color: {{ ruColor }}; box-shadow: {{ ruShadow }}; transition: all .2s;">RU</button>
+            <button onClick="{{ setKz }}" style="border: none; cursor: pointer; font-family: 'Manrope'; font-weight: 700; font-size: 13px; padding: 6px 14px; border-radius: 999px; background: {{ kzBg }}; color: {{ kzColor }}; box-shadow: {{ kzShadow }}; transition: all .2s;">KZ</button>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+              <a href="{{ s.href }}" title="{{ s.name }}" style="width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #6C4BC7; background: rgba(108,75,199,0.08); text-decoration: none; transition: all .2s;" style-hover="background: #6C4BC7; color: #fff; transform: translateY(-2px);">{{ s.short }}</a>
+            </sc-for>
+          </div>
+          <a href="https://wa.me/77001234567" style="display: inline-flex; align-items: center; gap: 8px; background: #1F8A5B; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; padding: 10px 18px; border-radius: 999px; box-shadow: 0 8px 20px rgba(31,138,91,0.28); transition: all .2s;" style-hover="transform: translateY(-2px); box-shadow: 0 12px 26px rgba(31,138,91,0.38);">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #A7F3C9; display: inline-block;"></span>
+            WhatsApp
+          </a>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+        <div style="flex: 1;"></div>
+        <a href="https://wa.me/77001234567" style="display: inline-flex; align-items: center; gap: 8px; background: #1F8A5B; color: #fff; font-weight: 700; font-size: 13px; text-decoration: none; padding: 9px 14px; border-radius: 999px;">WhatsApp</a>
+        <button onClick="{{ toggleMenu }}" aria-label="Меню" style="border: none; cursor: pointer; width: 44px; height: 44px; border-radius: 14px; background: rgba(108,75,199,0.10); display: grid; place-items: center; gap: 0;">
+          <div style="display: grid; gap: 5px;">
+            <span style="display: block; width: 20px; height: 2.5px; border-radius: 2px; background: #4C2A85;"></span>
+            <span style="display: block; width: 20px; height: 2.5px; border-radius: 2px; background: #4C2A85;"></span>
+            <span style="display: block; width: 14px; height: 2.5px; border-radius: 2px; background: #4C2A85;"></span>
+          </div>
+        </button>
+      </sc-if>
+    </div>
+  </header>
+
+  <!-- mobile menu overlay -->
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; z-index: 100; background: rgba(36,30,56,0.35); backdrop-filter: blur(4px);" onClick="{{ toggleMenu }}"></div>
+    <div style="position: fixed; top: 0; right: 0; bottom: 0; z-index: 101; width: min(340px, 88vw); background: #FDFCFF; box-shadow: -20px 0 60px rgba(76,42,133,0.25); padding: 24px; overflow-y: auto; border-radius: 24px 0 0 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <img src="assets/logo.png" alt="A School" style="height: 40px;">
+        <button onClick="{{ toggleMenu }}" style="border: none; cursor: pointer; width: 40px; height: 40px; border-radius: 12px; background: rgba(108,75,199,0.10); font-size: 18px; color: #4C2A85;">✕</button>
+      </div>
+      <nav style="display: grid; gap: 4px;">
+        <sc-for list="{{ fullNav }}" as="nv" hint-placeholder-count="8">
+          <a href="{{ nv.href }}" onClick="{{ toggleMenu }}" style="font-size: 16px; font-weight: 700; color: #241E38; text-decoration: none; padding: 12px 14px; border-radius: 14px;" style-hover="background: rgba(108,75,199,0.08); color: #6C4BC7;">{{ nv.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="display: flex; gap: 8px; margin-top: 20px;">
+        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+          <a href="{{ s.href }}" style="flex: 1; height: 44px; border-radius: 14px; display: grid; place-items: center; font-size: 12px; font-weight: 800; color: #6C4BC7; background: rgba(108,75,199,0.08); text-decoration: none;">{{ s.short }}</a>
+        </sc-for>
+      </div>
+      <a href="https://wa.me/77001234567" style="display: block; text-align: center; margin-top: 14px; background: #1F8A5B; color: #fff; font-weight: 800; text-decoration: none; padding: 14px; border-radius: 16px;">Написать в WhatsApp</a>
+    </div>
+  </sc-if>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section id="top" data-screen-label="Hero" style="position: relative; overflow: clip; background: linear-gradient(135deg, #F3EFFC 0%, #FDFCFF 45%, #E9F6F0 100%);">
+    <div style="position: absolute; top: -120px; left: -120px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(163,140,240,0.22), transparent 70%); animation: blobdrift 14s ease-in-out infinite;"></div>
+    <div style="position: absolute; bottom: -160px; right: -100px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(52,168,122,0.16), transparent 70%); animation: blobdrift 18s ease-in-out infinite reverse;"></div>
+    <div style="position: absolute; top: 18%; left: 46%; width: 90px; height: 90px; border-radius: 30px; background: rgba(108,75,199,0.05); transform: rotate(24deg);"></div>
+
+    <div style="max-width: 1280px; margin: 0 auto; padding: 48px 24px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 32px; position: relative;">
+      <div style="flex: 1.1; min-width: 320px; padding-bottom: 56px;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.7); border: 1px solid rgba(108,75,199,0.15); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: #6C4BC7; margin-bottom: 22px;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #1F8A5B;"></span>
+          Образовательный центр в Алматы
+        </div>
+        <h1 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.12; margin: 0 0 20px; letter-spacing: -0.5px;">
+          Помогаем детям <span style="background: linear-gradient(100deg, #6C4BC7 10%, #1F8A5B 90%); -webkit-background-clip: text; background-clip: text; color: transparent;">учиться с удовольствием</span> и уверенностью
+        </h1>
+        <p style="font-size: clamp(16px, 1.5vw, 19px); color: #6B6580; margin: 0 0 30px; max-width: 520px; text-wrap: pretty;">
+          Подготовка к школе, английский язык, IELTS, продленка, шахматы, арт-студия и летний лагерь — всё в одном центре.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px;">
+          <button onClick="{{ openModal }}" style="font-family: 'Manrope'; border: none; cursor: pointer; background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 16.5px; padding: 17px 30px; border-radius: 999px; box-shadow: 0 14px 32px rgba(31,138,91,0.35); transition: all .25s;" style-hover="transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 44px rgba(31,138,91,0.45);" style-active="transform: translateY(0) scale(0.99);">
+            Записаться на бесплатный пробный урок
+          </button>
+          <a href="tel:+77001234567" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.85); border: 1.5px solid rgba(108,75,199,0.28); color: #6C4BC7; font-weight: 800; font-size: 16.5px; text-decoration: none; padding: 15px 28px; border-radius: 999px; transition: all .25s;" style-hover="border-color: #6C4BC7; background: #fff; transform: translateY(-3px); box-shadow: 0 14px 30px rgba(108,75,199,0.18);">
+            <span style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 20px;">call</span> Позвонить
+          </a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px 22px; max-width: 480px; margin-bottom: 28px;">
+          <sc-for list="{{ heroPerks }}" as="p" hint-placeholder-count="4">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: #3B3452;">
+              <span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(31,138,91,0.12); color: #1F8A5B; display: grid; place-items: center; font-size: 12px; font-weight: 900; flex-shrink: 0;">✓</span>
+              {{ p }}
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.75); backdrop-filter: blur(8px); border: 1px solid rgba(108,75,199,0.12); padding: 12px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(76,42,133,0.08);">
+          <span style="color: #F5A623; font-size: 19px; letter-spacing: 2px;">★★★★★</span>
+          <span style="font-size: 14.5px; font-weight: 700; color: #4A4460;">1000+ довольных учеников и родителей</span>
+        </div>
+      </div>
+
+      <div style="flex: 1; min-width: 320px; position: relative; align-self: flex-end; display: flex; justify-content: center;">
+        <img src="assets/logo.png" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 130%; max-width: 620px; opacity: 0.10; pointer-events: none;">
+        <img src="assets/girl.png" alt="Ученица A School" style="position: relative; width: min(100%, 440px); display: block; filter: drop-shadow(0 30px 50px rgba(76,42,133,0.22)); z-index: 2;">
+        <sc-for list="{{ heroToys }}" as="t" hint-placeholder-count="8">
+          <div style="position: absolute; top: {{ t.top }}; left: {{ t.left }}; z-index: 3; width: {{ t.size }}; height: {{ t.size }}; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: {{ t.font }}; color: {{ t.color }}; animation: {{ t.anim }};">{{ t.icon }}</div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- soft wave bottom -->
+    <div style="height: 46px; background: linear-gradient(to bottom, transparent, #FDFCFF);"></div>
+  </section>
+
+  <!-- ══════════ НАПРАВЛЕНИЯ ══════════ -->
+  <section id="directions" data-screen-label="Направления" style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 36px;">
+    <div style="text-align: center; max-width: 640px; margin: 0 auto 44px;">
+      <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #1F8A5B; margin-bottom: 12px;">Направления обучения</div>
+      <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0 0 14px;">Выберите то, что нужно вашему ребёнку</h2>
+      <p style="color: #6B6580; margin: 0; text-wrap: pretty;">От первых букв до международных экзаменов — программы для детей от 4 до 17 лет.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
+      <sc-for list="{{ directions }}" as="d" hint-placeholder-count="7">
+        <a href="{{ d.href }}" style="text-decoration: none; color: inherit; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 26px; padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 44px rgba(76,42,133,0.14); border-color: rgba(108,75,199,0.25);">
+          <div style="width: 62px; height: 62px; border-radius: 20px; background: {{ d.tint }}; display: grid; place-items: center; font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 30px; color: {{ d.ic }}; box-shadow: inset 0 -3px 8px rgba(76,42,133,0.06);">{{ d.icon }}</div>
+          <div style="font-family: 'Nunito'; font-weight: 800; font-size: 19px;">{{ d.t }}</div>
+          <div style="font-size: 14.5px; color: #6B6580; flex: 1;">{{ d.d }}</div>
+          <div style="font-size: 14.5px; font-weight: 800; color: #6C4BC7; display: flex; align-items: center; gap: 6px;">Подробнее <span style="transition: transform .2s;">→</span></div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══════════ ПОЧЕМУ МЫ ══════════ -->
+  <section id="why" data-screen-label="Почему мы" style="background: linear-gradient(160deg, #F5F1FD 0%, #EDF8F2 100%); margin-top: 48px;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
+        <div style="flex: 1; min-width: 300px; position: sticky; top: 100px;">
+          <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #6C4BC7; margin-bottom: 12px;">Почему выбирают нас</div>
+          <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0 0 16px;">Родители доверяют, дети приходят с радостью</h2>
+          <p style="color: #6B6580; margin: 0 0 26px; max-width: 420px; text-wrap: pretty;">Мы строим обучение вокруг ребёнка: маленькие группы, внимательные педагоги и прозрачная обратная связь для родителей.</p>
+          <button onClick="{{ openModal }}" style="font-family: 'Manrope'; border: none; cursor: pointer; background: #6C4BC7; color: #fff; font-weight: 800; font-size: 15.5px; padding: 15px 28px; border-radius: 999px; box-shadow: 0 12px 28px rgba(108,75,199,0.32); transition: all .25s;" style-hover="transform: translateY(-3px); box-shadow: 0 18px 38px rgba(108,75,199,0.42);">Записаться на пробный урок</button>
+        </div>
+        <div style="flex: 1.3; min-width: 320px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+          <sc-for list="{{ whyItems }}" as="w" hint-placeholder-count="6">
+            <div style="background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px; box-shadow: 0 10px 26px rgba(76,42,133,0.06); transition: all .25s;" style-hover="transform: translateY(-4px); box-shadow: 0 18px 40px rgba(76,42,133,0.12);">
+              <div style="width: 48px; height: 48px; border-radius: 16px; background: {{ w.tint }}; display: grid; place-items: center; font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 24px; color: {{ w.ic }}; margin-bottom: 14px;">{{ w.icon }}</div>
+              <div style="font-family: 'Nunito'; font-weight: 800; font-size: 17px; margin-bottom: 6px;">{{ w.t }}</div>
+              <div style="font-size: 14px; color: #6B6580;">{{ w.d }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ ПРОГРАММЫ ══════════ -->
+  <section id="programs" data-screen-label="Программы" style="max-width: 1280px; margin: 0 auto; padding: 80px 24px;">
+    <div style="text-align: center; max-width: 640px; margin: 0 auto 44px;">
+      <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #1F8A5B; margin-bottom: 12px;">Программы обучения</div>
+      <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0 0 14px;">Программы и стоимость</h2>
+      <p style="color: #6B6580; margin: 0;">Первый урок — бесплатно в любой программе.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+      <sc-for list="{{ programs }}" as="pr" hint-placeholder-count="6">
+        <div style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 28px; overflow: clip; display: flex; flex-direction: column; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 24px 48px rgba(76,42,133,0.14);">
+          <div style="height: 130px; background: {{ pr.grad }}; display: flex; align-items: center; justify-content: space-between; padding: 0 26px;">
+            <span style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 54px; color: {{ pr.ic }}; filter: drop-shadow(0 8px 14px rgba(76,42,133,0.18));">{{ pr.icon }}</span>
+            <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">{{ pr.age }}</span>
+          </div>
+          <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+              <div style="font-family: 'Nunito'; font-weight: 800; font-size: 21px;">{{ pr.t }}</div>
+              <sc-if value="{{ pr.more }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ pr.more }}" style="flex-shrink: 0; font-size: 13.5px; font-weight: 800; color: #6C4BC7; text-decoration: none; background: rgba(108,75,199,0.08); padding: 7px 14px; border-radius: 999px; transition: all .2s;" style-hover="background: #6C4BC7; color: #fff;">Подробнее →</a>
+              </sc-if>
+            </div>
+            <div style="font-size: 14.5px; color: #6B6580;">{{ pr.d }}</div>
+            <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
+              <span style="flex-shrink: 0; font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 18px; color: #1F8A5B;">flag</span> {{ pr.result }}
+            </div>
+            <div style="flex: 1;"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px;">
+              <div>
+                <div style="font-family: 'Nunito'; font-weight: 900; font-size: 22px; color: #241E38;">{{ pr.price }}</div>
+                <div style="font-size: 12.5px; color: #9A94AE;">{{ pr.per }}</div>
+              </div>
+              <button onClick="{{ openModal }}" style="font-family: 'Manrope'; border: none; cursor: pointer; background: rgba(108,75,199,0.10); color: #6C4BC7; font-weight: 800; font-size: 14.5px; padding: 12px 22px; border-radius: 999px; transition: all .2s;" style-hover="background: #6C4BC7; color: #fff; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">Записаться</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══════════ ЛЕТНИЙ ЛАГЕРЬ ══════════ -->
+  <section id="camp" data-screen-label="Летний лагерь" style="max-width: 1280px; margin: 0 auto; padding: 0 24px 80px;">
+    <div style="position: relative; overflow: clip; border-radius: 36px; background: linear-gradient(115deg, #4C2A85 0%, #6C4BC7 48%, #1F8A5B 100%); color: #fff; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding: clamp(28px, 5vw, 56px); box-shadow: 0 30px 70px rgba(76,42,133,0.30);">
+      <div style="position: absolute; top: -60px; right: 20%; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.08);"></div>
+      <div style="position: absolute; bottom: -80px; left: 8%; width: 200px; height: 200px; border-radius: 60px; transform: rotate(30deg); background: rgba(255,255,255,0.06);"></div>
+      <div style="flex: 1.2; min-width: 300px; position: relative;">
+        <div style="display: inline-block; background: rgba(255,255,255,0.16); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; letter-spacing: 1px; padding: 8px 16px; border-radius: 999px; margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px;"><span style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 17px; color: #FFD68A;">sunny</span> Лето 2026 — набор открыт</div>
+        <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.12; margin: 0 0 14px;">Летний лагерь A School</h2>
+        <p style="margin: 0 0 26px; max-width: 520px; color: rgba(255,255,255,0.85); font-size: 16.5px; text-wrap: pretty;">Каникулы с пользой: английский в играх, творческие мастерские, шахматные турниры, экскурсии и новые друзья. Смены по 2 недели, группы до 12 детей.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+          <a href="#contacts" style="display: inline-block; background: #fff; color: #4C2A85; font-weight: 800; font-size: 16px; text-decoration: none; padding: 16px 30px; border-radius: 999px; box-shadow: 0 14px 30px rgba(0,0,0,0.20); transition: all .25s;" style-hover="transform: translateY(-3px) scale(1.02);">Перейти на сайт лагеря →</a>
+          <button onClick="{{ openModal }}" style="font-family: 'Manrope'; cursor: pointer; background: transparent; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-weight: 800; font-size: 16px; padding: 15px 28px; border-radius: 999px; transition: all .25s;" style-hover="background: rgba(255,255,255,0.12); border-color: #fff;">Задать вопрос</button>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 280px; position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; padding: 20px; text-align: center;">
+          <div style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 400; font-size: 36px; margin-bottom: 6px;">camping</div>
+          <div style="font-family: 'Nunito'; font-weight: 900; font-size: 24px;">4 смены</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.8);">июнь — август</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; padding: 20px; text-align: center;">
+          <div style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 400; font-size: 36px; margin-bottom: 6px;">record_voice_over</div>
+          <div style="font-family: 'Nunito'; font-weight: 900; font-size: 24px;">English</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.8);">каждый день</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; padding: 20px; text-align: center;">
+          <div style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 400; font-size: 36px; margin-bottom: 6px;">brush</div>
+          <div style="font-family: 'Nunito'; font-weight: 900; font-size: 24px;">12+</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.8);">мастерских</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; padding: 20px; text-align: center;">
+          <div style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 400; font-size: 36px; margin-bottom: 6px;">groups</div>
+          <div style="font-family: 'Nunito'; font-weight: 900; font-size: 24px;">до 12</div>
+          <div style="font-size: 13px; color: rgba(255,255,255,0.8);">детей в группе</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ КОМАНДА ══════════ -->
+  <section id="team" data-screen-label="Команда" style="background: #F8F6FE;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px;">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 44px;">
+        <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #6C4BC7; margin-bottom: 12px;">Команда</div>
+        <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0 0 14px;">Педагоги, которым доверяют</h2>
+        <p style="color: #6B6580; margin: 0;">Дипломированные специалисты с международными сертификатами.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px;">
+        <sc-for list="{{ team }}" as="m" hint-placeholder-count="4">
+          <div style="background: #fff; border-radius: 26px; overflow: clip; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 44px rgba(76,42,133,0.14);">
+            <div style="height: 220px; background: repeating-linear-gradient(45deg, #EFEAFB, #EFEAFB 14px, #F7F4FE 14px, #F7F4FE 28px); display: grid; place-items: center;">
+              <span style="font-family: monospace; font-size: 12px; color: #9A8FC4; background: rgba(255,255,255,0.8); padding: 6px 12px; border-radius: 8px;">фото: {{ m.name }}</span>
+            </div>
+            <div style="padding: 20px 22px 24px;">
+              <div style="font-family: 'Nunito'; font-weight: 800; font-size: 18px; margin-bottom: 2px;">{{ m.name }}</div>
+              <div style="font-size: 14px; color: #6C4BC7; font-weight: 700; margin-bottom: 10px;">{{ m.role }}</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span style="font-size: 12.5px; font-weight: 700; color: #1F6B49; background: rgba(31,138,91,0.08); padding: 5px 11px; border-radius: 999px;">{{ m.exp }}</span>
+                <span style="font-size: 12.5px; font-weight: 700; color: #4C2A85; background: rgba(108,75,199,0.08); padding: 5px 11px; border-radius: 999px;">{{ m.dir }}</span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ НОВОСТИ ══════════ -->
+  <section id="news" data-screen-label="Новости" style="max-width: 1280px; margin: 0 auto; padding: 80px 24px;">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 40px;">
+      <div>
+        <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #1F8A5B; margin-bottom: 12px;">Новости и события</div>
+        <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0;">Что нового в A School</h2>
+      </div>
+      <a href="#news" style="font-weight: 800; font-size: 15px; color: #6C4BC7; text-decoration: none; padding: 12px 22px; border: 1.5px solid rgba(108,75,199,0.25); border-radius: 999px; transition: all .2s;" style-hover="background: #6C4BC7; color: #fff;">Все новости →</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="3">
+        <article style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 26px; overflow: clip; display: flex; flex-direction: column; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 22px 44px rgba(76,42,133,0.13);">
+          <div style="height: 190px; background: {{ n.grad }}; display: grid; place-items: center; position: relative;">
+            <span style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 56px; color: {{ n.ic }}; filter: drop-shadow(0 10px 18px rgba(76,42,133,0.2));">{{ n.icon }}</span>
+            <span style="position: absolute; top: 14px; left: 14px; background: rgba(255,255,255,0.9); backdrop-filter: blur(6px); font-size: 12px; font-weight: 800; color: #4C2A85; padding: 6px 12px; border-radius: 999px;">{{ n.cat }}</span>
+          </div>
+          <div style="padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+            <div style="font-size: 13px; color: #9A94AE; font-weight: 600;">{{ n.date }}</div>
+            <div style="font-family: 'Nunito'; font-weight: 800; font-size: 18.5px; line-height: 1.3; flex: 1;">{{ n.t }}</div>
+            <a href="#news" style="font-size: 14.5px; font-weight: 800; color: #1F8A5B; text-decoration: none;">Читать →</a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══════════ ГАЛЕРЕЯ ══════════ -->
+  <section id="gallery" data-screen-label="Галерея" style="background: linear-gradient(160deg, #EDF8F2 0%, #F5F1FD 100%);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px;">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 44px;">
+        <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #1F8A5B; margin-bottom: 12px;">Галерея</div>
+        <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0 0 14px;">Как проходят наши дни</h2>
+        <p style="color: #6B6580; margin: 0;">Занятия, праздники, турниры и лагерь — в фото и видео.</p>
+      </div>
+      <div style="columns: 3 260px; column-gap: 16px;">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="8">
+          <div style="break-inside: avoid; margin-bottom: 16px; position: relative; height: {{ g.h }}; border-radius: 22px; overflow: clip; background: repeating-linear-gradient(45deg, {{ g.c1 }}, {{ g.c1 }} 14px, {{ g.c2 }} 14px, {{ g.c2 }} 28px); display: grid; place-items: center; cursor: pointer; transition: all .3s;" style-hover="transform: scale(1.025); box-shadow: 0 20px 44px rgba(76,42,133,0.18);">
+            <span style="font-family: monospace; font-size: 12px; color: #7A6FA8; background: rgba(255,255,255,0.85); padding: 6px 12px; border-radius: 8px; z-index: 2;">{{ g.label }}</span>
+            <sc-if value="{{ g.video }}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; bottom: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.9); backdrop-filter: blur(6px); display: grid; place-items: center; font-size: 15px; color: #6C4BC7; box-shadow: 0 8px 20px rgba(76,42,133,0.2);">▶</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ ОТЗЫВЫ ══════════ -->
+  <section id="reviews" data-screen-label="Отзывы" style="max-width: 1280px; margin: 0 auto; padding: 80px 24px;">
+    <div style="text-align: center; max-width: 640px; margin: 0 auto 44px;">
+      <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #6C4BC7; margin-bottom: 12px;">Отзывы</div>
+      <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0 0 14px;">Что говорят родители</h2>
+      <div style="display: inline-flex; align-items: center; gap: 10px;">
+        <span style="color: #F5A623; font-size: 20px; letter-spacing: 2px;">★★★★★</span>
+        <span style="font-weight: 800; color: #4A4460;">4.9 из 5 — 320 отзывов</span>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; align-items: start;">
+      <!-- video review -->
+      <div style="position: relative; height: 340px; border-radius: 26px; overflow: clip; background: repeating-linear-gradient(45deg, #E3DCF8, #E3DCF8 14px, #EFEAFB 14px, #EFEAFB 28px); display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 28px rgba(76,42,133,0.08); transition: all .25s;" style-hover="transform: translateY(-4px); box-shadow: 0 22px 44px rgba(76,42,133,0.16);">
+        <span style="position: absolute; top: 16px; left: 16px; font-family: monospace; font-size: 12px; color: #7A6FA8; background: rgba(255,255,255,0.85); padding: 6px 12px; border-radius: 8px;">видеоотзыв мамы Алисы</span>
+        <div style="width: 74px; height: 74px; border-radius: 50%; background: rgba(255,255,255,0.92); display: grid; place-items: center; font-size: 24px; color: #6C4BC7; box-shadow: 0 16px 36px rgba(76,42,133,0.25);">▶</div>
+        <span style="position: absolute; bottom: 16px; left: 16px; background: rgba(36,30,56,0.7); color: #fff; backdrop-filter: blur(6px); font-size: 12.5px; font-weight: 700; padding: 6px 12px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;"><span style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 15px;">videocam</span> 1:24</span>
+      </div>
+      <!-- text reviews -->
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="2">
+        <div style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 26px; padding: 26px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); display: flex; flex-direction: column; gap: 14px; transition: all .25s;" style-hover="transform: translateY(-4px); box-shadow: 0 18px 40px rgba(76,42,133,0.12);">
+          <span style="color: #F5A623; font-size: 16px; letter-spacing: 2px;">★★★★★</span>
+          <p style="margin: 0; font-size: 15px; color: #4A4460; line-height: 1.65; flex: 1;">{{ r.text }}</p>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: {{ r.tint }}; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 16px; color: #fff;">{{ r.initial }}</div>
+            <div>
+              <div style="font-weight: 800; font-size: 14.5px;">{{ r.name }}</div>
+              <div style="font-size: 13px; color: #9A94AE;">{{ r.who }}</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+      <!-- whatsapp screenshot -->
+      <div style="background: #EDE7DE; border-radius: 26px; padding: 20px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; color: #1F6B49; margin-bottom: 2px;">
+          <span style="width: 10px; height: 10px; border-radius: 50%; background: #1F8A5B;"></span> Скриншот из WhatsApp
+        </div>
+        <div style="align-self: flex-start; max-width: 88%; background: #fff; border-radius: 4px 18px 18px 18px; padding: 10px 14px; font-size: 14px; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">Добрый день! Как прошёл первый месяц у Тимура? 😊</div>
+        <div style="align-self: flex-end; max-width: 88%; background: #D9FDD3; border-radius: 18px 4px 18px 18px; padding: 10px 14px; font-size: 14px; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">Здравствуйте! Он в восторге 🥹 сам просится на занятия, уже читает по слогам! Спасибо вам огромное ❤️</div>
+        <div style="align-self: flex-end; max-width: 88%; background: #D9FDD3; border-radius: 18px 4px 18px 18px; padding: 10px 14px; font-size: 14px; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">Записываемся и на лето! ⛺</div>
+        <div style="text-align: right; font-size: 11.5px; color: #8A8478;">14:32 ✓✓</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ КАК ПРОХОДИТ ОБУЧЕНИЕ ══════════ -->
+  <section id="steps" data-screen-label="Как проходит обучение" style="background: #F8F6FE;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px;">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 48px;">
+        <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #6C4BC7; margin-bottom: 12px;">Как проходит обучение</div>
+        <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0;">4 простых шага до первого занятия</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+          <div style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;" style-hover="transform: translateY(-5px); box-shadow: 0 20px 42px rgba(76,42,133,0.13);">
+            <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #6C4BC7, #1F8A5B); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">{{ st.n }}</div>
+            <div style="font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 34px; color: {{ st.ic }}; margin: 14px 0 12px;">{{ st.icon }}</div>
+            <div style="font-family: 'Nunito'; font-weight: 800; font-size: 18px; margin-bottom: 6px;">{{ st.t }}</div>
+            <div style="font-size: 14px; color: #6B6580;">{{ st.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <button onClick="{{ openModal }}" style="font-family: 'Manrope'; border: none; cursor: pointer; background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 16.5px; padding: 17px 34px; border-radius: 999px; box-shadow: 0 14px 32px rgba(31,138,91,0.35); transition: all .25s;" style-hover="transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 44px rgba(31,138,91,0.45);">Начать с бесплатного урока</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FAQ ══════════ -->
+  <section id="faq" data-screen-label="FAQ" style="max-width: 880px; margin: 0 auto; padding: 80px 24px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #1F8A5B; margin-bottom: 12px;">FAQ</div>
+      <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0;">Часто задаваемые вопросы</h2>
+    </div>
+    <div style="display: grid; gap: 12px;">
+      <sc-for list="{{ faqView }}" as="f" hint-placeholder-count="6">
+        <div style="background: {{ f.bg }}; border: 1px solid {{ f.border }}; border-radius: 20px; overflow: clip; transition: all .25s;">
+          <button onClick="{{ f.toggle }}" style="font-family: 'Manrope'; width: 100%; border: none; cursor: pointer; background: transparent; display: flex; align-items: center; justify-content: space-between; gap: 16px; text-align: left; padding: 20px 24px; font-size: 16.5px; font-weight: 800; color: #241E38;">
+            {{ f.q }}
+            <span style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 12px; background: rgba(108,75,199,0.10); color: #6C4BC7; display: grid; place-items: center; font-size: 16px; font-weight: 700; transform: {{ f.rot }}; transition: transform .25s;">+</span>
+          </button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 0 24px 22px; font-size: 15px; color: #6B6580; line-height: 1.65;">{{ f.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ══════════ КОНТАКТЫ ══════════ -->
+  <section id="contacts" data-screen-label="Контакты" style="background: linear-gradient(160deg, #F5F1FD 0%, #EDF8F2 100%);">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+        <div style="flex: 1; min-width: 300px;">
+          <div style="display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #6C4BC7; margin-bottom: 12px;">Контакты</div>
+          <h2 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; margin: 0 0 26px;">Приходите знакомиться</h2>
+          <div style="display: grid; gap: 14px; max-width: 460px;">
+            <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="4">
+              <a href="{{ c.href }}" style="display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.9); border-radius: 20px; padding: 16px 20px; text-decoration: none; color: inherit; box-shadow: 0 8px 22px rgba(76,42,133,0.06); transition: all .2s;" style-hover="transform: translateX(6px); box-shadow: 0 14px 32px rgba(76,42,133,0.12);">
+                <span style="width: 46px; height: 46px; border-radius: 16px; background: {{ c.tint }}; display: grid; place-items: center; font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 22px; color: {{ c.ic }}; flex-shrink: 0;">{{ c.icon }}</span>
+                <span>
+                  <span style="display: block; font-size: 12.5px; font-weight: 700; color: #9A94AE;">{{ c.label }}</span>
+                  <span style="display: block; font-weight: 800; font-size: 15.5px;">{{ c.value }}</span>
+                </span>
+              </a>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px;">
+            <a href="#contacts" style="font-size: 14px; font-weight: 800; color: #1F6B49; background: rgba(31,138,91,0.10); text-decoration: none; padding: 11px 20px; border-radius: 999px; transition: all .2s;" style-hover="background: #1F8A5B; color: #fff;">Открыть в 2GIS</a>
+            <a href="#contacts" style="font-size: 14px; font-weight: 800; color: #4C2A85; background: rgba(108,75,199,0.10); text-decoration: none; padding: 11px 20px; border-radius: 999px; transition: all .2s;" style-hover="background: #6C4BC7; color: #fff;">Яндекс Карты</a>
+            <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+              <a href="{{ s.href }}" style="font-size: 14px; font-weight: 800; color: #4A4460; background: rgba(255,255,255,0.85); text-decoration: none; padding: 11px 20px; border-radius: 999px; border: 1px solid rgba(108,75,199,0.15); transition: all .2s;" style-hover="border-color: #6C4BC7; color: #6C4BC7;">{{ s.name }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex: 1.1; min-width: 300px; display: grid; gap: 16px;">
+          <div style="height: 260px; border-radius: 28px; background: repeating-linear-gradient(45deg, #E0EFE8, #E0EFE8 16px, #EAF5EF 16px, #EAF5EF 32px); display: grid; place-items: center; box-shadow: 0 10px 28px rgba(76,42,133,0.07); position: relative; overflow: clip;">
+            <span style="font-family: monospace; font-size: 12.5px; color: #5E8A75; background: rgba(255,255,255,0.85); padding: 8px 14px; border-radius: 10px;">карта: г. Алматы, ул. Аль-Фараби 77/2</span>
+            <span style="position: absolute; top: 42%; left: 50%; transform: translate(-50%,-100%); font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 42px; color: #6C4BC7; filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));">location_on</span>
+          </div>
+          <!-- inline lead form -->
+          <div style="background: #fff; border-radius: 28px; padding: 26px; box-shadow: 0 14px 36px rgba(76,42,133,0.10);">
+            <div style="font-family: 'Nunito'; font-weight: 900; font-size: 21px; margin-bottom: 4px;">Бесплатный пробный урок</div>
+            <div style="font-size: 14px; color: #6B6580; margin-bottom: 18px;">Оставьте номер — перезвоним в течение 15 минут.</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <input placeholder="Имя ребёнка" style="flex: 1; min-width: 140px; font-family: 'Manrope'; font-size: 15px; padding: 14px 18px; border-radius: 16px; border: 1.5px solid rgba(108,75,199,0.18); outline: none; background: #FBFAFE; transition: border .2s;" style-focus="border-color: #6C4BC7; background: #fff;">
+              <input placeholder="+7 (___) ___-__-__" style="flex: 1; min-width: 160px; font-family: 'Manrope'; font-size: 15px; padding: 14px 18px; border-radius: 16px; border: 1.5px solid rgba(108,75,199,0.18); outline: none; background: #FBFAFE; transition: border .2s;" style-focus="border-color: #6C4BC7; background: #fff;">
+              <button onClick="{{ openModal }}" style="font-family: 'Manrope'; border: none; cursor: pointer; background: linear-gradient(120deg, #6C4BC7, #4C2A85); color: #fff; font-weight: 800; font-size: 15px; padding: 14px 26px; border-radius: 16px; box-shadow: 0 10px 26px rgba(108,75,199,0.35); transition: all .2s;" style-hover="transform: translateY(-2px);">Отправить</button>
+            </div>
+            <div style="font-size: 12px; color: #9A94AE; margin-top: 12px;">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer data-screen-label="Footer" style="background: #241E38; color: #B9B3CC;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 56px 24px 28px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.10);">
+        <div style="flex: 1.2; min-width: 240px;">
+          <img src="assets/logo.png" alt="A School" style="height: 56px; margin-bottom: 16px; filter: brightness(1.15);">
+          <p style="margin: 0; font-size: 14px; max-width: 300px; line-height: 1.7;">Образовательный центр для детей от 4 до 17 лет в Алматы. Учим с удовольствием — от первых букв до IELTS.</p>
+        </div>
+        <div style="flex: 1; min-width: 170px;">
+          <div style="font-family: 'Nunito'; font-weight: 800; color: #fff; font-size: 15px; margin-bottom: 14px;">Обучение</div>
+          <div style="display: grid; gap: 9px;">
+            <sc-for list="{{ footNav1 }}" as="nv" hint-placeholder-count="6">
+              <a href="{{ nv.href }}" style="color: #B9B3CC; text-decoration: none; font-size: 14px; transition: color .2s;" style-hover="color: #fff;">{{ nv.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex: 1; min-width: 170px;">
+          <div style="font-family: 'Nunito'; font-weight: 800; color: #fff; font-size: 15px; margin-bottom: 14px;">Центр</div>
+          <div style="display: grid; gap: 9px;">
+            <sc-for list="{{ footNav2 }}" as="nv" hint-placeholder-count="6">
+              <a href="{{ nv.href }}" style="color: #B9B3CC; text-decoration: none; font-size: 14px; transition: color .2s;" style-hover="color: #fff;">{{ nv.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div style="flex: 1; min-width: 200px;">
+          <div style="font-family: 'Nunito'; font-weight: 800; color: #fff; font-size: 15px; margin-bottom: 14px;">Контакты</div>
+          <div style="display: grid; gap: 9px; font-size: 14px;">
+            <span>г. Алматы, ул. Аль-Фараби 77/2</span>
+            <a href="tel:+77001234567" style="color: #B9B3CC; text-decoration: none;" style-hover="color: #fff;">+7 (700) 123-45-67</a>
+            <a href="mailto:hello@aschool.kz" style="color: #B9B3CC; text-decoration: none;" style-hover="color: #fff;">hello@aschool.kz</a>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 16px;">
+            <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+              <a href="{{ s.href }}" title="{{ s.name }}" style="width: 38px; height: 38px; border-radius: 13px; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; background: rgba(255,255,255,0.10); text-decoration: none; transition: all .2s;" style-hover="background: #6C4BC7; transform: translateY(-2px);">{{ s.short }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 22px; font-size: 13px; color: #7A7492;">
+        <span>© 2026 A School. Все права защищены.</span>
+        <a href="#contacts" style="color: #7A7492; text-decoration: none;" style-hover="color: #fff;">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════ FLOATING CTA ══════════ -->
+  <sc-if value="{{ showFloatingCta }}" hint-placeholder-val="{{ false }}">
+    <a href="https://wa.me/77001234567" title="Написать в WhatsApp" style="position: fixed; bottom: 24px; right: 24px; z-index: 80; display: flex; align-items: center; gap: 10px; background: #1F8A5B; color: #fff; font-weight: 800; font-size: 15px; text-decoration: none; padding: 15px 22px; border-radius: 999px; box-shadow: 0 18px 40px rgba(31,138,91,0.45); animation: floaty 4s ease-in-out infinite; transition: all .2s;" style-hover="transform: scale(1.05);">
+      <span style="width: 10px; height: 10px; border-radius: 50%; background: #A7F3C9;"></span>
+      Задать вопрос
+    </a>
+  </sc-if>
+
+  <!-- ══════════ MODAL ══════════ -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; z-index: 200; background: rgba(36,30,56,0.45); backdrop-filter: blur(6px); display: grid; place-items: center; padding: 20px;" onClick="{{ closeModalBackdrop }}">
+      <div style="width: min(460px, 100%); background: #fff; border-radius: 30px; padding: 32px; box-shadow: 0 40px 90px rgba(36,30,56,0.35); position: relative;" onClick="{{ stop }}">
+        <button onClick="{{ closeModal }}" style="position: absolute; top: 18px; right: 18px; border: none; cursor: pointer; width: 38px; height: 38px; border-radius: 13px; background: rgba(108,75,199,0.08); color: #4C2A85; font-size: 16px;">✕</button>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="width: 60px; height: 60px; border-radius: 20px; background: linear-gradient(120deg, #6C4BC7, #1F8A5B); display: grid; place-items: center; font-family: 'Material Symbols Rounded'; font-variation-settings: 'FILL' 1, 'wght' 500; font-size: 30px; color: #fff; margin-bottom: 16px;">school</div>
+          <div style="font-family: 'Nunito'; font-weight: 900; font-size: 24px; margin-bottom: 6px;">Бесплатный пробный урок</div>
+          <div style="font-size: 14.5px; color: #6B6580; margin-bottom: 22px;">Заполните форму — администратор свяжется с вами в течение 15 минут в рабочее время.</div>
+          <div style="display: grid; gap: 12px;">
+            <input placeholder="Имя родителя" style="font-family: 'Manrope'; font-size: 15px; padding: 15px 18px; border-radius: 16px; border: 1.5px solid rgba(108,75,199,0.18); outline: none; background: #FBFAFE;" style-focus="border-color: #6C4BC7; background: #fff;">
+            <input placeholder="Телефон / WhatsApp" style="font-family: 'Manrope'; font-size: 15px; padding: 15px 18px; border-radius: 16px; border: 1.5px solid rgba(108,75,199,0.18); outline: none; background: #FBFAFE;" style-focus="border-color: #6C4BC7; background: #fff;">
+            <select style="font-family: 'Manrope'; font-size: 15px; padding: 15px 14px; border-radius: 16px; border: 1.5px solid rgba(108,75,199,0.18); outline: none; background: #FBFAFE; color: #4A4460;">
+              <option>Подготовка к школе</option>
+              <option>Продленка</option>
+              <option>Английский</option>
+              <option>IELTS</option>
+              <option>Пакет 10 в 1</option>
+              <option>Шахматы</option>
+              <option>Арт-студия</option>
+              <option>Летний лагерь</option>
+            </select>
+            <button onClick="{{ submitLead }}" style="font-family: 'Manrope'; border: none; cursor: pointer; background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 16px; padding: 16px; border-radius: 16px; box-shadow: 0 12px 28px rgba(31,138,91,0.35); transition: all .2s;" style-hover="transform: translateY(-2px);">Записаться бесплатно</button>
+          </div>
+          <div style="font-size: 12px; color: #9A94AE; margin-top: 14px; text-align: center;">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</div>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align: center; padding: 20px 0 10px;">
+            <div style="width: 76px; height: 76px; border-radius: 50%; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 34px; margin: 0 auto 18px;">✓</div>
+            <div style="font-family: 'Nunito'; font-weight: 900; font-size: 24px; margin-bottom: 8px;">Заявка отправлена!</div>
+            <div style="font-size: 15px; color: #6B6580; margin-bottom: 24px;">Мы перезвоним вам в течение 15 минут в рабочее время (9:00–19:00).</div>
+            <button onClick="{{ closeModal }}" style="font-family: 'Manrope'; border: none; cursor: pointer; background: rgba(108,75,199,0.10); color: #6C4BC7; font-weight: 800; font-size: 15px; padding: 14px 30px; border-radius: 999px;">Отлично</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;floatingCta&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Поведение&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    narrow: false,
+    menuOpen: false,
+    modalOpen: false,
+    sent: false,
+    lang: 'ru',
+    openFaq: 0
+  };
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 1100px)');
+    this.onMq = () => this.setState({ narrow: this.mq.matches });
+    this.mq.addEventListener('change', this.onMq);
+    this.onMq();
+  }
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.onMq);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const ru = s.lang === 'ru';
+
+    const fullNav = [
+      { label: 'Главная', href: '#top' },
+      { label: 'Подготовка к школе', href: '#programs' },
+      { label: 'Продленка', href: '#programs' },
+      { label: 'Английский', href: '#programs' },
+      { label: 'IELTS', href: '#programs' },
+      { label: 'Пакет 10 в 1', href: '#programs' },
+      { label: 'Дополнительные курсы', href: '#directions' },
+      { label: 'Летний лагерь', href: '#camp' },
+      { label: 'Новости', href: '#news' },
+      { label: 'Команда', href: '#team' },
+      { label: 'Галерея', href: '#gallery' },
+      { label: 'Отзывы', href: '#reviews' },
+      { label: 'Контакты', href: '#contacts' }
+    ];
+
+    const navItems = [
+      { label: 'Направления', href: '#directions' },
+      { label: 'Программы', href: '#programs' },
+      { label: 'Лагерь', href: '#camp' },
+      { label: 'Команда', href: '#team' },
+      { label: 'Новости', href: '#news' },
+      { label: 'Отзывы', href: '#reviews' },
+      { label: 'Контакты', href: '#contacts' }
+    ];
+
+    const socials = [
+      { name: 'Instagram', short: 'IG', href: 'https://instagram.com' },
+      { name: 'Telegram', short: 'TG', href: 'https://t.me' },
+      { name: 'TikTok', short: 'TT', href: 'https://tiktok.com' },
+      { name: 'Threads', short: '@', href: 'https://threads.net' }
+    ];
+
+    const heroToys = [
+      { icon: 'menu_book', top: '4%',  left: '2%',   size: '68px', font: '32px', color: '#6C4BC7', anim: 'floaty 5s ease-in-out infinite' },
+      { icon: 'abc',       top: '18%', left: '84%',  size: '62px', font: '34px', color: '#1F8A5B', anim: 'floaty2 6s ease-in-out infinite' },
+      { icon: 'chess',     top: '40%', left: '-2%',  size: '64px', font: '32px', color: '#4C2A85', anim: 'floaty 7s ease-in-out infinite' },
+      { icon: 'edit',      top: '58%', left: '86%',  size: '58px', font: '26px', color: '#E8913A', anim: 'floaty2 5.5s ease-in-out infinite' },
+      { icon: 'public',    top: '70%', left: '0%',   size: '66px', font: '32px', color: '#1F8A5B', anim: 'floaty 6.5s ease-in-out infinite' },
+      { icon: 'extension', top: '84%', left: '80%',  size: '60px', font: '28px', color: '#6C4BC7', anim: 'floaty2 7.5s ease-in-out infinite' },
+      { icon: 'palette',   top: '26%', left: '4%',   size: '54px', font: '24px', color: '#E8913A', anim: 'floaty2 8s ease-in-out infinite' },
+      { icon: 'star',      top: '6%',  left: '68%',  size: '48px', font: '22px', color: '#F5A623', anim: 'floaty 4.5s ease-in-out infinite' }
+    ];
+
+    const directions = [
+      { icon: 'backpack', ic: '#6C4BC7', href: 'Программа — Подготовка к школе.dc.html', t: 'Подготовка к школе', d: 'Чтение, письмо, математика и развитие речи для будущих первоклассников.', tint: 'linear-gradient(135deg, #EFE9FC, #E3DBF8)' },
+      { icon: 'auto_stories', ic: '#1F8A5B', href: '#programs', t: 'Продленка', d: 'Помощь с уроками, горячий обед и развивающие занятия после школы.', tint: 'linear-gradient(135deg, #E4F4EC, #D4EEE1)' },
+      { icon: 'public', ic: '#3D6FB4', href: '#programs', t: 'Английский', d: 'Современные методики и разговорный клуб для детей 7–12 лет.', tint: 'linear-gradient(135deg, #E7F0FB, #DCE8F8)' },
+      { icon: 'workspace_premium', ic: '#D96F3F', href: '#programs', t: 'IELTS', d: 'Подготовка к экзамену с гарантией результата от 6.5.', tint: 'linear-gradient(135deg, #FDEDE7, #FBE2D8)' },
+      { icon: 'extension', ic: '#8B5BD6', href: '#programs', t: 'Пакет 10 в 1', d: 'Комплексное развитие по 10 направлениям с выгодой до 40%.', tint: 'linear-gradient(135deg, #F3E9FB, #EBDCF8)' },
+      { icon: 'chess', ic: '#4C4A66', href: '#programs', t: 'Шахматы', d: 'Логика, стратегия и участие в городских турнирах.', tint: 'linear-gradient(135deg, #EDEDF4, #E2E2EE)' },
+      { icon: 'palette', ic: '#D9962E', href: '#programs', t: 'Арт-студия', d: 'Живопись, лепка и творческие проекты для детей от 4 лет.', tint: 'linear-gradient(135deg, #FDF3E3, #FBEBD2)' }
+    ];
+
+    const whyItems = [
+      { icon: 'import_contacts', ic: '#6C4BC7', t: 'Современные программы', d: 'Авторские методики на основе Cambridge и игрового обучения.', tint: 'rgba(108,75,199,0.10)' },
+      { icon: 'school', ic: '#1F8A5B', t: 'Опытные преподаватели', d: 'Средний стаж педагогов — 9 лет, регулярные аттестации.', tint: 'rgba(31,138,91,0.10)' },
+      { icon: 'verified_user', ic: '#6C4BC7', t: 'Безопасная атмосфера', d: 'Видеонаблюдение, пропускная система и доброжелательная среда.', tint: 'rgba(108,75,199,0.10)' },
+      { icon: 'favorite', ic: '#1F8A5B', t: 'Индивидуальный подход', d: 'Личный план развития и трекинг прогресса каждого ребёнка.', tint: 'rgba(31,138,91,0.10)' },
+      { icon: 'groups', ic: '#6C4BC7', t: 'Маленькие группы', d: 'До 8 детей в группе — внимание достаётся каждому.', tint: 'rgba(108,75,199,0.10)' },
+      { icon: 'forum', ic: '#1F8A5B', t: 'Обратная связь родителям', d: 'Еженедельные отчёты и чат с педагогом в WhatsApp.', tint: 'rgba(31,138,91,0.10)' }
+    ];
+
+    const programs = [
+      { icon: 'backpack', ic: '#6C4BC7', more: 'Программа — Подготовка к школе.dc.html', t: 'Подготовка к школе', age: '5–7 лет', d: 'Чтение, письмо, счёт, окружающий мир и развитие речи. 3 раза в неделю по 90 минут.', result: 'Ребёнок уверенно читает, пишет и готов к 1 классу', price: '35 000 ₸', per: 'в месяц', grad: 'linear-gradient(120deg, #EFE9FC, #E0F2EA)' },
+      { icon: 'auto_stories', ic: '#1F8A5B', t: 'Продленка', age: '1–4 класс', d: 'Выполнение домашних заданий с педагогом, обед, прогулка и кружки. Ежедневно до 18:00.', result: 'Уроки сделаны, вечер свободен для семьи', price: '45 000 ₸', per: 'в месяц', grad: 'linear-gradient(120deg, #E0F2EA, #EFE9FC)' },
+      { icon: 'public', ic: '#3D6FB4', t: 'Английский для детей', age: '7–12 лет', d: 'Коммуникативная методика, игровые уроки и разговорный клуб с носителем раз в месяц.', result: 'Свободная речь на уровне A2 за учебный год', price: '30 000 ₸', per: 'в месяц', grad: 'linear-gradient(120deg, #E7F0FB, #EFE9FC)' },
+      { icon: 'workspace_premium', ic: '#D96F3F', t: 'IELTS Intensive', age: '14+ лет', d: 'Стратегии всех 4 модулей, еженедельные mock-экзамены и личный трекер прогресса.', result: 'Балл 6.5+ за 4 месяца подготовки', price: '50 000 ₸', per: 'в месяц', grad: 'linear-gradient(120deg, #FDEDE7, #EFE9FC)' },
+      { icon: 'extension', ic: '#8B5BD6', t: 'Пакет 10 в 1', age: '6–10 лет', d: 'Математика, чтение, английский, шахматы, арт и ещё 5 направлений в одном абонементе.', result: 'Всестороннее развитие с выгодой до 40%', price: '60 000 ₸', per: 'в месяц', grad: 'linear-gradient(120deg, #F3E9FB, #E0F2EA)' },
+      { icon: 'chess', ic: '#4C4A66', t: 'Шахматы', age: 'от 5 лет', d: 'От первых ходов до турниров. Занятия 2 раза в неделю, рейтинговые партии каждый месяц.', result: 'Участие в городских турнирах через полгода', price: '20 000 ₸', per: 'в месяц', grad: 'linear-gradient(120deg, #EDEDF4, #E0F2EA)' },
+      { icon: 'palette', ic: '#D9962E', t: 'Арт-студия', age: 'от 4 лет', d: 'Живопись, графика, лепка и коллаж. Выставка детских работ каждый сезон.', result: 'Портфолио работ и выставка для родителей', price: '20 000 ₸', per: 'в месяц', grad: 'linear-gradient(120deg, #FDF3E3, #EFE9FC)' }
+    ];
+
+    const team = [
+      { name: 'Айгерим Сериковна', role: 'Руководитель центра', exp: '14 лет опыта', dir: 'Подготовка к школе' },
+      { name: 'Дана Муратовна', role: 'Старший преподаватель', exp: 'CELTA, 9 лет', dir: 'Английский · IELTS' },
+      { name: 'Алексей Владимирович', role: 'Тренер по шахматам', exp: 'КМС, 11 лет', dir: 'Шахматы' },
+      { name: 'Мадина Ержановна', role: 'Педагог арт-студии', exp: '7 лет опыта', dir: 'Арт-студия' }
+    ];
+
+    const news = [
+      { icon: 'trophy', ic: '#D9962E', cat: 'События', date: '28 июня 2026', t: 'Наши ученики взяли 3 призовых места на городском шахматном турнире', grad: 'linear-gradient(120deg, #EFE9FC, #E0F2EA)' },
+      { icon: 'camping', ic: '#1F8A5B', cat: 'Лагерь', date: '15 июня 2026', t: 'Стартовала первая смена летнего лагеря — 48 детей и море впечатлений', grad: 'linear-gradient(120deg, #E0F2EA, #FDF3E3)' },
+      { icon: 'school', ic: '#6C4BC7', cat: 'Набор', date: '1 июня 2026', t: 'Открыт набор в группы подготовки к школе на 2026–2027 учебный год', grad: 'linear-gradient(120deg, #E7F0FB, #F3E9FB)' }
+    ];
+
+    const gallery = [
+      { label: 'урок английского', h: '240px', c1: '#EFEAFB', c2: '#F7F4FE', video: false },
+      { label: 'видео: день открытых дверей', h: '320px', c1: '#E0EFE8', c2: '#EAF5EF', video: true },
+      { label: 'шахматный турнир', h: '200px', c1: '#EDEDF4', c2: '#F5F5FA', video: false },
+      { label: 'арт-студия', h: '300px', c1: '#FDF3E3', c2: '#FBF7EC', video: false },
+      { label: 'выпускной подготовишек', h: '220px', c1: '#EFEAFB', c2: '#F7F4FE', video: false },
+      { label: 'видео: летний лагерь', h: '260px', c1: '#E0EFE8', c2: '#EAF5EF', video: true },
+      { label: 'разговорный клуб', h: '280px', c1: '#E7F0FB', c2: '#F0F6FC', video: false },
+      { label: 'мастерская лепки', h: '210px', c1: '#FDEDE7', c2: '#FBF3EF', video: false },
+      { label: 'продленка: прогулка', h: '250px', c1: '#E0EFE8', c2: '#EAF5EF', video: false }
+    ];
+
+    const reviews = [
+      { text: '«Дочка ходила на подготовку к школе — в первый класс пошла уже читающей и без страха. Педагоги каждую неделю присылали отчёты, мы всегда знали, над чем работаем.»', name: 'Асель К.', who: 'мама Аружан, 6 лет', tint: 'linear-gradient(120deg, #6C4BC7, #8B6FE0)', initial: 'А' },
+      { text: '«Сын готовился к IELTS 4 месяца и сдал на 7.0! Отдельное спасибо за mock-экзамены каждую неделю — на настоящем экзамене вообще не волновался.»', name: 'Ерлан Т.', who: 'папа Алихана, 16 лет', tint: 'linear-gradient(120deg, #1F8A5B, #34A87A)', initial: 'Е' }
+    ];
+
+    const steps = [
+      { n: '1', icon: 'edit_note', ic: '#6C4BC7', t: 'Запись', d: 'Оставьте заявку на сайте или напишите нам в WhatsApp.' },
+      { n: '2', icon: 'school', ic: '#1F8A5B', t: 'Пробный урок', d: 'Бесплатное занятие и знакомство с педагогом и центром.' },
+      { n: '3', icon: 'groups', ic: '#6C4BC7', t: 'Подбор группы', d: 'Определяем уровень и подбираем группу по возрасту и целям.' },
+      { n: '4', icon: 'rocket_launch', ic: '#1F8A5B', t: 'Начало обучения', d: 'Удобное расписание и еженедельная обратная связь родителям.' }
+    ];
+
+    const faq = [
+      { q: 'Сколько детей в группе?', a: 'В группах подготовки к школе и английского — до 8 детей. В продленке — до 12. Это позволяет педагогу уделить внимание каждому ребёнку.' },
+      { q: 'Пробный урок действительно бесплатный?', a: 'Да, первое занятие по любой программе полностью бесплатное и ни к чему не обязывает. Вы посмотрите центр, познакомитесь с педагогом, а ребёнок попробует формат занятий.' },
+      { q: 'Как вы сообщаете родителям о прогрессе?', a: 'Каждую неделю педагог отправляет короткий отчёт в WhatsApp: что прошли, что получается, над чем работаем. Раз в 2 месяца — развёрнутая встреча с родителями.' },
+      { q: 'Можно ли заморозить абонемент?', a: 'Да, абонемент можно заморозить на срок до 30 дней в году — например, на время болезни или отпуска. Занятия не сгорают.' },
+      { q: 'Какое расписание занятий?', a: 'Центр работает ежедневно с 9:00 до 19:00. Группы формируются в утренние и вечерние слоты — подберём удобное время на пробном уроке.' },
+      { q: 'Есть ли скидки?', a: 'Да: 10% за второго ребёнка из семьи, до 40% выгоды в пакете «10 в 1» и специальные цены при оплате за 3 месяца.' }
+    ];
+
+    const faqView = faq.map((f, i) => ({
+      q: f.q,
+      a: f.a,
+      open: s.openFaq === i,
+      bg: s.openFaq === i ? '#F8F6FE' : '#fff',
+      border: s.openFaq === i ? 'rgba(108,75,199,0.25)' : 'rgba(108,75,199,0.10)',
+      rot: s.openFaq === i ? 'rotate(45deg)' : 'rotate(0deg)',
+      toggle: () => this.setState({ openFaq: s.openFaq === i ? -1 : i })
+    }));
+
+    const contacts = [
+      { icon: 'location_on', ic: '#6C4BC7', label: 'Адрес', value: 'г. Алматы, ул. Аль-Фараби 77/2', href: '#contacts', tint: 'rgba(108,75,199,0.10)' },
+      { icon: 'call', ic: '#1F8A5B', label: 'Телефон', value: '+7 (700) 123-45-67', href: 'tel:+77001234567', tint: 'rgba(31,138,91,0.10)' },
+      { icon: 'chat', ic: '#1F8A5B', label: 'WhatsApp', value: 'Написать в WhatsApp', href: 'https://wa.me/77001234567', tint: 'rgba(31,138,91,0.10)' },
+      { icon: 'mail', ic: '#6C4BC7', label: 'Email', value: 'hello@aschool.kz', href: 'mailto:hello@aschool.kz', tint: 'rgba(108,75,199,0.10)' }
+    ];
+
+    return {
+      desktop: !s.narrow,
+      compact: s.narrow,
+      menuOpen: s.menuOpen,
+      toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }),
+
+      // language toggle (visual)
+      setRu: () => this.setState({ lang: 'ru' }),
+      setKz: () => this.setState({ lang: 'kz' }),
+      ruBg: ru ? '#fff' : 'transparent',
+      ruColor: ru ? '#4C2A85' : '#8A84A0',
+      ruShadow: ru ? '0 2px 8px rgba(76,42,133,0.18)' : 'none',
+      kzBg: ru ? 'transparent' : '#fff',
+      kzColor: ru ? '#8A84A0' : '#4C2A85',
+      kzShadow: ru ? 'none' : '0 2px 8px rgba(76,42,133,0.18)',
+
+      // modal
+      modalOpen: s.modalOpen,
+      notSent: !s.sent,
+      sent: s.sent,
+      openModal: () => this.setState({ modalOpen: true, sent: false }),
+      closeModal: () => this.setState({ modalOpen: false }),
+      closeModalBackdrop: (e) => { if (e.target === e.currentTarget) this.setState({ modalOpen: false }); },
+      stop: (e) => e.stopPropagation(),
+      submitLead: () => this.setState({ sent: true }),
+
+      showFloatingCta: (this.props.floatingCta ?? true) && !s.modalOpen,
+
+      heroPerks: ['Мини-группы', 'Индивидуальный подход', 'Опытные преподаватели', 'Современные методики'],
+      heroToys, navItems, fullNav, socials, directions, whyItems, programs,
+      team, news, gallery, reviews, steps, faqView, contacts,
+      footNav1: fullNav.slice(1, 8),
+      footNav2: fullNav.slice(8)
+    };
+  }
+}
+</script>
+</body>
+</html>

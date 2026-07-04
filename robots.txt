@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Исключаем технические параметры UTM и рекламных систем из индексации
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid /
+
+Sitemap: https://timon7182.github.io/aschool/sitemap.xml

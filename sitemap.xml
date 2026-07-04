@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ── Главная (RU) ── -->
+  <url>
+    <loc>https://timon7182.github.io/aschool/index.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/index.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/index.html"/>
+  </url>
+
+  <!-- ── Программа «Подготовка к школе» (RU) ── -->
+  <url>
+    <loc>https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/mektepke-dayindyk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
+  </url>
+
+  <!-- ── Главная (KZ) ── -->
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/index.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/index.html"/>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/index.html"/>
+  </url>
+
+  <!-- ── «Мектепке дайындық» (KZ) ── -->
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/mektepke-dayindyk.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/mektepke-dayindyk.html"/>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
+  </url>
+
+</urlset>
