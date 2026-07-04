@@ -51,7 +51,7 @@
 
 ---
 
-### 2. Продлёнка
+### 2. Продлёнка / Ұзартылған күн тобы
 
 Для учеников 1–5 класса. Центр забирает ребёнка из школы, помогает с уроками и возвращает домой.
 
@@ -65,11 +65,13 @@
 
 **Результат:** уроки сделаны — вечер свободен для семьи
 
-**Страница (RU):** https://timon7182.github.io/aschool/programs/prodlenka.html
+**Страницы:**
+- RU: https://timon7182.github.io/aschool/programs/prodlenka.html
+- KZ: https://timon7182.github.io/aschool/kz/bagdarlamalar/uzartylgan-kun-toby.html
 
 ---
 
-### 3. Пакет «10 в 1»
+### 3. Пакет «10 в 1» / «10-ы 1-де» пакеті
 
 Доступен для учеников групп «Подготовка к школе» и «Продлёнка». Дополняет основное обучение 10 направлениями всестороннего развития.
 
@@ -87,11 +89,13 @@
 
 **Результат:** гармоничное и разностороннее развитие ребёнка — творческое, познавательное, физическое
 
-**Страница (RU):** https://timon7182.github.io/aschool/programs/paket-10-v-1.html
+**Страницы:**
+- RU: https://timon7182.github.io/aschool/programs/paket-10-v-1.html
+- KZ: https://timon7182.github.io/aschool/kz/bagdarlamalar/paket-10-1.html
 
 ---
 
-### 4. Английский язык / IELTS
+### 4. Английский язык / IELTS / Ағылшын тілі / IELTS
 
 Подготовка к международному экзамену IELTS.
 
@@ -101,7 +105,9 @@
 
 Также преподаётся общий английский для детей.
 
-**Страница (RU):** https://timon7182.github.io/aschool/programs/english-ielts.html
+**Страницы:**
+- RU: https://timon7182.github.io/aschool/programs/english-ielts.html
+- KZ: https://timon7182.github.io/aschool/kz/bagdarlamalar/agylshyn-ielts.html
 
 ---
 

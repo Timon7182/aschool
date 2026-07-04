@@ -8,10 +8,14 @@
 
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0" rel="stylesheet">
+  <!-- Fonts (self-hosted) -->
+  <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/nunito-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/material-symbols-rounded.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Icon gate: hide Material Symbols until font is loaded -->
+  <script>(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

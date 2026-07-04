@@ -10,18 +10,27 @@
 ```
 aschool/
 ├── index.html                                   — главная страница (русский)
-├── programs/
-│   └── podgotovka-k-shkole.html                 — программа «Подготовка к школе» (RU)
+├── programs/                                    — страницы программ (RU)
+│   ├── podgotovka-k-shkole.html                 — «Подготовка к школе»
+│   ├── prodlenka.html                           — «Продлёнка»
+│   ├── paket-10-v-1.html                        — Пакет «10 в 1»
+│   └── english-ielts.html                       — «Английский · IELTS»
 ├── kz/
 │   ├── index.html                               — главная страница (казахский)
-│   └── bagdarlamalar/
-│       └── mektepke-dayindyk.html               — «Мектепке дайындық» (KZ)
+│   └── bagdarlamalar/                           — страницы программ (KZ)
+│       ├── mektepke-dayindyk.html               — «Мектепке дайындық»
+│       ├── uzartylgan-kun-toby.html             — «Ұзартылған күн тобы»
+│       ├── paket-10-1.html                      — «10-ы 1-де» пакеті
+│       └── agylshyn-ielts.html                  — «Ағылшын тілі · IELTS»
 ├── assets/
 │   ├── css/style.css                            — общие стили
 │   ├── js/main.js                               — меню, модалка, форма, Метрика
+│   ├── fonts/                                   — локальные шрифты (см. ниже)
 │   └── img/
-│       ├── logo.svg                             — логотип (заменить на оригинальный)
-│       └── favicon.svg                          — иконка вкладки
+│       ├── logo-mark.png                        — знак логотипа (хедер/футер)
+│       ├── logo-full.png                        — полный логотип (og:image)
+│       ├── favicon.png                          — иконка вкладки
+│       └── hero-girl.png                        — 3D-модель на главной
 ├── sitemap.xml                                  — карта сайта для поисковиков
 ├── robots.txt                                   — настройки для поисковых роботов
 ├── llms.txt                                     — описание центра для AI-поисковиков
@@ -29,6 +38,16 @@ aschool/
 ├── .gitignore                                   — исключения для Git
 └── README.md                                    — эта инструкция
 ```
+
+### Шрифты и иконки (важно при доработках)
+
+Шрифты (Nunito, Manrope) и иконки Material Symbols хостятся локально в `assets/fonts/` —
+без обращений к Google Fonts, чтобы не мигал системный шрифт при загрузке.
+Файл иконок `material-symbols-rounded.woff2` **сабсечен** — содержит только те ~60 иконок,
+которые реально используются на страницах. Если добавляете новую иконку (новое имя в
+`<span class="ms">…</span>`), её нужно включить в сабсет: скачайте новый файл по адресу
+`https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..700,0..1,0&icon_names=<все,имена,через,запятую>`
+(в ответе будет ссылка на woff2) и замените им файл в `assets/fonts/`.
 
 ---
 
