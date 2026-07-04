@@ -11,6 +11,21 @@ const LEAD_EMAIL = 'info@aschool.kz';
 // TODO: вставить номер счётчика Яндекс.Метрики (число), пока метрика отключена
 const YM_COUNTER_ID = null;
 
+/* ---- Локализация текстов WhatsApp-заявки (определяется по lang="kk" на <html>) ---- */
+const IS_KK = document.documentElement.lang === 'kk';
+const FORM_I18N = {
+  waHeader:     IS_KK ? 'Тегін сынақ күніне өтінім — A School' : 'Заявка на бесплатный пробный день — A School',
+  waName:       IS_KK ? 'Аты-жөні: '             : 'Имя: ',
+  waChild:      IS_KK ? 'Баланың аты, жасы: '    : 'Ребёнок (имя, возраст): ',
+  waGroup:      IS_KK ? 'Топ: '                  : 'Группа: ',
+  waPhone:      'Телефон: ',
+  emailSubject: IS_KK ? 'Өтінім — A School сайтынан' : 'Заявка с сайта A School',
+  emailName:    IS_KK ? 'Аты-жөні'           : 'Имя',
+  emailChild:   IS_KK ? 'Баланың аты, жасы'  : 'Ребёнок и возраст',
+  emailGroup:   IS_KK ? 'Топ'                : 'Группа',
+  emailPhone:   'Телефон',
+};
+
 /* ============================================================
    Яндекс.Метрика — инициализация только если задан ID
    ============================================================ */
@@ -147,27 +162,26 @@ function reachGoal(goal, params) {
 
     // 1) Сформировать текст заявки для WhatsApp
     const lines = [
-      'Заявка на бесплатный пробный день — A School',
-      'Имя: ' + name,
-      child ? ('Ребёнок (имя, возраст): ' + child) : '',
-      group ? ('Группа: ' + group) : '',
-      'Телефон: ' + phone
+      FORM_I18N.waHeader,
+      FORM_I18N.waName + name,
+      child ? (FORM_I18N.waChild + child) : '',
+      group ? (FORM_I18N.waGroup + group) : '',
+      FORM_I18N.waPhone + phone
     ].filter(Boolean);
     const waText = encodeURIComponent(lines.join('\n'));
     const waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + waText;
 
     // 2) Продублировать заявку на почту через FormSubmit (AJAX)
     reachGoal('form_submit', { group: group });
+    const emailBody = { _subject: FORM_I18N.emailSubject };
+    emailBody[FORM_I18N.emailName] = name;
+    emailBody[FORM_I18N.emailChild] = child;
+    emailBody[FORM_I18N.emailGroup] = group;
+    emailBody[FORM_I18N.emailPhone] = phone;
     fetch('https://formsubmit.co/ajax/' + LEAD_EMAIL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        _subject: 'Заявка с сайта A School',
-        Имя: name,
-        'Ребёнок и возраст': child,
-        Группа: group,
-        Телефон: phone
-      })
+      body: JSON.stringify(emailBody)
     }).catch(() => { /* игнорируем сетевую ошибку — заявка всё равно уходит в WhatsApp */ });
 
     // Открыть WhatsApp в новой вкладке
