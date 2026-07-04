@@ -1,0 +1,14 @@
+# Системные файлы
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Логи
+*.log
+npm-debug.log*
+
+# Редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
