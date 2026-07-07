@@ -39,8 +39,8 @@
   <link rel="preload" href="../assets/fonts/nunito-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/material-symbols-rounded.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Icon gate: hide Material Symbols until font is loaded -->
-  <script>(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
+  <!-- JS-гейт (scroll-reveal үшін) + иконка гейті: Material Symbols шрифті жүктелгенше жасырамыз -->
+  <script>document.documentElement.classList.add('js');(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
 
   <link rel="stylesheet" href="../assets/css/style.css">
 
@@ -82,7 +82,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-link" href="index.html" aria-label="A School — басты бетке">
-      <img src="../assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+      <img src="../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
 
@@ -120,12 +120,12 @@
 <aside class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Мобильді мәзір">
   <div class="mobile-menu-head">
     <a class="logo-link" href="index.html" aria-label="A School — басты бетке">
-      <img src="../assets/img/logo-mark.png" alt="A School" style="height:40px;width:auto;">
+      <img src="../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
     <button class="menu-close" type="button" data-menu-close aria-label="Мәзірді жабу">✕</button>
   </div>
-  <div class="lang-toggle" style="margin-bottom:16px;" role="group" aria-label="Тіл таңдау">
+  <div class="lang-toggle" role="group" aria-label="Тіл таңдау">
     <a href="../index.html" hreflang="ru">RU</a>
     <a class="active" href="index.html" aria-current="true">ҚАЗ</a>
   </div>
@@ -142,245 +142,205 @@
 <main>
 
 <!-- ══════════ HERO ══════════ -->
-<section id="top" style="position: relative; overflow: clip; background: linear-gradient(135deg, #F3EFFC 0%, #FDFCFF 45%, #E9F6F0 100%);">
-  <div style="position: absolute; top: -120px; left: -120px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(163,140,240,0.22), transparent 70%); animation: blobdrift 14s ease-in-out infinite;"></div>
-  <div style="position: absolute; bottom: -160px; right: -100px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(52,168,122,0.16), transparent 70%); animation: blobdrift 18s ease-in-out infinite reverse;"></div>
+<section id="top" class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-enter hero-enter--1">Балаларға <span class="arc-word">қуанышпен</span> оқуға және сенімділікпен жетуге көмектесеміз</h1>
+        <p class="lead hero-enter hero-enter--2">Мектепке дайындық, ұзартылған күн тобы, ағылшын тілі және IELTS, сондай-ақ «10-ы 1-де» пакеті — балаңыздың жан-жақты дамуы Астанадағы бір орталықта.</p>
+        <div class="hero-cta hero-enter hero-enter--3">
+          <button class="btn btn-green" type="button" data-modal-open>Тегін сынақ күніне жазылу</button>
+          <a class="btn btn-ghost" href="tel:+77004349775">
+            <span class="ms" style="font-size: 20px;">call</span> Қоңырау шалу
+          </a>
+        </div>
+        <div class="hero-note hero-enter hero-enter--4">
+          <span class="ms">verified</span> Сынақ күні тегін — шешімді содан кейін қабылдайсыз
+        </div>
+      </div>
 
-  <div class="container" style="padding-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 32px; position: relative;">
-    <div style="flex: 1.1; min-width: 320px; padding-bottom: 56px;">
-      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.7); border: 1px solid rgba(108,75,199,0.15); backdrop-filter: blur(8px); padding: 8px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: #6C4BC7; margin-bottom: 22px;">
-        <span style="width: 8px; height: 8px; border-radius: 50%; background: #1F8A5B;"></span>
-        Астанадағы білім беру орталығы
+      <div class="hero-enter hero-enter--media">
+        <div class="hero-arch">
+          <img src="../assets/img/hero-girl.png" alt="Кітап ұстаған A School оқушысы" fetchpriority="high">
+          <span class="chip-float chip-float--1"><span class="ms">menu_book</span> Оқу</span>
+          <span class="chip-float chip-float--2"><span class="ms">calculate</span> Есеп және логика</span>
+          <span class="chip-float chip-float--3"><span class="ms">edit</span> Жазу</span>
+        </div>
       </div>
-      <h1 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.12; margin: 0 0 20px; letter-spacing: -0.5px;">
-        Балаларға <span class="grad-text">қуанышпен оқуға</span> және сенімділікпен жетуге көмектесеміз
-      </h1>
-      <p style="font-size: clamp(16px, 1.5vw, 19px); color: #6B6580; margin: 0 0 30px; max-width: 520px; text-wrap: pretty;">
-        Мектепке дайындық, ұзартылған күн тобы, ағылшын тілі және IELTS, сондай-ақ «10-ы 1-де» пакеті — балаңыздың жан-жақты дамуы бір орталықта.
-      </p>
-      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px;">
-        <button class="btn btn-green" type="button" data-modal-open>Тегін сынақ күніне жазылу</button>
-        <a class="btn btn-ghost" href="tel:+77004349775">
-          <span class="ms" style="font-size: 20px;">call</span> Қоңырау шалу
-        </a>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px 22px; max-width: 480px; margin-bottom: 28px;">
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: #3B3452;"><span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(31,138,91,0.12); color: #1F8A5B; display: grid; place-items: center; font-size: 12px; font-weight: 900; flex-shrink: 0;">✓</span> 10-ға дейін балалар тобы</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: #3B3452;"><span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(31,138,91,0.12); color: #1F8A5B; display: grid; place-items: center; font-size: 12px; font-weight: 900; flex-shrink: 0;">✓</span> Жеке тәсіл</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: #3B3452;"><span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(31,138,91,0.12); color: #1F8A5B; display: grid; place-items: center; font-size: 12px; font-weight: 900; flex-shrink: 0;">✓</span> Тәжірибелі педагогтар</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; color: #3B3452;"><span style="width: 22px; height: 22px; border-radius: 50%; background: rgba(31,138,91,0.12); color: #1F8A5B; display: grid; place-items: center; font-size: 12px; font-weight: 900; flex-shrink: 0;">✓</span> Орыс және қазақ тілдерінде оқыту</div>
-      </div>
-      <div style="display: inline-flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.75); backdrop-filter: blur(8px); border: 1px solid rgba(108,75,199,0.12); padding: 12px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(76,42,133,0.08);">
-        <span style="color: #F5A623; font-size: 19px; letter-spacing: 2px;">★★★★★</span>
-        <span style="font-size: 14.5px; font-weight: 700; color: #4A4460;">Ризашылық оқушылар мен ата-аналар</span>
-      </div>
-    </div>
-
-    <!-- Фото-ұясы -->
-    <div style="flex: 1; min-width: 320px; position: relative; align-self: stretch; display: flex; justify-content: center; padding-bottom: 56px;">
-      <img src="../assets/img/logo-mark.png" alt="" aria-hidden="true" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -55%); width: 120%; max-width: 620px; opacity: 0.08; pointer-events: none;">
-      <!-- A School оқушысының суреті -->
-      <div class="photo-slot" style="position: relative; z-index: 2; width: min(100%, 420px); min-height: 420px; border-radius: 32px;">
-        <img src="../assets/img/hero-girl.png" alt="A School оқушысы" style="width: 100%; height: 100%; object-fit: contain;">
-      </div>
-      <div style="position: absolute; top: 4%; left: 2%; z-index: 3; width: 68px; height: 68px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 32px; color: #6C4BC7; animation: floaty 5s ease-in-out infinite;"><span class="ms">menu_book</span></div>
-      <div style="position: absolute; top: 18%; left: 82%; z-index: 3; width: 62px; height: 62px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 34px; color: #1F8A5B; animation: floaty2 6s ease-in-out infinite;"><span class="ms">abc</span></div>
-      <div style="position: absolute; top: 44%; left: -2%; z-index: 3; width: 64px; height: 64px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 32px; color: #4C2A85; animation: floaty 7s ease-in-out infinite;"><span class="ms">calculate</span></div>
-      <div style="position: absolute; top: 60%; left: 84%; z-index: 3; width: 58px; height: 58px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 26px; color: #E8913A; animation: floaty2 5.5s ease-in-out infinite;"><span class="ms">edit</span></div>
-      <div style="position: absolute; top: 82%; left: 4%; z-index: 3; width: 60px; height: 60px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 30px; color: #1F8A5B; animation: floaty 6.5s ease-in-out infinite;"><span class="ms">extension</span></div>
-      <div style="position: absolute; top: 6%; left: 66%; z-index: 3; width: 48px; height: 48px; border-radius: 26%; background: rgba(255,255,255,0.72); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); box-shadow: 0 14px 30px rgba(76,42,133,0.14); display: grid; place-items: center; font-size: 22px; color: #F5A623; animation: floaty 4.5s ease-in-out infinite;"><span class="ms">star</span></div>
     </div>
   </div>
-  <div style="height: 46px; background: linear-gradient(to bottom, transparent, #FDFCFF);"></div>
+
+  <!-- Фактілер лентасы -->
+  <div class="container">
+    <div class="belt">
+      <div class="belt-row">
+        <span class="belt-item"><span class="ms">groups</span> Шағын топтар — 10-ға дейін бала</span>
+        <span class="belt-item"><span class="ms">translate</span> Орыс және қазақ тілдерінде оқыту</span>
+        <span class="belt-item"><span class="ms">school</span> Тәжірибелі педагогтар</span>
+        <span class="belt-item"><span class="ms">location_on</span> Астана, Төле би көшесі, 40</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ══════════ БАҒДАРЛАМАЛАР ══════════ -->
-<section id="programs" class="container" style="padding: 72px 24px 36px;">
-  <div class="section-head">
-    <span class="eyebrow eyebrow--green">Оқыту бағыттары</span>
-    <h2>Орталықтың бағдарламалары</h2>
-    <p style="color: #6B6580; margin: 0;">Әрбір курс үшін — тегін сынақ күні. Балаңызға қажеттісін таңдаңыз.</p>
-  </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+<section id="programs" class="section">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Төрт бағдарлама. Әрқайсысында <span class="hl--green">тегін бірінші күн</span></h2>
+      <p class="lead">Балаңызға дәл қазір қажеттісін таңдаңыз — ал сынақ күні ауысым мен топты анықтауға көмектесеміз.</p>
+    </div>
 
-    <!-- Мектепке дайындық (флагман) -->
-    <article class="card lift" style="border-radius: 28px; overflow: clip; display: flex; flex-direction: column;">
-      <div style="height: 130px; background: linear-gradient(120deg, #EFE9FC, #E0F2EA); display: flex; align-items: center; justify-content: space-between; padding: 0 26px;">
-        <span class="ms" style="font-size: 54px; color: #6C4BC7; filter: drop-shadow(0 8px 14px rgba(76,42,133,0.18));">backpack</span>
-        <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">5–7 жас</span>
+    <!-- Флагман: Мектепке дайындық -->
+    <article class="prog-feature reveal">
+      <div>
+        <span class="prog-feature-tag"><span class="ms" style="font-size:17px;color:#6C4BC7;">backpack</span> Флагмандық бағдарлама · 5–7 жас</span>
+        <h3>Мектепке дайындық</h3>
+        <p class="desc">Бала ойын түрінде, шамадан тыс жүктемесіз оқуды, жазуды және есептеуді үйренеді — 1-сыныпқа сенімді әрі қуанышпен барады. Бағдарламаны көп жылдық тәжірибесі бар педагог Айгүл Балауовна жүргізеді.</p>
+        <div class="subject-chips">
+          <span>Оқу және сауат ашу</span>
+          <span>Жазу</span>
+          <span>Математика және логика</span>
+          <span>Сөйлеуді дамыту</span>
+          <span>Қоршаған ортаны тану</span>
+          <span>Көркем еңбек</span>
+        </div>
+        <div class="prog-feature-meta">
+          <span><span class="ms">schedule</span> 1-ші ауысым 9:00–12:00</span>
+          <span><span class="ms">schedule</span> 2-ші ауысым 14:00–17:00</span>
+          <span><span class="ms">translate</span> Орыс және қазақ тілдері</span>
+        </div>
+        <div class="prog-feature-actions">
+          <button class="btn btn-green" type="button" data-modal-open data-preset="Мектепке дайындық (қаз.)">Сынақ күніне жазылу</button>
+          <a class="link-more" href="bagdarlamalar/mektepke-dayindyk.html">Бағдарлама туралы</a>
+        </div>
       </div>
-      <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Мектепке дайындық</h3>
-          <a class="btn btn-soft" href="bagdarlamalar/mektepke-dayindyk.html">Толығырақ →</a>
-        </div>
-        <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Математика және логика, оқу және жазу, сауат ашу, сөйлеуді дамыту, қоршаған ортаны тану. Орыс және қазақ тілдерінде оқыту. Педагог — Айгүл Балауовна.</p>
-        <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
-          <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Бала 1-сыныпқа сенімді, оқуды, жазуды және есептеуді біліп барады
-        </div>
-        <div style="flex: 1;"></div>
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px;">
-          <!-- TODO: баға — клиент жаңа прайс жібереді -->
-          <div>
-            <div style="font-family: 'Nunito'; font-weight: 900; font-size: 18px; color: #1F8A5B;">Сынақ күні тегін</div>
-            <div style="font-size: 12.5px; color: #9A94AE;">2 ауысым: 9:00–12:00 · 14:00–17:00</div>
+      <div class="prog-feature-media">
+        <!-- Фото-ұясы: нақты сабақ суретімен ауыстырыңыз -->
+        <div class="arch-photo" data-photo-slot>
+          <div class="slot-inner">
+            <span class="ms">backpack</span>
+            <span class="slot-caption">Сурет: мектепке дайындық сабағы</span>
           </div>
-          <button class="btn btn-soft" type="button" data-modal-open data-preset="Мектепке дайындық (қаз.)">Жазылу</button>
         </div>
       </div>
     </article>
 
-    <!-- Ұзартылған күн тобы -->
-    <article class="card lift" style="border-radius: 28px; overflow: clip; display: flex; flex-direction: column;">
-      <div style="height: 130px; background: linear-gradient(120deg, #E0F2EA, #EFE9FC); display: flex; align-items: center; justify-content: space-between; padding: 0 26px;">
-        <span class="ms" style="font-size: 54px; color: #1F8A5B; filter: drop-shadow(0 8px 14px rgba(76,42,133,0.18));">auto_stories</span>
-        <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">1–5 сынып</span>
-      </div>
-      <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Ұзартылған күн тобы</h3>
-          <a class="btn btn-soft" href="bagdarlamalar/uzartylgan-kun-toby.html">Толығырақ →</a>
-        </div>
-        <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Үй тапсырмасын орындау, жылдам оқу, көркем жазу. Аптасына 5 рет, 10 оқушыдан тұратын топта, мектептен және мектепке дейін жеткізу.</p>
-        <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
-          <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Сабақтар орындалды — кеш отбасымен
-        </div>
-        <div style="flex: 1;"></div>
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px;">
-          <!-- TODO: баға — клиент жаңа прайс жібереді -->
-          <div>
-            <div style="font-family: 'Nunito'; font-weight: 900; font-size: 18px; color: #1F8A5B;">Сынақ күні тегін</div>
-            <div style="font-size: 12.5px; color: #9A94AE;">жеткізу · топта 10-ға дейін</div>
-          </div>
+    <!-- Басқа бағдарламалар -->
+    <div class="prog-row reveal-stagger">
+      <article class="prog-card prog-card--green">
+        <span class="age-pill">1–5 сынып</span>
+        <span class="arch-ic"><span class="ms">auto_stories</span></span>
+        <h3>Ұзартылған күн тобы</h3>
+        <p>Үй тапсырмасын орындау, жылдам оқу, көркем жазу. Аптасына 5 рет, мектептен және мектепке дейін жеткізу.</p>
+        <div class="outcome"><span class="ms">flag</span> Сабақтар орындалды — кеш отбасымен</div>
+        <div class="card-foot">
           <button class="btn btn-soft" type="button" data-modal-open data-preset="Ұзартылған күн тобы">Жазылу</button>
+          <a class="link-more" href="bagdarlamalar/uzartylgan-kun-toby.html">Толығырақ</a>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <!-- «10-ы 1-де» пакеті -->
-    <article class="card lift" style="border-radius: 28px; overflow: clip; display: flex; flex-direction: column;">
-      <div style="height: 130px; background: linear-gradient(120deg, #F3E9FB, #E0F2EA); display: flex; align-items: center; justify-content: space-between; padding: 0 26px;">
-        <span class="ms" style="font-size: 54px; color: #8B5BD6; filter: drop-shadow(0 8px 14px rgba(76,42,133,0.18));">extension</span>
-        <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">хит</span>
-      </div>
-      <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">«10-ы 1-де» пакеті</h3>
-          <a class="btn btn-soft" href="bagdarlamalar/paket-10-1.html">Толығырақ →</a>
-        </div>
-        <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Жан-жақты дамуға арналған 10 бағыт: ағылшын және қазақ тілдері, арт-студия, жасыл сынып, шахмат, IT, хореография, нейрогимнастика, логика және ментальды арифметика.</p>
-        <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
-          <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Баланың үйлесімді және жан-жақты дамуы
-        </div>
-        <div style="flex: 1;"></div>
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px;">
-          <!-- TODO: баға — клиент жаңа прайс жібереді -->
-          <div>
-            <div style="font-family: 'Nunito'; font-weight: 900; font-size: 18px; color: #1F8A5B;">Сынақ күні тегін</div>
-            <div style="font-size: 12.5px; color: #9A94AE;">дайындық және ұзартылған күн тобы үшін</div>
-          </div>
+      <article class="prog-card prog-card--purple">
+        <span class="age-pill">орталық хиті</span>
+        <span class="arch-ic"><span class="ms">extension</span></span>
+        <h3>«10-ы 1-де» пакеті</h3>
+        <p>Дамудың 10 бағыты — ағылшын тілі мен шахматтан бастап IT және нейрогимнастикаға дейін — дайындық және ұзартылған күн топтары үшін.</p>
+        <div class="outcome"><span class="ms">flag</span> Баланың үйлесімді және жан-жақты дамуы</div>
+        <div class="card-foot">
           <button class="btn btn-soft" type="button" data-modal-open data-preset="«10-ы 1-де» пакеті">Жазылу</button>
+          <a class="link-more" href="bagdarlamalar/paket-10-1.html">Толығырақ</a>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <!-- Ағылшын тілі / IELTS -->
-    <article class="card lift" style="border-radius: 28px; overflow: clip; display: flex; flex-direction: column;">
-      <div style="height: 130px; background: linear-gradient(120deg, #E7F0FB, #EFE9FC); display: flex; align-items: center; justify-content: space-between; padding: 0 26px;">
-        <span class="ms" style="font-size: 54px; color: #3D6FB4; filter: drop-shadow(0 8px 14px rgba(76,42,133,0.18));">workspace_premium</span>
-        <span style="background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; color: #4C2A85; padding: 7px 14px; border-radius: 999px;">IELTS</span>
-      </div>
-      <div style="padding: 24px 26px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-          <h3 style="font-weight: 800; font-size: 21px; margin: 0;">Ағылшын тілі · IELTS</h3>
-          <a class="btn btn-soft" href="bagdarlamalar/agylshyn-ielts.html">Толығырақ →</a>
-        </div>
-        <p style="font-size: 14.5px; color: #6B6580; margin: 0;">IELTS халықаралық емтиханына дайындық. Нәтижелерді 140-тан астам елдегі 12 000-нан астам ұйым қабылдайды — университеттер, жұмыс берушілер және иммиграциялық органдар.</p>
-        <div style="display: flex; gap: 10px; align-items: flex-start; background: rgba(31,138,91,0.06); border-radius: 16px; padding: 12px 14px; font-size: 13.5px; color: #1F6B49; font-weight: 600;">
-          <span class="ms" style="flex-shrink: 0; font-size: 18px; color: #1F8A5B;">flag</span> Бүкіл әлемде бағаланатын артықшылық
-        </div>
-        <div style="flex: 1;"></div>
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px;">
-          <!-- TODO: баға — клиент жаңа прайс жібереді -->
-          <div>
-            <div style="font-family: 'Nunito'; font-weight: 900; font-size: 18px; color: #1F8A5B;">Сынақ күні тегін</div>
-            <div style="font-size: 12.5px; color: #9A94AE;">халықаралық сертификат</div>
-          </div>
+      <article class="prog-card prog-card--ink">
+        <span class="age-pill">IELTS</span>
+        <span class="arch-ic"><span class="ms">workspace_premium</span></span>
+        <h3>Ағылшын тілі · IELTS</h3>
+        <p>Халықаралық емтиханға дайындық. Нәтижелерді 140-тан астам елдегі 12 000-нан астам ұйым қабылдайды.</p>
+        <div class="outcome"><span class="ms">flag</span> Бүкіл әлемде бағаланатын артықшылық</div>
+        <div class="card-foot">
           <button class="btn btn-soft" type="button" data-modal-open data-preset="Ағылшын тілі, IELTS">Жазылу</button>
+          <a class="link-more" href="bagdarlamalar/agylshyn-ielts.html">Толығырақ</a>
         </div>
-      </div>
-    </article>
-
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- ══════════ A CAMP ЖАЗҒЫ ЛАГЕРІ ══════════ -->
-<section id="camp" class="container" style="padding: 0 24px 36px;">
-  <div style="position: relative; overflow: clip; border-radius: 36px; background: linear-gradient(115deg, #1F6B49 0%, #1F8A5B 45%, #4C2A85 100%); color: #fff; padding: clamp(28px, 5vw, 56px); box-shadow: 0 30px 70px rgba(31,138,91,0.28);">
-    <div style="position: absolute; top: -60px; right: 22%; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.07);"></div>
-    <div style="position: absolute; bottom: -80px; left: 6%; width: 200px; height: 200px; border-radius: 60px; transform: rotate(25deg); background: rgba(255,255,255,0.05);"></div>
-    <div style="position: relative;">
-      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.18); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; letter-spacing: 1px; padding: 8px 16px; border-radius: 999px; margin-bottom: 18px;">
-        <span style="font-size: 16px;">☀️</span> Жаз 2026
-      </div>
-      <h2 style="margin: 0 0 10px; font-size: clamp(26px, 3.5vw, 42px);">A CAMP жазғы лагері</h2>
-      <p style="margin: 0 0 24px; color: rgba(255,255,255,0.88); font-size: 16px; max-width: 600px; text-wrap: pretty;">A School орталығының серіктестік жобасы — Астанадағы 6–11 жас балаларға арналған «ASTANAPOLIS — болашақ қаласы» авторлық бағдарламасы бар қалалық жазғы лагерь.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 28px;">
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A7F3C9; flex-shrink: 0;"></span> 6–8 және 9–11 жас отрядтары · Дс–Жм 09:00–18:00</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A7F3C9; flex-shrink: 0;"></span> Бір смена ішінде 20 елдің мәдениетімен танысу</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A7F3C9; flex-shrink: 0;"></span> Ана тілі ағылшынша сөйлеушілермен ағылшын клубы</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A7F3C9; flex-shrink: 0;"></span> Аптасына 2 шығу: гольф, теннис, ат спорты, бассейн</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A7F3C9; flex-shrink: 0;"></span> Шеберлік сыныптары: шығармашылық, ғылым, IT, аспаздық</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #A7F3C9; flex-shrink: 0;"></span> «Барлығы кіреді»: тамақтану, трансфер, билеттер, МК</div>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
-        <a href="https://acamp.kz" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #fff; color: #1F6B49; font-weight: 800; font-size: 16px; text-decoration: none; padding: 15px 28px; border-radius: 999px; box-shadow: 0 14px 30px rgba(0,0,0,0.18);">Лагерь сайты →</a>
-        <a href="https://wa.me/77004349775" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.16); color: #fff; font-weight: 800; font-size: 15px; text-decoration: none; padding: 15px 24px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.35);">WhatsApp</a>
+<section id="camp" class="section--tight">
+  <div class="container">
+    <div class="band band--green reveal">
+      <span class="band-badge"><span class="ms">flight_takeoff</span> Жаз 2026 · серіктестік жоба</span>
+      <h2>A CAMP жазғы лагері</h2>
+      <p class="lead" style="max-width: 620px;">Астанадағы 6–11 жас балаларға арналған «ASTANAPOLIS — болашақ қаласы» авторлық бағдарламасы бар қалалық жазғы лагерь.</p>
+      <ul class="band-list">
+        <li><span class="ms">groups</span> 6–8 және 9–11 жас отрядтары · Дс–Жм 09:00–18:00</li>
+        <li><span class="ms">public</span> Бір смена ішінде 20 елдің мәдениетімен танысу</li>
+        <li><span class="ms">language</span> Ана тілі ағылшынша сөйлеушілермен ағылшын клубы</li>
+        <li><span class="ms">directions_run</span> Аптасына 2 шығу: гольф, теннис, ат спорты, бассейн</li>
+        <li><span class="ms">science</span> Шеберлік сыныптары: шығармашылық, ғылым, IT, аспаздық</li>
+        <li><span class="ms">restaurant</span> «Барлығы кіреді»: тамақтану, трансфер, билеттер, шеберлік сыныптары</li>
+      </ul>
+      <div class="band-actions">
+        <a class="btn btn-white" href="https://acamp.kz" target="_blank" rel="noopener">Лагерь сайты →</a>
+        <a class="btn btn-outline-light" href="https://wa.me/77004349775" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ НЕЛІКТЕН БІЗ / ОРТАЛЫҚ ТУРАЛЫ ══════════ -->
-<section id="why" style="background: linear-gradient(160deg, #F5F1FD 0%, #EDF8F2 100%); margin-top: 48px;">
-  <div class="container" style="padding: 72px 24px;">
-    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
-      <div style="flex: 1; min-width: 300px; position: sticky; top: 100px;">
-        <span class="eyebrow eyebrow--purple">Неліктен бізді таңдайды</span>
-        <h2 style="margin: 0 0 16px;">Ата-аналар сенеді, балалар қуанышпен келеді</h2>
-        <p style="color: #6B6580; margin: 0 0 26px; max-width: 420px; text-wrap: pretty;">Оқытуды баланың айналасына құрамыз: шағын топтар, зейінді педагогтар және ата-аналарға ашық кері байланыс. Әрбір бала біз үшін — сүйіспеншілік пен мейіріммен дамытатын тұлға.</p>
+<!-- ══════════ НЕЛІКТЕН БІЗ ══════════ -->
+<section id="why" class="section surface-lav">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-sticky">
+        <h2>Ата-аналар сенеді, балалар <span class="hl">қуанышпен келеді</span></h2>
+        <p class="lead">Оқытуды баланың айналасына құрамыз: шағын топтар, зейінді педагогтар және ата-аналарға ашық кері байланыс. Әрбір бала біз үшін — тұлға.</p>
         <button class="btn btn-purple" type="button" data-modal-open>Сынақ күніне жазылу</button>
       </div>
-      <div style="flex: 1.3; min-width: 320px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
-        <div class="lift-sm" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px; box-shadow: 0 10px 26px rgba(76,42,133,0.06); transition: all .25s;">
-          <div style="width: 48px; height: 48px; border-radius: 16px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 24px; color: #6C4BC7; margin-bottom: 14px;"><span class="ms">groups</span></div>
-          <h3 style="font-weight: 800; font-size: 17px; margin: 0 0 6px;">Шағын топтар</h3>
-          <p style="font-size: 14px; color: #6B6580; margin: 0;">10-ға дейін бала — назар әрбір балаға жетеді.</p>
+      <div class="reason-list reveal-stagger">
+        <div class="reason">
+          <span class="ric"><span class="ms">groups</span></span>
+          <div>
+            <strong>Шағын топтар</strong>
+            <p>Топта 10-ға дейін бала — назар әрбір балаға жетеді.</p>
+          </div>
         </div>
-        <div class="lift-sm" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px; box-shadow: 0 10px 26px rgba(76,42,133,0.06); transition: all .25s;">
-          <div style="width: 48px; height: 48px; border-radius: 16px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 24px; color: #1F8A5B; margin-bottom: 14px;"><span class="ms">school</span></div>
-          <h3 style="font-weight: 800; font-size: 17px; margin: 0 0 6px;">Тәжірибелі педагогтар</h3>
-          <p style="font-size: 14px; color: #6B6580; margin: 0;">Көп жылдық тәжірибесі бар, балаларды жақсы көретін мұғалімдер.</p>
+        <div class="reason">
+          <span class="ric"><span class="ms">school</span></span>
+          <div>
+            <strong>Тәжірибелі педагогтар</strong>
+            <p>Көп жылдық тәжірибесі бар, балаларды жақсы көретін мұғалімдер.</p>
+          </div>
         </div>
-        <div class="lift-sm" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px; box-shadow: 0 10px 26px rgba(76,42,133,0.06); transition: all .25s;">
-          <div style="width: 48px; height: 48px; border-radius: 16px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 24px; color: #6C4BC7; margin-bottom: 14px;"><span class="ms">favorite</span></div>
-          <h3 style="font-weight: 800; font-size: 17px; margin: 0 0 6px;">Жеке тәсіл</h3>
-          <p style="font-size: 14px; color: #6B6580; margin: 0;">Әрбір баланы тұлға ретінде көреміз және оның күшті жақтарын дамытамыз.</p>
+        <div class="reason">
+          <span class="ric"><span class="ms">favorite</span></span>
+          <div>
+            <strong>Жеке тәсіл</strong>
+            <p>Әрбір баланы тұлға ретінде көреміз және оның күшті жақтарын дамытамыз.</p>
+          </div>
         </div>
-        <div class="lift-sm" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px; box-shadow: 0 10px 26px rgba(76,42,133,0.06); transition: all .25s;">
-          <div style="width: 48px; height: 48px; border-radius: 16px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 24px; color: #1F8A5B; margin-bottom: 14px;"><span class="ms">translate</span></div>
-          <h3 style="font-weight: 800; font-size: 17px; margin: 0 0 6px;">Екі оқыту тілі</h3>
-          <p style="font-size: 14px; color: #6B6580; margin: 0;">Орыс және қазақ тілдерінде — отбасының таңдауы бойынша.</p>
+        <div class="reason">
+          <span class="ric"><span class="ms">translate</span></span>
+          <div>
+            <strong>Екі оқыту тілі</strong>
+            <p>Сабақтар орыс және қазақ тілдерінде — отбасының таңдауы бойынша.</p>
+          </div>
         </div>
-        <div class="lift-sm" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px; box-shadow: 0 10px 26px rgba(76,42,133,0.06); transition: all .25s;">
-          <div style="width: 48px; height: 48px; border-radius: 16px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 24px; color: #6C4BC7; margin-bottom: 14px;"><span class="ms">directions_bus</span></div>
-          <h3 style="font-weight: 800; font-size: 17px; margin: 0 0 6px;">Жеткізу</h3>
-          <p style="font-size: 14px; color: #6B6580; margin: 0;">Ұзартылған күн тобы үшін — мектептен және мектепке дейін жеткізу.</p>
+        <div class="reason">
+          <span class="ric"><span class="ms">directions_bus</span></span>
+          <div>
+            <strong>Жеткізу</strong>
+            <p>Ұзартылған күн тобы үшін — мектептен және мектепке дейін жеткізу.</p>
+          </div>
         </div>
-        <div class="lift-sm" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px; box-shadow: 0 10px 26px rgba(76,42,133,0.06); transition: all .25s;">
-          <div style="width: 48px; height: 48px; border-radius: 16px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 24px; color: #1F8A5B; margin-bottom: 14px;"><span class="ms">redeem</span></div>
-          <h3 style="font-weight: 800; font-size: 17px; margin: 0 0 6px;">Тегін сынақ күні</h3>
-          <p style="font-size: 14px; color: #6B6580; margin: 0;">Әрбір курс үшін — педагогпен және сабақ форматымен танысу.</p>
+        <div class="reason">
+          <span class="ric"><span class="ms">redeem</span></span>
+          <div>
+            <strong>Тегін сынақ күні</strong>
+            <p>Әрбір курс үшін — педагогпен және сабақ форматымен танысу.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -388,71 +348,68 @@
 </section>
 
 <!-- ══════════ «10-Ы 1-ДЕ» ПАКЕТІ ══════════ -->
-<section id="package" class="container" style="padding: 80px 24px;">
-  <div style="position: relative; overflow: clip; border-radius: 36px; background: linear-gradient(115deg, #4C2A85 0%, #6C4BC7 48%, #1F8A5B 100%); color: #fff; padding: clamp(28px, 5vw, 56px); box-shadow: 0 30px 70px rgba(76,42,133,0.30);">
-    <div style="position: absolute; top: -60px; right: 20%; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.08);"></div>
-    <div style="position: absolute; bottom: -80px; left: 8%; width: 200px; height: 200px; border-radius: 60px; transform: rotate(30deg); background: rgba(255,255,255,0.06);"></div>
-    <div style="position: relative; max-width: 640px; margin-bottom: 32px;">
-      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.16); backdrop-filter: blur(6px); font-size: 13px; font-weight: 800; letter-spacing: 1px; padding: 8px 16px; border-radius: 999px; margin-bottom: 18px;"><span class="ms" style="font-size: 17px; color: #FFD68A;">local_fire_department</span> A School орталығының хиті</div>
-      <h2 style="margin: 0 0 14px;">«10-ы 1-де» пакеті</h2>
-      <p style="margin: 0; color: rgba(255,255,255,0.88); font-size: 16.5px; text-wrap: pretty;">«Мектепке дайындық» және «Ұзартылған күн тобы» үшін. Балаңыз негізгі сабақтарға қоса жалпы зияткерлік дамуға — шығармашылық, танымдық және дене бітімін дамытуға арналған 10 жаңа бағытты алады.</p>
-    </div>
-    <div style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #FFD68A;">language</span> <span style="font-weight: 700;">Ағылшын тілі</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #A7F3C9;">translate</span> <span style="font-weight: 700;">Қазақ тілі</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #FFD68A;">palette</span> <span style="font-weight: 700;">Арт-студия</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #A7F3C9;">eco</span> <span style="font-weight: 700;">Жасыл сынып</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #FFD68A;">chess</span> <span style="font-weight: 700;">Шахмат</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #A7F3C9;">computer</span> <span style="font-weight: 700;">IT-сынып</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #FFD68A;">music_note</span> <span style="font-weight: 700;">Хореография</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #A7F3C9;">self_improvement</span> <span style="font-weight: 700;">Нейрогимнастика</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #FFD68A;">extension</span> <span style="font-weight: 700;">Логика</span></div>
-      <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 16px 18px;"><span class="ms" style="font-size: 24px; color: #A7F3C9;">calculate</span> <span style="font-weight: 700;">Ментальды арифметика</span></div>
-    </div>
-    <div style="position: relative; margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
-      <button class="btn" type="button" data-modal-open data-preset="«10-ы 1-де» пакеті" style="background: #fff; color: #4C2A85; font-weight: 800; font-size: 16px; padding: 16px 30px; border-radius: 999px; box-shadow: 0 14px 30px rgba(0,0,0,0.20);">«10-ы 1-де» пакетіне жазылу</button>
-      <span style="font-size: 14.5px; color: rgba(255,255,255,0.85);">Бірінші сынақ сабағы — тегін</span>
+<section id="package" class="section">
+  <div class="container">
+    <div class="band band--purple reveal">
+      <div class="ten-numeral" aria-hidden="true">10</div>
+      <h2>«10-ы 1-де» пакеті</h2>
+      <p class="lead" style="max-width: 640px;">«Мектепке дайындық» және «Ұзартылған күн тобы» топтары үшін. Бала негізгі сабақтарға қатысады — және зияткерлік дамуға арналған 10 бағыт алады: шығармашылық, танымдық және дене бітімін дамыту.</p>
+      <div class="ten-grid">
+        <span class="ten-chip"><span class="ms">language</span> Ағылшын тілі</span>
+        <span class="ten-chip"><span class="ms">translate</span> Қазақ тілі</span>
+        <span class="ten-chip"><span class="ms">palette</span> Арт-студия</span>
+        <span class="ten-chip"><span class="ms">eco</span> Жасыл сынып</span>
+        <span class="ten-chip"><span class="ms">chess</span> Шахмат</span>
+        <span class="ten-chip"><span class="ms">computer</span> IT-сынып</span>
+        <span class="ten-chip"><span class="ms">music_note</span> Хореография</span>
+        <span class="ten-chip"><span class="ms">self_improvement</span> Нейрогимнастика</span>
+        <span class="ten-chip"><span class="ms">extension</span> Логика</span>
+        <span class="ten-chip"><span class="ms">calculate</span> Ментальды арифметика</span>
+      </div>
+      <div class="band-actions">
+        <button class="btn btn-white btn-white--purple" type="button" data-modal-open data-preset="«10-ы 1-де» пакеті">«10-ы 1-де» пакетіне жазылу</button>
+        <span class="fineprint">Бірінші сынақ сабағы — тегін</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ ПЕДАГОГТАР ══════════ -->
-<section id="teachers" style="background: #F8F6FE;">
-  <div class="container" style="padding: 72px 24px;">
-    <div class="section-head">
-      <span class="eyebrow eyebrow--purple">Біздің педагогтар</span>
-      <h2>Балаңызбен кім айналысады</h2>
-      <p style="color: #6B6580; margin: 0;">Әр балаға жол тапқан тәжірибелі мұғалімдер.</p>
+<section id="teachers" class="section surface-mint">
+  <div class="container">
+    <div class="sec-head sec-head--center">
+      <h2><span class="hl--green">Балаңызбен</span> кім айналысады</h2>
+      <p class="lead">Әр балаға жол тапқан тәжірибелі мұғалімдер.</p>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 780px; margin: 0 auto;">
-      <!-- Айгүл Балауовна -->
-      <article class="card lift-sm" style="border-radius: 28px; padding: 28px; display: flex; gap: 22px; flex-wrap: wrap;">
+    <div class="teacher-grid reveal-stagger">
+      <!-- Нақты педагог: Айгүл Балауовна -->
+      <article class="teacher-card">
         <!-- Фото-ұясы: нақты педагог суретімен ауыстырыңыз -->
-        <div class="photo-slot" data-photo-slot style="width: 132px; height: 156px; flex-shrink: 0; border-radius: 24px; background: linear-gradient(135deg, #EFE9FC, #E3DBF8);">
-          <div class="slot-inner"><span class="ms" style="font-size: 40px; color: #8B6FE0;">person</span></div>
+        <div class="arch-photo" data-photo-slot>
+          <div class="slot-inner"><span class="ms">person</span></div>
         </div>
-        <div style="flex: 1; min-width: 200px;">
-          <h3 style="font-weight: 800; font-size: 20px; margin: 0 0 2px;">Айгүл Балауовна</h3>
-          <div style="font-size: 14px; color: #6C4BC7; font-weight: 700; margin-bottom: 10px;">Мектепке дайындық педагогы</div>
-          <p style="font-size: 14px; color: #6B6580; margin: 0 0 12px;">Көп жылдық оқыту тәжірибесі бар педагог. Оқыту әдістемесі туралы барлық сұрақтарға жауап беріп, балаңызға тиісті тәсілді табуға дайын.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span style="font-size: 12.5px; font-weight: 700; color: #1F6B49; background: rgba(31,138,91,0.08); padding: 5px 11px; border-radius: 999px;">Көп жылдық тәжірибе</span>
-            <span style="font-size: 12.5px; font-weight: 700; color: #4C2A85; background: rgba(108,75,199,0.08); padding: 5px 11px; border-radius: 999px;">Мектепке дайындық</span>
+        <div class="teacher-bio">
+          <h3>Айгүл Балауовна</h3>
+          <div class="role">Мектепке дайындық педагогы</div>
+          <p>Көп жылдық оқыту тәжірибесі бар педагог. Оқыту әдістемесі туралы барлық сұрақтарға жауап беріп, балаңызға тиісті тәсілді табуға дайын.</p>
+          <div class="tag-row">
+            <span class="tag--green">Көп жылдық тәжірибе</span>
+            <span class="tag--purple">Мектепке дайындық</span>
           </div>
         </div>
       </article>
-      <!-- A School командасы -->
-      <article class="card lift-sm" style="border-radius: 28px; padding: 28px; display: flex; gap: 22px; flex-wrap: wrap;">
-        <div class="photo-slot" data-photo-slot style="width: 132px; height: 156px; flex-shrink: 0; border-radius: 24px; background: linear-gradient(135deg, #E0F2EA, #D4EEE1);">
-          <div class="slot-inner"><span class="ms" style="font-size: 40px; color: #1F8A5B;">diversity_3</span></div>
+      <!-- Орталық командасы -->
+      <article class="teacher-card teacher-card--green">
+        <div class="arch-photo" data-photo-slot>
+          <div class="slot-inner"><span class="ms">diversity_3</span></div>
         </div>
-        <div style="flex: 1; min-width: 200px;">
-          <h3 style="font-weight: 800; font-size: 20px; margin: 0 0 2px;">A School командасы</h3>
-          <div style="font-size: 14px; color: #6C4BC7; font-weight: 700; margin-bottom: 10px;">Бағыттар мұғалімдері</div>
-          <p style="font-size: 14px; color: #6B6580; margin: 0 0 12px;">Ағылшын және қазақ тілдерінің, арт-студия, шахмат, IT, хореография және «10-ы 1-де» пакетінің басқа бағыттарының педагогтары.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <span style="font-size: 12.5px; font-weight: 700; color: #1F6B49; background: rgba(31,138,91,0.08); padding: 5px 11px; border-radius: 999px;">10 бағыт</span>
-            <span style="font-size: 12.5px; font-weight: 700; color: #4C2A85; background: rgba(108,75,199,0.08); padding: 5px 11px; border-radius: 999px;">Жеке тәсіл</span>
+        <div class="teacher-bio">
+          <h3>A School командасы</h3>
+          <div class="role">Бағыттар мұғалімдері</div>
+          <p>Ағылшын және қазақ тілдерінің, арт-студия, шахмат, IT, хореография және «10-ы 1-де» пакетінің басқа бағыттарының педагогтары.</p>
+          <div class="tag-row">
+            <span class="tag--green">10 бағыт</span>
+            <span class="tag--purple">Жеке тәсіл</span>
           </div>
         </div>
       </article>
@@ -462,195 +419,185 @@
 
 <!-- ══════════ ПІКІРЛЕР ══════════ -->
 <!-- TODO: нақты клиент пікірлерімен ауыстырыңыз -->
-<section id="reviews" class="container" style="padding: 80px 24px;">
-  <div class="section-head">
-    <span class="eyebrow eyebrow--purple">Пікірлер</span>
-    <h2>Ата-аналар не айтады</h2>
-    <div style="display: inline-flex; align-items: center; gap: 10px;">
-      <span style="color: #F5A623; font-size: 20px; letter-spacing: 2px;">★★★★★</span>
-      <span style="font-weight: 800; color: #4A4460;">Ата-аналар A School-ды ұсынады</span>
+<section id="reviews" class="section">
+  <div class="container">
+    <div class="sec-head sec-head--center">
+      <h2><span class="hl">Ата-аналар</span> не айтады</h2>
+      <p class="lead"><span class="stars" aria-hidden="true">★★★★★</span> &nbsp;Ата-аналар A School-ды ұсынады</p>
     </div>
-  </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; align-items: start;">
-    <div class="card lift-sm" style="padding: 26px; display: flex; flex-direction: column; gap: 14px;">
-      <span style="color: #F5A623; font-size: 16px; letter-spacing: 2px;">★★★★★</span>
-      <p style="margin: 0; font-size: 15px; color: #4A4460; line-height: 1.65; flex: 1;">«Қызым мектепке дайындыққа барды — бірінші сыныпқа оқи алатындай және қорықпастан келді. Педагогтардың әр балаға назар аударғаны үшін рахмет!»</p>
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(120deg, #6C4BC7, #8B6FE0); display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 16px; color: #fff;">А</div>
-        <div>
-          <div style="font-weight: 800; font-size: 14.5px;">Асель К.</div>
-          <div style="font-size: 13px; color: #9A94AE;">Аружанның анасы, 6 жас</div>
+    <div class="review-grid reveal-stagger">
+      <div class="review-card">
+        <span class="qmark" aria-hidden="true">«</span>
+        <blockquote>Қызым мектепке дайындыққа барды — бірінші сыныпқа оқи алатындай және қорықпастан келді. Педагогтардың әр балаға назар аударғаны үшін рахмет!</blockquote>
+        <div class="review-who">
+          <span class="ava ava--purple" aria-hidden="true">А</span>
+          <div>
+            <div class="name">Асель К.</div>
+            <div class="meta">Аружанның анасы, 6 жас</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="card lift-sm" style="padding: 26px; display: flex; flex-direction: column; gap: 14px;">
-      <span style="color: #F5A623; font-size: 16px; letter-spacing: 2px;">★★★★★</span>
-      <p style="margin: 0; font-size: 15px; color: #4A4460; line-height: 1.65; flex: 1;">«Ұзартылған күн тобы өте ыңғайлы: сабақтар орындалды, баламды мектепке жеткізеді де. Кешке отбасымен бірге болуға уақыт табылды.»</p>
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(120deg, #1F8A5B, #34A87A); display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 16px; color: #fff;">Е</div>
-        <div>
-          <div style="font-weight: 800; font-size: 14.5px;">Ерлан Т.</div>
-          <div style="font-size: 13px; color: #9A94AE;">Алиханның әкесі, 9 жас</div>
+      <div class="review-card">
+        <span class="qmark" aria-hidden="true">«</span>
+        <blockquote>Ұзартылған күн тобы өте ыңғайлы: сабақтар орындалды, баламды мектепке жеткізеді де. Кешке отбасымен бірге болуға уақыт табылды.</blockquote>
+        <div class="review-who">
+          <span class="ava ava--green" aria-hidden="true">Е</span>
+          <div>
+            <div class="name">Ерлан Т.</div>
+            <div class="meta">Алиханның әкесі, 9 жас</div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- WhatsApp хабарлама -->
-    <div style="background: #EDE7DE; border-radius: 26px; padding: 20px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); display: flex; flex-direction: column; gap: 10px;">
-      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; color: #1F6B49; margin-bottom: 2px;">
-        <span style="width: 10px; height: 10px; border-radius: 50%; background: #1F8A5B;"></span> WhatsApp хабарламасы
+      <!-- WhatsApp хат алмасу -->
+      <div class="wa-shot">
+        <div class="wa-label"><span class="ms">chat</span> WhatsApp хабарламасы</div>
+        <div class="wa-msg wa-msg--in">Сәлем! Тімурдың бірінші айы қалай өтті? 😊</div>
+        <div class="wa-msg wa-msg--out">Сәлем! Ол өте қуанышты 🥹 сабаққа өзі барғысы келеді, буындап оқи бастады! Үлкен рахмет ❤️</div>
+        <div class="wa-time">14:32 ✓✓</div>
       </div>
-      <div style="align-self: flex-start; max-width: 88%; background: #fff; border-radius: 4px 18px 18px 18px; padding: 10px 14px; font-size: 14px; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">Сәлем! Тімурдың бірінші айы қалай өтті? 😊</div>
-      <div style="align-self: flex-end; max-width: 88%; background: #D9FDD3; border-radius: 18px 4px 18px 18px; padding: 10px 14px; font-size: 14px; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">Сәлем! Ол өте қуанышты 🥹 сабаққа өзі барғысы келеді, буындап оқи бастады! Үлкен рахмет ❤️</div>
-      <div style="text-align: right; font-size: 11.5px; color: #8A8478;">14:32 ✓✓</div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ ҚАЛАЙ ЖАЗЫЛУ ══════════ -->
-<section id="steps" style="background: #F8F6FE;">
-  <div class="container" style="padding: 72px 24px;">
-    <div class="section-head" style="margin-bottom: 48px;">
-      <span class="eyebrow eyebrow--purple">Қалай жазылу керек</span>
-      <h2>Бірінші сабаққа дейін 4 қарапайым қадам</h2>
+<section id="steps" class="section surface-lav">
+  <div class="container">
+    <div class="sec-head">
+      <h2>Бірінші сабаққа дейін 4 қадам</h2>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #6C4BC7, #1F8A5B); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">1</div>
-        <div class="ms" style="font-size: 34px; color: #6C4BC7; margin: 14px 0 12px;">edit_note</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Өтінім</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">Сайтта өтінім қалдырыңыз немесе бізге WhatsApp-та жазыңыз.</p>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <span class="snum">1</span>
+        <h3>Өтінім</h3>
+        <p>Сайтта өтінім қалдырыңыз немесе бізге WhatsApp-та жазыңыз.</p>
       </div>
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #6C4BC7, #1F8A5B); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">2</div>
-        <div class="ms" style="font-size: 34px; color: #1F8A5B; margin: 14px 0 12px;">school</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Сынақ күні</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">Педагогпен және орталықпен тегін танысу сабағы.</p>
+      <div class="step">
+        <span class="snum">2</span>
+        <h3>Сынақ күні</h3>
+        <p>Педагогпен және орталықпен тегін танысу сабағы.</p>
       </div>
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #6C4BC7, #1F8A5B); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">3</div>
-        <div class="ms" style="font-size: 34px; color: #6C4BC7; margin: 14px 0 12px;">groups</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Топты таңдау</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">Деңгейді анықтаймыз және ыңғайлы топ пен ауысымды таңдаймыз.</p>
+      <div class="step">
+        <span class="snum">3</span>
+        <h3>Топты таңдау</h3>
+        <p>Деңгейді анықтаймыз және ыңғайлы топ пен ауысымды таңдаймыз.</p>
       </div>
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #6C4BC7, #1F8A5B); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">4</div>
-        <div class="ms" style="font-size: 34px; color: #1F8A5B; margin: 14px 0 12px;">rocket_launch</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Оқытуды бастау</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">Ыңғайлы кесте және ата-аналарға кері байланыс.</p>
+      <div class="step">
+        <span class="snum">4</span>
+        <h3>Оқытуды бастау</h3>
+        <p>Ыңғайлы кесте және ата-аналарға кері байланыс.</p>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 40px;">
+    <div style="margin-top: 44px;">
       <button class="btn btn-green" type="button" data-modal-open>Тегін сынақ күнінен бастау</button>
     </div>
   </div>
 </section>
 
-<!-- ══════════ СҰРАҚТАР ══════════ -->
-<section id="faq" style="max-width: 880px; margin: 0 auto; padding: 80px 24px;">
-  <div class="section-head" style="margin-bottom: 40px;">
-    <span class="eyebrow eyebrow--green">FAQ</span>
-    <h2>Жиі қойылатын сұрақтар</h2>
-  </div>
-  <div class="faq-list">
-    <div class="faq-item open">
-      <button class="faq-q" type="button" aria-expanded="true"><span>Сынақ күні шынымен тегін бе?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Иә, әрбір курс үшін тегін сынақ күні бар. Педагогпен және орталықпен танысасыз, бала сабақ форматын сынап көреді — содан кейін ғана шешім қабылдайсыз.</div>
+<!-- ══════════ FAQ ══════════ -->
+<section id="faq" class="section">
+  <div class="container-narrow" style="max-width: 880px;">
+    <div class="sec-head">
+      <h2>Жиі қойылатын сұрақтар</h2>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Оқыту қай тілде жүреді?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Мектепке дайындық орыс және қазақ тілдерінде өтеді — ыңғайлы нұсқаны таңдайсыз. «10-ы 1-де» пакетіне ағылшын және қазақ тіліндегі сабақтар да кіреді.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Мектепке дайындықтың кестесі қандай?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Сабақтар екі ауысымда өтеді: 1-ші ауысым — 9:00-ден 12:00-ге дейін, 2-ші ауысым — 14:00-ден 17:00-ге дейін. Сынақ күні ыңғайлы уақытты таңдаймыз.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Топта неше бала болады?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Топтар шағын — 10 оқушыға дейін. Бұл педагогқа әрбір балаға назар аударуға мүмкіндік береді.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Ұзартылған күн тобы үшін жеткізу бар ма?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Иә, ұзартылған күн тобы үшін мектептен орталыққа және кері жеткізу бар. Ұзартылған күн тобы аптасына 5 күн жұмыс істейді.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>«10-ы 1-де» пакетіне не кіреді?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">10 бағыт: ағылшын және қазақ тілдері, арт-студия, жасыл сынып, шахмат, IT-сынып, хореография, нейрогимнастика, логика және ментальды арифметика. Пакет мектепке дайындық және ұзартылған күн тобы үшін қол жетімді.</div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" type="button" aria-expanded="true"><span>Сынақ күні шынымен тегін бе?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Иә, әрбір курс үшін тегін сынақ күні бар. Педагогпен және орталықпен танысасыз, бала сабақ форматын сынап көреді — содан кейін ғана шешім қабылдайсыз.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Оқыту қай тілде жүреді?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Мектепке дайындық орыс және қазақ тілдерінде өтеді — ыңғайлы нұсқаны таңдайсыз. «10-ы 1-де» пакетіне ағылшын және қазақ тіліндегі сабақтар да кіреді.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Мектепке дайындықтың кестесі қандай?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Сабақтар екі ауысымда өтеді: 1-ші ауысым — 9:00-ден 12:00-ге дейін, 2-ші ауысым — 14:00-ден 17:00-ге дейін. Сынақ күні ыңғайлы уақытты таңдаймыз.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Топта неше бала болады?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Топтар шағын — 10 оқушыға дейін. Бұл педагогқа әрбір балаға назар аударуға мүмкіндік береді.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Ұзартылған күн тобы үшін жеткізу бар ма?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Иә, ұзартылған күн тобы үшін мектептен орталыққа және кері жеткізу бар. Ұзартылған күн тобы аптасына 5 күн жұмыс істейді.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>«10-ы 1-де» пакетіне не кіреді?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>10 бағыт: ағылшын және қазақ тілдері, арт-студия, жасыл сынып, шахмат, IT-сынып, хореография, нейрогимнастика, логика және ментальды арифметика. Пакет мектепке дайындық және ұзартылған күн тобы үшін қол жетімді.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ БАЙЛАНЫС ══════════ -->
-<section id="contacts" style="background: linear-gradient(160deg, #F5F1FD 0%, #EDF8F2 100%);">
-  <div class="container" style="padding: 72px 24px;">
-    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
-      <div style="flex: 1; min-width: 300px;">
-        <span class="eyebrow eyebrow--purple">Байланыс</span>
-        <h2 style="margin: 0 0 26px;">Танысуға шақырамыз</h2>
-        <div style="display: grid; gap: 14px; max-width: 460px;">
-          <div style="display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.9); border-radius: 20px; padding: 16px 20px; box-shadow: 0 8px 22px rgba(76,42,133,0.06);">
-            <span style="width: 46px; height: 46px; border-radius: 16px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 22px; color: #6C4BC7; flex-shrink: 0;"><span class="ms">location_on</span></span>
+<section id="contacts" class="section surface-lav">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <h2><span class="hl">Танысуға</span> шақырамыз</h2>
+        <p class="lead">Сұрақтарға жауап береміз, сыныптарды көрсетеміз және ыңғайлы ауысымды таңдаймыз.</p>
+        <div class="contact-list">
+          <div class="contact-row">
+            <span class="cic"><span class="ms">location_on</span></span>
             <span>
-              <span style="display: block; font-size: 12.5px; font-weight: 700; color: #9A94AE;">Мекенжай</span>
-              <span style="display: block; font-weight: 800; font-size: 15.5px;">Астана қ., Төле би көшесі, 40</span>
+              <span class="clabel">Мекенжай</span>
+              <span class="cvalue">Астана қ., Төле би көшесі, 40</span>
             </span>
           </div>
-          <a href="tel:+77004349775" style="display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.9); border-radius: 20px; padding: 16px 20px; text-decoration: none; color: inherit; box-shadow: 0 8px 22px rgba(76,42,133,0.06);">
-            <span style="width: 46px; height: 46px; border-radius: 16px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 22px; color: #1F8A5B; flex-shrink: 0;"><span class="ms">call</span></span>
+          <a class="contact-row" href="tel:+77004349775">
+            <span class="cic"><span class="ms">call</span></span>
             <span>
-              <span style="display: block; font-size: 12.5px; font-weight: 700; color: #9A94AE;">Телефон</span>
-              <span style="display: block; font-weight: 800; font-size: 15.5px;">+7 700 434 9775</span>
+              <span class="clabel">Телефон</span>
+              <span class="cvalue">+7 700 434 9775</span>
             </span>
           </a>
-          <a href="https://wa.me/77004349775" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.9); border-radius: 20px; padding: 16px 20px; text-decoration: none; color: inherit; box-shadow: 0 8px 22px rgba(76,42,133,0.06);">
-            <span style="width: 46px; height: 46px; border-radius: 16px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 22px; color: #1F8A5B; flex-shrink: 0;"><span class="ms">chat</span></span>
+          <a class="contact-row" href="https://wa.me/77004349775" target="_blank" rel="noopener">
+            <span class="cic"><span class="ms">chat</span></span>
             <span>
-              <span style="display: block; font-size: 12.5px; font-weight: 700; color: #9A94AE;">WhatsApp</span>
-              <span style="display: block; font-weight: 800; font-size: 15.5px;">WhatsApp-та жазу</span>
+              <span class="clabel">WhatsApp</span>
+              <span class="cvalue">WhatsApp-та жазу</span>
             </span>
           </a>
-          <div style="display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.9); border-radius: 20px; padding: 16px 20px; box-shadow: 0 8px 22px rgba(76,42,133,0.06);">
-            <span style="width: 46px; height: 46px; border-radius: 16px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 22px; color: #6C4BC7; flex-shrink: 0;"><span class="ms">schedule</span></span>
+          <div class="contact-row">
+            <span class="cic"><span class="ms">schedule</span></span>
             <span>
-              <span style="display: block; font-size: 12.5px; font-weight: 700; color: #9A94AE;">Жұмыс уақыты</span>
-              <span style="display: block; font-weight: 800; font-size: 15.5px;">Дс–Жм · 09:00–18:00</span>
+              <span class="clabel">Жұмыс уақыты</span>
+              <span class="cvalue">Дс–Жм · 09:00–18:00</span>
             </span>
           </div>
-          <a href="mailto:info@aschool.kz" style="display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.9); border-radius: 20px; padding: 16px 20px; text-decoration: none; color: inherit; box-shadow: 0 8px 22px rgba(76,42,133,0.06);">
-            <span style="width: 46px; height: 46px; border-radius: 16px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 22px; color: #6C4BC7; flex-shrink: 0;"><span class="ms">mail</span></span>
+          <a class="contact-row" href="mailto:info@aschool.kz">
+            <span class="cic"><span class="ms">mail</span></span>
             <span>
-              <span style="display: block; font-size: 12.5px; font-weight: 700; color: #9A94AE;">Email</span>
-              <span style="display: block; font-weight: 800; font-size: 15.5px;">info@aschool.kz</span>
+              <span class="clabel">Email</span>
+              <span class="cvalue">info@aschool.kz</span>
             </span>
           </a>
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px;">
-          <a class="social-btn" data-social="instagram" href="https://www.instagram.com/aschool_kz" target="_blank" rel="noopener" style="width:auto; padding:11px 20px; font-size:14px; border-radius:999px;">Instagram</a>
-          <a class="social-btn" data-social="tiktok" href="https://www.tiktok.com/@aschool_kz" target="_blank" rel="noopener" style="width:auto; padding:11px 20px; font-size:14px; border-radius:999px;">TikTok</a>
-          <a class="social-btn" data-social="telegram" href="https://t.me/aschool_kz" target="_blank" rel="noopener" style="width:auto; padding:11px 20px; font-size:14px; border-radius:999px;">Telegram</a>
-          <a class="social-btn" data-social="threads" href="https://www.threads.com/@aschool_kz" target="_blank" rel="noopener" style="width:auto; padding:11px 20px; font-size:14px; border-radius:999px;">Threads</a>
+        <div class="social-row">
+          <a class="social-pill" data-social="instagram" href="https://www.instagram.com/aschool_kz" target="_blank" rel="noopener">Instagram</a>
+          <a class="social-pill" data-social="tiktok" href="https://www.tiktok.com/@aschool_kz" target="_blank" rel="noopener">TikTok</a>
+          <a class="social-pill" data-social="telegram" href="https://t.me/aschool_kz" target="_blank" rel="noopener">Telegram</a>
+          <a class="social-pill" data-social="threads" href="https://www.threads.com/@aschool_kz" target="_blank" rel="noopener">Threads</a>
         </div>
       </div>
 
-      <!-- Өтінім формасы -->
-      <div style="flex: 1.1; min-width: 300px; display: grid; gap: 16px;">
-        <div style="background: #fff; border-radius: 28px; padding: 26px; box-shadow: 0 14px 36px rgba(76,42,133,0.10);">
-          <div style="font-family: 'Nunito'; font-weight: 900; font-size: 21px; margin-bottom: 4px;">Тегін сынақ күні</div>
-          <div style="font-size: 14px; color: #6B6580; margin-bottom: 18px;">Өтінім қалдырыңыз — WhatsApp пен телефон арқылы хабарласамыз.</div>
-          <form data-lead-form-inline novalidate style="display: grid; gap: 12px;">
-            <input class="field" name="name" placeholder="Атыңыз" required autocomplete="name">
-            <input class="field" name="child" placeholder="Баланың аты және жасы">
-            <select class="field" name="group" aria-label="Қай топ қызықтырады">
-              <option value="Мектепке дайындық (қаз.)">Мектепке дайындық (қаз.)</option>
-              <option value="Мектепке дайындық (орыс.)">Мектепке дайындық (орыс.)</option>
-              <option value="Ұзартылған күн тобы">Ұзартылған күн тобы</option>
-              <option value="«10-ы 1-де» пакеті">«10-ы 1-де» пакеті</option>
-              <option value="Ағылшын тілі, IELTS">Ағылшын тілі, IELTS</option>
-            </select>
-            <input class="field" name="phone" type="tel" placeholder="Телефон +7 (___) ___-__-__" required autocomplete="tel">
-            <button class="btn" type="submit" style="background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 15.5px; padding: 15px; border-radius: 16px; box-shadow: 0 12px 28px rgba(31,138,91,0.35);">Өтінім жіберу</button>
-          </form>
-          <div class="form-note" data-inline-note>«Жіберу» батырмасын басу арқылы сіз құпиялылық саясатымен келісесіз.</div>
-        </div>
+      <!-- Кірістірілген өтінім формасы -->
+      <div class="lead-card">
+        <div class="lc-title">Тегін сынақ күні</div>
+        <div class="lc-sub">Өтінім қалдырыңыз — WhatsApp пен телефон арқылы хабарласамыз.</div>
+        <form class="lead-form" data-lead-form-inline novalidate>
+          <input class="field" name="name" placeholder="Атыңыз" required autocomplete="name">
+          <input class="field" name="child" placeholder="Баланың аты және жасы">
+          <select class="field" name="group" aria-label="Қай топ қызықтырады">
+            <option value="Мектепке дайындық (қаз.)">Мектепке дайындық (қаз.)</option>
+            <option value="Мектепке дайындық (орыс.)">Мектепке дайындық (орыс.)</option>
+            <option value="Ұзартылған күн тобы">Ұзартылған күн тобы</option>
+            <option value="«10-ы 1-де» пакеті">«10-ы 1-де» пакеті</option>
+            <option value="Ағылшын тілі, IELTS">Ағылшын тілі, IELTS</option>
+          </select>
+          <input class="field" name="phone" type="tel" placeholder="Телефон +7 (___) ___-__-__" required autocomplete="tel">
+          <button class="btn btn-submit" type="submit">Өтінім жіберу</button>
+        </form>
+        <div class="form-note" data-inline-note>«Жіберу» батырмасын басу арқылы сіз құпиялылық саясатымен келісесіз.</div>
       </div>
     </div>
   </div>
@@ -664,7 +611,7 @@
     <div class="footer-top">
       <div style="flex: 1.2; min-width: 240px;">
         <a class="logo-link" href="index.html" style="margin-bottom: 16px;" aria-label="A School — басты бетке">
-          <img src="../assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+          <img src="../assets/img/logo-mark.png" alt="A School">
           <span class="logo-word">A SCHOOL</span>
         </a>
         <p style="margin: 0; font-size: 14px; max-width: 320px; line-height: 1.7;">Астанадағы білім беру орталығы: мектепке дайындық, ұзартылған күн тобы, «10-ы 1-де» пакеті, ағылшын тілі және IELTS. Қуанышпен және мейіріммен оқытамыз.</p>
@@ -711,7 +658,7 @@
   </div>
 </footer>
 
-<!-- Жылжымалы CTA -->
+<!-- Floating CTA -->
 <a class="floating-cta" href="https://wa.me/77004349775" target="_blank" rel="noopener" title="WhatsApp-та жазу">
   <span class="wa-dot"></span> Сұрақ қою
 </a>
@@ -735,7 +682,7 @@
           <option value="Ағылшын тілі, IELTS">Ағылшын тілі, IELTS</option>
         </select>
         <input class="field" name="phone" type="tel" placeholder="Телефон / WhatsApp" required autocomplete="tel">
-        <button class="btn" type="submit" style="background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 16px; padding: 16px; border-radius: 16px; box-shadow: 0 12px 28px rgba(31,138,91,0.35);">Тегін жазылу</button>
+        <button class="btn btn-submit" type="submit">Тегін жазылу</button>
       </form>
       <div class="form-note">Батырманы басу арқылы сіз құпиялылық саясатымен келісесіз.</div>
     </div>
@@ -762,35 +709,20 @@
       var group = (d.get('group') || '').toString().trim();
       var phone = (d.get('phone') || '').toString().trim();
       if (!name || !phone) { form.reportValidity && form.reportValidity(); return; }
-      var lines = [
-        'Тегін сынақ күніне өтінім — A School',
-        'Аты-жөні: ' + name,
-        child ? 'Баланың аты, жасы: ' + child : '',
-        group ? 'Топ: ' + group : '',
-        'Телефон: ' + phone
-      ].filter(Boolean);
-      // WHATSAPP_PHONE және reachGoal main.js-тен алынады
+      var lines = ['Тегін сынақ күніне өтінім — A School', 'Аты-жөні: ' + name,
+        child ? 'Баланың аты, жасы: ' + child : '', group ? 'Топ: ' + group : '',
+        'Телефон: ' + phone].filter(Boolean);
       var waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(lines.join('\n'));
       reachGoal('form_submit', { group: group });
       fetch('https://formsubmit.co/ajax/' + LEAD_EMAIL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: 'Өтінім — A School сайтынан',
-          'Аты-жөні': name,
-          'Баланың аты, жасы': child,
-          'Топ': group,
-          'Телефон': phone
-        })
+        body: JSON.stringify({ _subject: 'Өтінім — A School сайтынан', 'Аты-жөні': name, 'Баланың аты, жасы': child, 'Топ': group, 'Телефон': phone })
       }).catch(function () {});
       reachGoal('whatsapp_click');
       window.open(waUrl, '_blank');
       var note = document.querySelector('[data-inline-note]');
-      if (note) {
-        note.textContent = 'Рақмет! Өтінім жіберілді — WhatsApp-ты ашып, поштаға жолдадық.';
-        note.style.color = '#1F8A5B';
-        note.style.fontWeight = '700';
-      }
+      if (note) { note.textContent = 'Рақмет! Өтінім жіберілді — WhatsApp-ты ашып, поштаға жолдадық.'; note.style.color = '#1F6B49'; note.style.fontWeight = '700'; }
       form.reset();
     });
   }());

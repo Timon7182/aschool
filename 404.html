@@ -18,6 +18,50 @@
   <script>(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
 
   <style>
+    /* Material Symbols Rounded — сабсет (страница не подключает общий style.css) */
+    @font-face {
+      font-family: 'Material Symbols Rounded';
+      font-style: normal;
+      font-weight: 300 700;
+      font-display: block;
+      src: url('assets/fonts/material-symbols-rounded.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 600 900;
+      font-display: swap;
+      src: url('assets/fonts/nunito-cyrillic.woff2') format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    @font-face {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 600 900;
+      font-display: swap;
+      src: url('assets/fonts/nunito-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('assets/fonts/manrope-cyrillic.woff2') format('woff2');
+      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('assets/fonts/manrope-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD;
+    }
+
+    /* гейт иконок: прячем лигатуры, пока шрифт не загрузился */
+    html:not(.icons-loaded) .ms { opacity: 0; }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -64,11 +108,9 @@
     .card-404 {
       position: relative;
       z-index: 1;
-      background: rgba(255,255,255,0.80);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: #fff;
       border: 1px solid var(--card-border);
-      border-radius: 32px;
+      border-radius: 34px;
       box-shadow: 0 24px 64px rgba(76,42,133,0.12);
       padding: clamp(32px, 6vw, 56px) clamp(28px, 6vw, 64px);
       max-width: 520px;
@@ -89,10 +131,10 @@
     }
 
     .icon-wrap {
-      width: 80px;
-      height: 80px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(108,75,199,0.12), rgba(31,138,91,0.10));
+      width: 76px;
+      height: 88px;
+      border-radius: 999px 999px 24px 24px; /* арка — мотив логотипа */
+      background: #F4F0FC;
       display: grid;
       place-items: center;
       margin: 0 auto 20px;
@@ -105,10 +147,7 @@
       font-weight: 900;
       font-size: clamp(64px, 16vw, 96px);
       line-height: 1;
-      background: linear-gradient(120deg, var(--purple-dk) 0%, var(--purple) 50%, var(--green) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--purple-dk);
       margin-bottom: 8px;
     }
 
@@ -160,7 +199,7 @@
     }
 
     .btn-purple {
-      background: linear-gradient(120deg, var(--purple-dk), var(--purple));
+      background: var(--purple);
       color: #fff;
       box-shadow: 0 10px 26px rgba(76,42,133,0.28);
     }

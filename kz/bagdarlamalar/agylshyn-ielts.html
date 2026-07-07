@@ -38,8 +38,8 @@
   <link rel="preload" href="../../assets/fonts/nunito-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/material-symbols-rounded.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Icon gate: hide Material Symbols until font is loaded -->
-  <script>(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
+  <!-- JS-гейт (для scroll-reveal) + гейт иконок -->
+  <script>document.documentElement.classList.add('js');(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
 
   <link rel="stylesheet" href="../../assets/css/style.css">
 
@@ -107,9 +107,9 @@
 
 <!-- ══════════ HEADER ══════════ -->
 <header class="site-header">
-  <div class="header-inner" style="max-width: 1180px;">
+  <div class="header-inner">
     <a class="logo-link" href="../index.html" aria-label="A School — басты бетке">
-      <img src="../../assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+      <img src="../../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
 
@@ -147,12 +147,12 @@
 <aside class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Мобильді мәзір">
   <div class="mobile-menu-head">
     <a class="logo-link" href="../index.html" aria-label="A School — басты бетке">
-      <img src="../../assets/img/logo-mark.png" alt="A School" style="height:40px;width:auto;">
+      <img src="../../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
     <button class="menu-close" type="button" data-menu-close aria-label="Мәзірді жабу">✕</button>
   </div>
-  <div class="lang-toggle" style="margin-bottom:16px;" role="group" aria-label="Тіл таңдау">
+  <div class="lang-toggle" role="group" aria-label="Тіл таңдау">
     <a href="../../programs/english-ielts.html" hreflang="ru">RU</a>
     <a class="active" href="agylshyn-ielts.html" aria-current="true">ҚАЗ</a>
   </div>
@@ -169,209 +169,223 @@
 <main>
 
 <!-- ══════════ HERO ══════════ -->
-<section style="position: relative; overflow: clip; background: linear-gradient(135deg, #E7F0FB 0%, #FDFCFF 50%, #F3EFFC 100%);">
-  <div style="position: absolute; top: -140px; right: -100px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(61,111,180,0.18), transparent 70%); animation: blobdrift 16s ease-in-out infinite;"></div>
-  <div class="container-narrow" style="padding: 28px 24px 64px; position: relative;">
-    <!-- Нан ізі -->
-    <nav style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #9A94AE; margin-bottom: 28px;" aria-label="Нан ізі">
-      <a href="../index.html" style="color: #6C4BC7; text-decoration: none; font-weight: 700;">Басты бет</a>
-      <span>→</span>
-      <a href="../index.html#programs" style="color: #6C4BC7; text-decoration: none; font-weight: 700;">Бағдарламалар</a>
-      <span>→</span>
+<section class="page-hero">
+  <div class="container-narrow">
+    <nav class="crumbs" aria-label="Нан ізі">
+      <a href="../index.html">Басты бет</a>
+      <span class="sep">→</span>
+      <a href="../index.html#programs">Бағдарламалар</a>
+      <span class="sep">→</span>
       <span>Ағылшын тілі · IELTS</span>
     </nav>
-    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
-      <div style="flex: 1.15; min-width: 320px;">
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.75); border: 1px solid rgba(108,75,199,0.15); padding: 8px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: #3D6FB4; margin-bottom: 20px;">
-          <span class="ms" style="font-size: 17px;">workspace_premium</span>
-          IELTS халықаралық емтиханы
-        </div>
-        <h1 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.12; margin: 0 0 18px; letter-spacing: -0.5px;">
-          Ағылшын тілі және <span class="grad-text">IELTS-ке дайындық</span>
-        </h1>
-        <p style="font-size: 17.5px; color: #6B6580; margin: 0 0 26px; max-width: 540px; text-wrap: pretty;">
-          Бүкіл әлемде бағаланатын артықшылық береміз. IELTS халықаралық емтиханына дайындаймыз және балаларға жалпы ағылшын тілін үйретеміз — тілді нақты меңгеруге баса назар аударамыз.
-        </p>
-        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px;">
-          <button class="btn btn-green" type="button" data-modal-open>Тегін күніне жазылу</button>
+    <div class="page-hero-grid">
+      <div>
+        <span class="hero-tag"><span class="ms">workspace_premium</span> IELTS халықаралық емтиханы</span>
+        <h1>Ағылшын тілі және <span class="arc-word arc-word--purple">IELTS-ке дайындық</span></h1>
+        <p class="lead">Бүкіл әлемде бағаланатын артықшылық береміз. IELTS халықаралық емтиханына дайындаймыз және балаларға жалпы ағылшын тілін үйретеміз — тілді нақты меңгеруге баса назар аударамыз.</p>
+        <div class="hero-cta">
+          <button class="btn btn-green" type="button" data-modal-open>Тегін сынақ күніне жазылу</button>
           <a class="btn btn-ghost" href="https://wa.me/77004349775" target="_blank" rel="noopener">
             <span class="ms" style="font-size: 20px;">chat</span> WhatsApp-та сұрау
           </a>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; max-width: 560px;">
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">12 000+</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">IELTS қабылдайтын ұйымдар</div></div>
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">140+</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">ел</div></div>
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">4 дағды</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">оқу · жазу · сөйлеу · тыңдалым</div></div>
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">тегін</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">сынақ күні</div></div>
+        <div class="fact-strip">
+          <div class="fact"><div class="fv">12 000+</div><div class="fk">IELTS қабылдайтын ұйымдар</div></div>
+          <div class="fact"><div class="fv">140+</div><div class="fk">ел</div></div>
+          <div class="fact"><div class="fv">4 дағды</div><div class="fk">оқу · жазу · сөйлеу · тыңдалым</div></div>
+          <div class="fact"><div class="fv">тегін</div><div class="fk">сынақ күні</div></div>
         </div>
       </div>
-      <div style="flex: 1; min-width: 300px; position: relative;">
+      <div class="prog-feature-media">
         <!-- Фото-ұясы: нақты сурет ауыстырылады -->
-        <div class="photo-slot" data-photo-slot style="width: 100%; height: 420px; border-radius: 32px; background: linear-gradient(135deg, #E7F0FB, #EFE9FC); box-shadow: 0 30px 60px rgba(76,42,133,0.18);">
-          <div class="slot-inner"><span class="ms" style="font-size: 64px; color: #3D6FB4;">workspace_premium</span><span class="slot-caption" style="position: static;">Сурет: ағылшын тілі сабағы</span></div>
+        <div class="arch-photo" data-photo-slot>
+          <div class="slot-inner">
+            <span class="ms">workspace_premium</span>
+            <span class="slot-caption">Сурет: ағылшын тілі сабағы</span>
+          </div>
         </div>
-        <div style="position: absolute; bottom: -18px; left: 24px; background: #fff; border-radius: 20px; padding: 14px 20px; box-shadow: 0 16px 36px rgba(76,42,133,0.18); display: flex; align-items: center; gap: 12px;">
-          <span style="width: 44px; height: 44px; border-radius: 15px; background: rgba(61,111,180,0.10); display: grid; place-items: center; font-size: 22px; color: #3D6FB4;"><span class="ms">public</span></span>
-          <span style="font-size: 14px; font-weight: 800; line-height: 1.35;">Әлемде мойындалады<br><span style="font-weight: 600; color: #6B6580;">140+ ел</span></span>
+        <div class="arch-note">
+          <span class="nic"><span class="ms">public</span></span>
+          <span>Әлемде мойындалады<br><span class="sub">140+ ел</span></span>
         </div>
       </div>
     </div>
   </div>
-  <div style="height: 40px; background: linear-gradient(to bottom, transparent, #FDFCFF);"></div>
 </section>
 
 <!-- ══════════ БАҒДАРЛАМА ТУРАЛЫ ══════════ -->
-<section id="about" class="container-narrow" style="padding: 64px 24px 32px;">
-  <div style="display: flex; flex-wrap: wrap; gap: 40px;">
-    <div style="flex: 1; min-width: 300px;">
-      <span class="eyebrow eyebrow--purple">Бағдарлама туралы</span>
-      <h2 style="margin: 0 0 16px;">IELTS — бүкіл әлемдегі мүмкіндіктердің кілті</h2>
-      <p style="color: #6B6580; margin: 0 0 14px; text-wrap: pretty;">IELTS — халықаралық деңгейде мойындалған тест. Оның нәтижелерін бүкіл әлем бойынша 12 000-нан астам ұйым қабылдайды: мемлекеттік және иммиграциялық органдар, халықаралық компаниялар мен жұмыс берушілер, университеттер және кәсіби бірлестіктер.</p>
-      <p style="color: #6B6580; margin: 0 0 14px; text-wrap: pretty;">IELTS нәтижелері Ұлыбритания, Австралия, Жаңа Зеландия және Канаданы қоса алғанда 140-тан астам елде мүмкіндік ашады. Балаңыз бүкіл әлемде бағаланатын артықшылықты, сондай-ақ жоспарлардағы икемділікті алады — бұл, әсіресе, болашақты қай еліне байлағыңызды әлі шешпеген болсаңыз, өте бағалы.</p>
-      <p style="color: #6B6580; margin: 0; text-wrap: pretty;">Емтиханға дайындықтан бөлек, біз балаларға жалпы ағылшын тілін де оқытамыз — тіл шынымен жұмыс істейтін құрал болуы үшін. Тегін сынақ күнімен бастауға болады.</p>
-    </div>
-    <div style="flex: 1; min-width: 300px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; align-content: start;">
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(61,111,180,0.10); color: #3D6FB4; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">school</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Әлем университеттерінде мойындалады</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">work</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Жұмыс берушілер бағалайды</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(108,75,199,0.10); color: #6C4BC7; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">flight_takeoff</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Ел таңдауда икемділік</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(217,111,63,0.10); color: #D96F3F; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">record_voice_over</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Еркін ауызша сөйлеу</span></div>
+<section id="about" class="section--tight">
+  <div class="container-narrow">
+    <div class="why-grid">
+      <div>
+        <h2>IELTS — бүкіл әлемдегі <span class="hl">мүмкіндіктердің кілті</span></h2>
+        <p class="lead" style="margin-bottom: 14px;">IELTS — халықаралық деңгейде мойындалған тест. Оның нәтижелерін бүкіл әлем бойынша 12 000-нан астам ұйым қабылдайды: мемлекеттік және иммиграциялық органдар, халықаралық компаниялар мен жұмыс берушілер, университеттер және кәсіби бірлестіктер.</p>
+        <p style="color: #625B7B; margin: 0 0 14px; text-wrap: pretty;">IELTS нәтижелері Ұлыбритания, Австралия, Жаңа Зеландия және Канаданы қоса алғанда 140-тан астам елде мүмкіндік ашады. Балаңыз бүкіл әлемде бағаланатын артықшылықты, сондай-ақ жоспарлардағы икемділікті алады — бұл, әсіресе, болашақты қай еліне байлағыңызды әлі шешпеген болсаңыз, өте бағалы.</p>
+        <p style="color: #625B7B; margin: 0; text-wrap: pretty;">Емтиханға дайындықтан бөлек, біз балаларға жалпы ағылшын тілін де оқытамыз — тіл шынымен жұмыс істейтін құрал болуы үшін. Тегін сынақ күнімен бастауға болады.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 10px;">Бағдарлама не береді:</h3>
+        <div class="result-list reveal-stagger">
+          <div class="result-item"><span class="ms">school</span> Әлем университеттерінде мойындалады</div>
+          <div class="result-item"><span class="ms">work</span> Жұмыс берушілер бағалайды</div>
+          <div class="result-item"><span class="ms">flight_takeoff</span> Ел таңдауда икемділік</div>
+          <div class="result-item"><span class="ms">record_voice_over</span> Еркін ауызша сөйлеу</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ НЕ КІРЕДІ ══════════ -->
-<section id="modules" class="container-narrow" style="padding: 56px 24px;">
-  <div class="section-head" style="max-width: 620px; margin-bottom: 40px;">
-    <span class="eyebrow eyebrow--green">Не кіреді</span>
-    <h2 style="font-size: clamp(26px, 3vw, 38px);">Оқытудың екі бағыты</h2>
-  </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(61,111,180,0.10); display: grid; place-items: center; font-size: 25px; color: #3D6FB4; flex-shrink: 0;"><span class="ms">workspace_premium</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">IELTS-ке дайындық</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Емтиханның барлық төрт модулі бойынша мақсатты жұмыс: Listening, Reading, Writing және Speaking. Тапсырмаларды орындау стратегиялары және жаттығу тесттері.</p>
+<section id="modules" class="section--tight">
+  <div class="container-narrow">
+    <div class="sec-head">
+      <h2>Оқытудың <span class="hl--green">екі бағыты</span></h2>
     </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 25px; color: #6C4BC7; flex-shrink: 0;"><span class="ms">language</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Балаларға жалпы ағылшын тілі</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Ауызша сөйлеу, лексика және грамматика ойын түрінде — тіл жай мектеп пәні ретінде емес, нақты жұмыс істейтін құрал ретінде.</p>
-    </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 25px; color: #1F8A5B; flex-shrink: 0;"><span class="ms">headphones</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Тыңдалым және сөйлеу</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Ағылшын сөйлеуін құлақпен қабылдау және нақты тақырыптар мен диалогтарда сенімді сөйлеу дағдысын қалыптастыру.</p>
-    </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(217,111,63,0.10); display: grid; place-items: center; font-size: 25px; color: #D96F3F; flex-shrink: 0;"><span class="ms">edit_note</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Оқу және жазу</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Мәтіндермен және жазбаша сөйлеумен жұмыс: эссе құрылымы, аргументация және IELTS-ке арналған академиялық стиль.</p>
+    <div class="curriculum reveal-stagger">
+      <div class="curr-item">
+        <span class="ric"><span class="ms">workspace_premium</span></span>
+        <div>
+          <strong>IELTS-ке дайындық</strong>
+          <p>Емтиханның барлық төрт модулі бойынша мақсатты жұмыс: Listening, Reading, Writing және Speaking. Тапсырмаларды орындау стратегиялары және жаттығу тесттері.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">language</span></span>
+        <div>
+          <strong>Балаларға жалпы ағылшын тілі</strong>
+          <p>Ауызша сөйлеу, лексика және грамматика ойын түрінде — тіл жай мектеп пәні ретінде емес, нақты жұмыс істейтін құрал ретінде.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">headphones</span></span>
+        <div>
+          <strong>Тыңдалым және сөйлеу</strong>
+          <p>Ағылшын сөйлеуін құлақпен қабылдау және нақты тақырыптар мен диалогтарда сенімді сөйлеу дағдысын қалыптастыру.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">edit_note</span></span>
+        <div>
+          <strong>Оқу және жазу</strong>
+          <p>Мәтіндермен және жазбаша сөйлеумен жұмыс: эссе құрылымы, аргументация және IELTS-ке арналған академиялық стиль.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ ФОРМАТТАР ══════════ -->
-<section id="schedule" style="background: #F8F6FE;">
-  <div class="container-narrow" style="padding: 64px 24px;">
-    <div class="section-head" style="max-width: 620px; margin-bottom: 40px;">
-      <span class="eyebrow eyebrow--green">Форматтар мен кесте</span>
-      <h2 style="font-size: clamp(26px, 3vw, 38px);">Деңгейге сай формат таңдаймыз</h2>
+<section id="schedule" class="section surface-lav">
+  <div class="container-narrow">
+    <div class="sec-head">
+      <h2>Деңгейге сай <span class="hl">формат</span> таңдаймыз</h2>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
-      <div class="lift-sm" style="position: relative; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 26px; padding: 28px 26px; box-shadow: 0 10px 28px rgba(76,42,133,0.07); transition: all .25s;">
-        <h3 style="font-family: 'Nunito'; font-weight: 800; font-size: 20px; margin: 0 0 4px; color: #241E38;">Жалпы ағылшын тілі</h3>
-        <div style="font-size: 14px; color: #6B6580; margin-bottom: 18px;">Балаларға — нөлден жоғары</div>
-        <div style="display: grid; gap: 10px; margin-bottom: 22px;">
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #241E38;"><span class="ms" style="font-size: 17px; color: #1F8A5B;">groups</span> Мини-топтарда сабақтар</div>
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #241E38;"><span class="ms" style="font-size: 17px; color: #1F8A5B;">sports_esports</span> Ойын тәсілі және сөйлесу</div>
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #241E38;"><span class="ms" style="font-size: 17px; color: #1F8A5B;">trending_up</span> Деңгей сынақ күнінде анықталады</div>
-        </div>
+    <div class="plan-grid reveal-stagger" style="max-width: 820px;">
+      <div class="plan">
+        <h3>Жалпы ағылшын тілі</h3>
+        <div class="plan-when">Балаларға — нөлден жоғары</div>
+        <ul>
+          <li><span class="ms">groups</span> Мини-топтарда сабақтар</li>
+          <li><span class="ms">sports_esports</span> Ойын тәсілі және сөйлесу</li>
+          <li><span class="ms">trending_up</span> Деңгей сынақ күнінде анықталады</li>
+        </ul>
         <!-- TODO: баға мен кесте — нақтыланады -->
-        <div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38; margin-bottom: 4px;">Құны нақтыланады</div>
-        <div style="font-size: 13px; color: #6B6580; margin-bottom: 18px;">Кесте — нақтыланады</div>
-        <button class="btn btn-soft" type="button" data-modal-open data-preset="Ағылшын тілі, IELTS" style="width: 100%; padding: 14px; border-radius: 16px;">Жазылу</button>
+        <div class="price"><span class="pv" style="font-size: 20px;">Құны нақтыланады</span></div>
+        <button class="btn btn-soft" type="button" data-modal-open data-preset="Ағылшын тілі, IELTS">Жазылу</button>
       </div>
-      <div class="lift-sm" style="position: relative; background: #fff; border: 1.5px solid rgba(61,111,180,0.35); border-radius: 26px; padding: 28px 26px; box-shadow: 0 10px 28px rgba(76,42,133,0.07); transition: all .25s;">
-        <span style="position: absolute; top: -13px; right: 22px; background: linear-gradient(120deg, #3D6FB4, #4C2A85); color: #fff; font-size: 12px; font-weight: 800; padding: 6px 14px; border-radius: 999px; box-shadow: 0 8px 18px rgba(108,75,199,0.35);">Емтихан</span>
-        <h3 style="font-family: 'Nunito'; font-weight: 800; font-size: 20px; margin: 0 0 4px; color: #241E38;">IELTS-ке дайындық</h3>
-        <div style="font-size: 14px; color: #6B6580; margin-bottom: 18px;">Халықаралық сертификатқа кежетіндер үшін</div>
-        <div style="display: grid; gap: 10px; margin-bottom: 22px;">
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #241E38;"><span class="ms" style="font-size: 17px; color: #1F8A5B;">fact_check</span> Емтиханның барлық 4 модулі</div>
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #241E38;"><span class="ms" style="font-size: 17px; color: #1F8A5B;">quiz</span> Жаттығу тесттері мен стратегиялар</div>
-          <div style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #241E38;"><span class="ms" style="font-size: 17px; color: #1F8A5B;">public</span> 140+ елде мойындалады</div>
-        </div>
+      <div class="plan plan--hot">
+        <span class="hot-pill">Емтихан</span>
+        <h3>IELTS-ке дайындық</h3>
+        <div class="plan-when">Халықаралық сертификатқа баратындар үшін</div>
+        <ul>
+          <li><span class="ms">fact_check</span> Емтиханның барлық 4 модулі</li>
+          <li><span class="ms">quiz</span> Жаттығу тесттері мен стратегиялар</li>
+          <li><span class="ms">public</span> 140+ елде мойындалады</li>
+        </ul>
         <!-- TODO: баға мен кесте — нақтыланады -->
-        <div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38; margin-bottom: 4px;">Құны нақтыланады</div>
-        <div style="font-size: 13px; color: #6B6580; margin-bottom: 18px;">Кесте — нақтыланады</div>
-        <button class="btn" type="button" data-modal-open data-preset="Ағылшын тілі, IELTS" style="width: 100%; padding: 14px; border-radius: 16px; background: linear-gradient(120deg, #3D6FB4, #4C2A85); color: #fff; font-weight: 800; font-size: 15px;">Жазылу</button>
+        <div class="price"><span class="pv" style="font-size: 20px;">Құны нақтыланады</span></div>
+        <button class="btn btn-purple" type="button" data-modal-open data-preset="Ағылшын тілі, IELTS">Жазылу</button>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ ЖАЗЫЛУ ══════════ -->
-<section id="price" class="container-narrow" style="padding: 72px 24px 80px;">
-  <div style="position: relative; overflow: clip; border-radius: 36px; background: linear-gradient(115deg, #3D6FB4 0%, #6C4BC7 55%, #4C2A85 100%); color: #fff; padding: clamp(28px, 5vw, 52px); box-shadow: 0 30px 70px rgba(76,42,133,0.30); display: flex; flex-wrap: wrap; gap: 36px; align-items: center;">
-    <div style="position: absolute; top: -70px; right: 16%; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.08);"></div>
-    <div style="flex: 1.2; min-width: 300px; position: relative;">
-      <h2 style="font-size: clamp(26px, 3.2vw, 40px); margin: 0 0 12px;">Тегін сынақ күнінен бастаңыз</h2>
-      <p style="margin: 0 0 22px; color: rgba(255,255,255,0.85); max-width: 460px; text-wrap: pretty;">Педагог ағылшын тілін деңгейін анықтайды және сәйкес форматты ұсынады — жалпы ағылшын тілі немесе IELTS-ке дайындық. <!-- TODO: баға — клиент жаңа прайс жібереді -->Баға мен кесте нақтыланады.</p>
-      <div style="display: grid; gap: 10px; max-width: 420px;">
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600;"><span class="ms" style="font-size: 18px; color: #A7F3C9;">check_circle</span> IELTS-ке дайындық</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600;"><span class="ms" style="font-size: 18px; color: #A7F3C9;">check_circle</span> Балаларға жалпы ағылшын тілі</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600;"><span class="ms" style="font-size: 18px; color: #A7F3C9;">check_circle</span> Алғашқы сабақ — тегін</div>
+<section id="price" class="section">
+  <div class="container-narrow">
+    <div class="band band--purple">
+      <div class="band-split">
+        <div>
+          <h2>Тегін сынақ күнінен бастаңыз</h2>
+          <p class="lead">Педагог ағылшын тілінің деңгейін анықтайды және сәйкес форматты ұсынады — жалпы ағылшын тілі немесе IELTS-ке дайындық. <!-- TODO: баға — клиент жаңа прайс жібереді -->Баға мен кесте нақтыланады.</p>
+          <ul class="band-list" style="grid-template-columns: 1fr; margin-bottom: 0;">
+            <li><span class="ms">check_circle</span> IELTS-ке дайындық</li>
+            <li><span class="ms">check_circle</span> Балаларға жалпы ағылшын тілі</li>
+            <li><span class="ms">check_circle</span> Алғашқы сабақ — тегін</li>
+          </ul>
+        </div>
+        <div class="lead-card">
+          <div class="lc-title">Сынақ күніне жазылу</div>
+          <div class="lc-sub">WhatsApp пен телефон арқылы хабарласамыз.</div>
+          <form class="lead-form" data-lead-form-inline novalidate>
+            <input class="field" name="name" placeholder="Атыңыз" required autocomplete="name">
+            <input class="field" name="child" placeholder="Баланың аты және жасы">
+            <input class="field" name="phone" type="tel" placeholder="Телефон / WhatsApp" required autocomplete="tel">
+            <input type="hidden" name="group" value="Ағылшын тілі, IELTS">
+            <button class="btn btn-submit" type="submit">Тегін жазылу</button>
+          </form>
+          <div class="form-note" data-inline-note>Батырманы басу арқылы сіз құпиялылық саясатымен келісесіз.</div>
+        </div>
       </div>
-    </div>
-    <div style="flex: 1; min-width: 300px; position: relative; background: #fff; border-radius: 28px; padding: 28px; color: #241E38; box-shadow: 0 24px 60px rgba(0,0,0,0.25);">
-      <div style="font-family: 'Nunito'; font-weight: 900; font-size: 21px; margin-bottom: 4px;">Сынақ күніне жазылу</div>
-      <div style="font-size: 13.5px; color: #6B6580; margin-bottom: 18px;">WhatsApp пен телефон арқылы хабарласамыз.</div>
-      <form data-lead-form-inline novalidate style="display: grid; gap: 12px;">
-        <input class="field" name="name" placeholder="Атыңыз" required autocomplete="name">
-        <input class="field" name="child" placeholder="Баланың аты және жасы">
-        <input class="field" name="phone" type="tel" placeholder="Телефон / WhatsApp" required autocomplete="tel">
-        <input type="hidden" name="group" value="Ағылшын тілі, IELTS">
-        <button class="btn" type="submit" style="background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 15.5px; padding: 15px; border-radius: 16px; box-shadow: 0 12px 28px rgba(31,138,91,0.35);">Тегін жазылу</button>
-      </form>
-      <div class="form-note" data-inline-note>Батырманы басу арқылы сіз құпиялылық саясатымен келісесіз.</div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ СҰРАҚТАР ══════════ -->
-<section id="faq" style="max-width: 820px; margin: 0 auto; padding: 0 24px 80px;">
-  <h2 style="font-size: clamp(24px, 2.8vw, 34px); margin: 0 0 28px; text-align: center;">Ағылшын тілі және IELTS туралы сұрақтар</h2>
-  <div class="faq-list">
-    <div class="faq-item open">
-      <button class="faq-q" type="button" aria-expanded="true"><span>IELTS сертификаты не береді?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">IELTS — халықаралық деңгейде мойындалған тест. Оның нәтижелерін 140+ елдегі 12 000-нан астам ұйым қабылдайды, соның ішінде университеттер, жұмыс берушілер және Ұлыбритания, Австралия, Жаңа Зеландия мен Канаданың иммиграциялық органдары.</div>
+<section id="faq" class="section--tight" style="padding-top: 0;">
+  <div class="container-narrow" style="max-width: 840px;">
+    <div class="sec-head">
+      <h2>Ағылшын тілі және IELTS туралы сұрақтар</h2>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>IELTS-ке дайындалмайтын балаларға ағылшын тілі бар ма?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Иә, IELTS-ке дайындықтан басқа, біз балаларға жалпы ағылшын тілін де оқытамыз — ауызша сөйлеуге, лексика мен грамматикаға ойын түрінде баса назар аударамыз.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Қандай деңгейден бастауға болады?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Біз топты балаңыздың деңгейіне қарай іріктейміз. Тегін сынақ күнінде педагог ағымдағы деңгейді анықтайды және сәйкес сабақ форматын ұсынады.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Оқу бағасы мен кестесі қандай?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Баға мен кесте нақтыланады — жазылу кезінде және тегін сынақ күнінде толық айтамыз.</div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" type="button" aria-expanded="true"><span>IELTS сертификаты не береді?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>IELTS — халықаралық деңгейде мойындалған тест. Оның нәтижелерін 140+ елдегі 12 000-нан астам ұйым қабылдайды, соның ішінде университеттер, жұмыс берушілер және Ұлыбритания, Австралия, Жаңа Зеландия мен Канаданың иммиграциялық органдары.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>IELTS-ке дайындалмайтын балаларға ағылшын тілі бар ма?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Иә, IELTS-ке дайындықтан басқа, біз балаларға жалпы ағылшын тілін де оқытамыз — ауызша сөйлеуге, лексика мен грамматикаға ойын түрінде баса назар аударамыз.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Қандай деңгейден бастауға болады?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Біз топты балаңыздың деңгейіне қарай іріктейміз. Тегін сынақ күнінде педагог ағымдағы деңгейді анықтайды және сәйкес сабақ форматын ұсынады.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Оқу бағасы мен кестесі қандай?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Баға мен кесте нақтыланады — жазылу кезінде және тегін сынақ күнінде толық айтамыз.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ══════════ ФУТЕР ══════════ -->
+<!-- ══════════ FOOTER ══════════ -->
 <footer class="site-footer">
-  <div class="footer-inner" style="max-width: 1180px; padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+  <div class="footer-inner" style="padding: 40px clamp(20px, 4vw, 32px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
     <a class="logo-link" href="../index.html" aria-label="A School — басты бетке">
-      <img src="../../assets/img/logo-mark.png" alt="A School" style="height:46px;width:auto;">
+      <img src="../../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px;">
-      <a href="../index.html" style="color: #B9B3CC; text-decoration: none;">Басты бет</a>
-      <a href="../index.html#programs" style="color: #B9B3CC; text-decoration: none;">Барлық бағдарламалар</a>
-      <a href="../index.html#contacts" style="color: #B9B3CC; text-decoration: none;">Байланыс</a>
-      <a href="tel:+77004349775" style="color: #B9B3CC; text-decoration: none;">+7 700 434 9775</a>
-      <a href="https://acamp.kz" target="_blank" rel="noopener" style="color: #B9B3CC; text-decoration: none;">A CAMP жазғы лагері</a>
+    <div class="footer-links" style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <a href="../index.html">Басты бет</a>
+      <a href="../index.html#programs">Барлық бағдарламалар</a>
+      <a href="../index.html#contacts">Байланыс</a>
+      <a href="tel:+77004349775">+7 700 434 9775</a>
+      <a href="https://acamp.kz" target="_blank" rel="noopener">A CAMP жазғы лагері</a>
     </div>
-    <span style="font-size: 13px; color: #7A7492;">© 2026 A School</span>
+    <span style="font-size: 13px; color: #948DAD;">© 2026 A School</span>
   </div>
 </footer>
 
@@ -399,7 +413,7 @@
           <option value="«10-ы 1-де» пакеті">«10-ы 1-де» пакеті</option>
         </select>
         <input class="field" name="phone" type="tel" placeholder="Телефон / WhatsApp" required autocomplete="tel">
-        <button class="btn" type="submit" style="background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 16px; padding: 16px; border-radius: 16px; box-shadow: 0 12px 28px rgba(31,138,91,0.35);">Тегін жазылу</button>
+        <button class="btn btn-submit" type="submit">Тегін жазылу</button>
       </form>
       <div class="form-note">Батырманы басу арқылы сіз құпиялылық саясатымен келісесіз.</div>
     </div>
@@ -426,34 +440,20 @@
         var group = (d.get('group') || 'Ағылшын тілі, IELTS').toString().trim();
         var phone = (d.get('phone') || '').toString().trim();
         if (!name || !phone) { form.reportValidity && form.reportValidity(); return; }
-        var lines = [
-          'Тегін сынақ күніне өтінім — A School',
-          'Аты-жөні: ' + name,
-          child ? 'Баланың аты, жасы: ' + child : '',
-          'Топ: ' + group,
-          'Телефон: ' + phone
-        ].filter(Boolean);
+        var lines = ['Тегін сынақ күніне өтінім — A School', 'Аты-жөні: ' + name,
+          child ? 'Баланың аты, жасы: ' + child : '', 'Топ: ' + group,
+          'Телефон: ' + phone].filter(Boolean);
         var waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(lines.join('\n'));
         reachGoal('form_submit', { group: group });
         fetch('https://formsubmit.co/ajax/' + LEAD_EMAIL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            _subject: 'Өтінім — A School сайтынан',
-            'Аты-жөні': name,
-            'Баланың аты, жасы': child,
-            'Топ': group,
-            'Телефон': phone
-          })
+          body: JSON.stringify({ _subject: 'Өтінім — A School сайтынан', 'Аты-жөні': name, 'Баланың аты, жасы': child, 'Топ': group, 'Телефон': phone })
         }).catch(function () {});
         reachGoal('whatsapp_click');
         window.open(waUrl, '_blank');
         var note = form.parentNode.querySelector('[data-inline-note]');
-        if (note) {
-          note.textContent = 'Рақмет! Өтінім жіберілді — WhatsApp-ты ашып, поштаға жолдадық.';
-          note.style.color = '#1F8A5B';
-          note.style.fontWeight = '700';
-        }
+        if (note) { note.textContent = 'Рақмет! Өтінім жіберілді — WhatsApp-ты ашып, поштаға жолдадық.'; note.style.color = '#1F6B49'; note.style.fontWeight = '700'; }
         form.reset();
       });
     });

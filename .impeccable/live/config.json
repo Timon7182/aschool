@@ -1,0 +1,7 @@
+{
+  "framework": "static",
+  "files": ["index.html", "404.html", "programs/*.html", "kz/index.html", "kz/bagdarlamalar/*.html"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

@@ -38,8 +38,8 @@
   <link rel="preload" href="../assets/fonts/nunito-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/material-symbols-rounded.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Icon gate: hide Material Symbols until font is loaded -->
-  <script>(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
+  <!-- JS-гейт (для scroll-reveal) + гейт иконок -->
+  <script>document.documentElement.classList.add('js');(function(){var done=false;function showIcons(){if(done)return;done=true;document.documentElement.classList.add('icons-loaded');}if(!document.fonts){showIcons();return;}var t=setTimeout(showIcons,2000);document.fonts.load("20px 'Material Symbols Rounded'").then(function(){clearTimeout(t);showIcons();}).catch(showIcons);document.fonts.ready.then(showIcons);})();</script>
 
   <link rel="stylesheet" href="../assets/css/style.css">
 
@@ -113,9 +113,9 @@
 
 <!-- ══════════ HEADER ══════════ -->
 <header class="site-header">
-  <div class="header-inner" style="max-width: 1180px;">
+  <div class="header-inner">
     <a class="logo-link" href="../index.html" aria-label="A School — на главную">
-      <img src="../assets/img/logo-mark.png" alt="A School" style="height:48px;width:auto;">
+      <img src="../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
 
@@ -153,12 +153,12 @@
 <aside class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Мобильное меню">
   <div class="mobile-menu-head">
     <a class="logo-link" href="../index.html" aria-label="A School — на главную">
-      <img src="../assets/img/logo-mark.png" alt="A School" style="height:40px;width:auto;">
+      <img src="../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
     <button class="menu-close" type="button" data-menu-close aria-label="Закрыть меню">✕</button>
   </div>
-  <div class="lang-toggle" style="margin-bottom:16px;" role="group" aria-label="Выбор языка">
+  <div class="lang-toggle" role="group" aria-label="Выбор языка">
     <a class="active" href="prodlenka.html" aria-current="true">RU</a>
     <a href="../kz/bagdarlamalar/uzartylgan-kun-toby.html" hreflang="kk">ҚАЗ</a>
   </div>
@@ -175,146 +175,157 @@
 <main>
 
 <!-- ══════════ HERO ══════════ -->
-<section style="position: relative; overflow: clip; background: linear-gradient(135deg, #E9F6F0 0%, #FDFCFF 50%, #F3EFFC 100%);">
-  <div style="position: absolute; top: -140px; right: -100px; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(52,168,122,0.18), transparent 70%); animation: blobdrift 16s ease-in-out infinite;"></div>
-  <div class="container-narrow" style="padding: 28px 24px 64px; position: relative;">
-    <!-- Хлебные крошки -->
-    <nav style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #9A94AE; margin-bottom: 28px;" aria-label="Хлебные крошки">
-      <a href="../index.html" style="color: #6C4BC7; text-decoration: none; font-weight: 700;">Главная</a>
-      <span>→</span>
-      <a href="../index.html#programs" style="color: #6C4BC7; text-decoration: none; font-weight: 700;">Программы</a>
-      <span>→</span>
+<section class="page-hero page-hero--mint">
+  <div class="container-narrow">
+    <nav class="crumbs" aria-label="Хлебные крошки">
+      <a href="../index.html">Главная</a>
+      <span class="sep">→</span>
+      <a href="../index.html#programs">Программы</a>
+      <span class="sep">→</span>
       <span>Продлёнка</span>
     </nav>
-    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
-      <div style="flex: 1.15; min-width: 320px;">
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.75); border: 1px solid rgba(108,75,199,0.15); padding: 8px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: #1F8A5B; margin-bottom: 20px;">
-          <span class="ms" style="font-size: 17px;">auto_stories</span>
-          Для учеников 1–5 класса
-        </div>
-        <h1 style="font-family: 'Nunito'; font-weight: 900; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.12; margin: 0 0 18px; letter-spacing: -0.5px;">
-          Продлёнка, после которой <span class="grad-text">уроки уже сделаны</span>
-        </h1>
-        <p style="font-size: 17.5px; color: #6B6580; margin: 0 0 26px; max-width: 540px; text-wrap: pretty;">
-          Выполнение домашних заданий, навыки чтения и красивое письмо — под присмотром внимательного педагога. 5 дней в неделю, маленькие группы и развозка из школы и в школу. Вечер остаётся семье.
-        </p>
-        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px;">
+    <div class="page-hero-grid">
+      <div>
+        <span class="hero-tag"><span class="ms">auto_stories</span> Для учеников 1–5 класса</span>
+        <h1>Продлёнка, после которой уроки <span class="arc-word">уже сделаны</span></h1>
+        <p class="lead">Выполнение домашних заданий, навыки чтения и красивое письмо — под присмотром внимательного педагога. 5 дней в неделю, маленькие группы и развозка из школы и в школу. Вечер остаётся семье.</p>
+        <div class="hero-cta">
           <button class="btn btn-green" type="button" data-modal-open>Записаться на бесплатный день</button>
           <a class="btn btn-ghost" href="https://wa.me/77004349775" target="_blank" rel="noopener">
             <span class="ms" style="font-size: 20px;">chat</span> Спросить в WhatsApp
           </a>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; max-width: 560px;">
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">1–5 класс</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">возраст</div></div>
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">5 дней</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">в неделю</div></div>
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">до 10</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">детей в группе</div></div>
-          <div style="background: rgba(255,255,255,0.8); border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 14px 16px;"><div style="font-family: 'Nunito'; font-weight: 900; font-size: 20px; color: #241E38;">развозка</div><div style="font-size: 12.5px; color: #6B6580; font-weight: 600;">из школы и в школу</div></div>
+        <div class="fact-strip">
+          <div class="fact"><div class="fv">1–5 класс</div><div class="fk">возраст</div></div>
+          <div class="fact"><div class="fv">5 дней</div><div class="fk">в неделю</div></div>
+          <div class="fact"><div class="fv">до 10</div><div class="fk">детей в группе</div></div>
+          <div class="fact"><div class="fv">развозка</div><div class="fk">из школы и в школу</div></div>
         </div>
       </div>
-      <div style="flex: 1; min-width: 300px; position: relative;">
+      <div class="prog-feature-media">
         <!-- Фото-слот: заменить на реальное фото продлёнки -->
-        <div class="photo-slot" data-photo-slot style="width: 100%; height: 420px; border-radius: 32px; background: linear-gradient(135deg, #E0F2EA, #EFE9FC); box-shadow: 0 30px 60px rgba(76,42,133,0.18);">
-          <div class="slot-inner"><span class="ms" style="font-size: 64px; color: #1F8A5B;">auto_stories</span><span class="slot-caption" style="position: static;">Фото: группа продлёнки</span></div>
+        <div class="arch-photo" data-photo-slot>
+          <div class="slot-inner">
+            <span class="ms">auto_stories</span>
+            <span class="slot-caption">Фото: группа продлёнки</span>
+          </div>
         </div>
-        <div style="position: absolute; bottom: -18px; left: 24px; background: #fff; border-radius: 20px; padding: 14px 20px; box-shadow: 0 16px 36px rgba(76,42,133,0.18); display: flex; align-items: center; gap: 12px;">
-          <span style="width: 44px; height: 44px; border-radius: 15px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 22px; color: #1F8A5B;"><span class="ms">directions_bus</span></span>
-          <span style="font-size: 14px; font-weight: 800; line-height: 1.35;">Развозка включена<br><span style="font-weight: 600; color: #6B6580;">из школы · в школу</span></span>
+        <div class="arch-note">
+          <span class="nic"><span class="ms">directions_bus</span></span>
+          <span>Развозка включена<br><span class="sub">из школы · в школу</span></span>
         </div>
       </div>
     </div>
   </div>
-  <div style="height: 40px; background: linear-gradient(to bottom, transparent, #FDFCFF);"></div>
 </section>
 
 <!-- ══════════ О ПРОГРАММЕ ══════════ -->
-<section id="about" class="container-narrow" style="padding: 64px 24px 32px;">
-  <div style="display: flex; flex-wrap: wrap; gap: 40px;">
-    <div style="flex: 1; min-width: 300px;">
-      <span class="eyebrow eyebrow--green">О продлёнке</span>
-      <h2 style="margin: 0 0 16px;">Школа закончилась — учёба под присмотром продолжается</h2>
-      <p style="color: #6B6580; margin: 0 0 14px; text-wrap: pretty;">После уроков ребёнок приходит к нам, где спокойная рабочая атмосфера и внимательный педагог. Вместе разбираем и выполняем домашние задания по всем предметам, а потом проверяем — чтобы дома оставалось только отдыхать.</p>
-      <p style="color: #6B6580; margin: 0 0 14px; text-wrap: pretty;">Помимо домашних заданий мы уделяем время навыкам чтения и красивому письму: ребёнок читает вслух, тренирует технику чтения и аккуратный почерк. Всё это — в мини-группе до 10 учеников, где каждому достаётся внимание.</p>
-      <p style="color: #6B6580; margin: 0; text-wrap: pretty;">Продлёнка работает 5 дней в неделю. Для удобства родителей организована развозка из школы в центр и обратно. Начать можно с бесплатного пробного дня.</p>
-    </div>
-    <div style="flex: 1; min-width: 300px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; align-content: start;">
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">check</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Домашние задания сделаны и проверены</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">check</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Растёт скорость и качество чтения</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">check</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Аккуратный и красивый почерк</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">check</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Привычка к самостоятельной работе</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">check</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Развозка из школы и в школу</span></div>
-      <div style="display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 18px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(76,42,133,0.04);"><span style="width: 34px; height: 34px; border-radius: 12px; background: rgba(31,138,91,0.10); color: #1F8A5B; display: grid; place-items: center; font-size: 18px; flex-shrink: 0;"><span class="ms">check</span></span><span style="font-size: 14.5px; font-weight: 700; color: #3B3452; line-height: 1.45;">Свободный вечер для всей семьи</span></div>
+<section id="about" class="section--tight">
+  <div class="container-narrow">
+    <div class="why-grid">
+      <div>
+        <h2>Школа закончилась — учёба под присмотром <span class="hl--green">продолжается</span></h2>
+        <p class="lead" style="margin-bottom: 14px;">После уроков ребёнок приходит к нам, где спокойная рабочая атмосфера и внимательный педагог. Вместе разбираем и выполняем домашние задания по всем предметам, а потом проверяем — чтобы дома оставалось только отдыхать.</p>
+        <p style="color: #625B7B; margin: 0 0 14px; text-wrap: pretty;">Помимо домашних заданий мы уделяем время навыкам чтения и красивому письму: ребёнок читает вслух, тренирует технику чтения и аккуратный почерк. Всё это — в мини-группе до 10 учеников, где каждому достаётся внимание.</p>
+        <p style="color: #625B7B; margin: 0; text-wrap: pretty;">Продлёнка работает 5 дней в неделю. Для удобства родителей организована развозка из школы в центр и обратно. Начать можно с бесплатного пробного дня.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 10px;">Что получает семья:</h3>
+        <div class="result-list reveal-stagger">
+          <div class="result-item"><span class="ms">check_circle</span> Домашние задания сделаны и проверены</div>
+          <div class="result-item"><span class="ms">check_circle</span> Растёт скорость и качество чтения</div>
+          <div class="result-item"><span class="ms">check_circle</span> Аккуратный и красивый почерк</div>
+          <div class="result-item"><span class="ms">check_circle</span> Привычка к самостоятельной работе</div>
+          <div class="result-item"><span class="ms">check_circle</span> Развозка из школы и в школу</div>
+          <div class="result-item"><span class="ms">check_circle</span> Свободный вечер для всей семьи</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ ЧТО ВХОДИТ ══════════ -->
-<section id="modules" class="container-narrow" style="padding: 56px 24px;">
-  <div class="section-head" style="max-width: 620px; margin-bottom: 40px;">
-    <span class="eyebrow eyebrow--purple">Что входит</span>
-    <h2 style="font-size: clamp(26px, 3vw, 38px);">Что делает ребёнок на продлёнке</h2>
-  </div>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(108,75,199,0.10); display: grid; place-items: center; font-size: 25px; color: #6C4BC7; flex-shrink: 0;"><span class="ms">assignment</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Домашние задания</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Выполняем и проверяем уроки по всем предметам, разбираем сложные места, помогаем разобраться в материале.</p>
+<section id="modules" class="section--tight">
+  <div class="container-narrow">
+    <div class="sec-head">
+      <h2>Что делает ребёнок <span class="hl">на продлёнке</span></h2>
     </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 25px; color: #1F8A5B; flex-shrink: 0;"><span class="ms">menu_book</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Навыки чтения</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Читаем вслух, тренируем технику и скорость чтения, учимся понимать и пересказывать прочитанное.</p>
-    </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(217,111,63,0.10); display: grid; place-items: center; font-size: 25px; color: #D96F3F; flex-shrink: 0;"><span class="ms">stylus_note</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Красивое письмо</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Ставим руку и аккуратный почерк, тренируем чистописание и правильную посадку за партой.</p>
-    </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(61,111,180,0.10); display: grid; place-items: center; font-size: 25px; color: #3D6FB4; flex-shrink: 0;"><span class="ms">groups</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Мини-группа</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">До 10 учеников в группе — педагог видит каждого ребёнка и помогает именно там, где нужно.</p>
-    </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(31,138,91,0.10); display: grid; place-items: center; font-size: 25px; color: #1F8A5B; flex-shrink: 0;"><span class="ms">directions_bus</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Развозка</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">Забираем ребёнка из школы в центр и отвозим обратно — родителям не нужно подстраивать день.</p>
-    </div>
-    <div class="lift-sm" style="background: #fff; border: 1px solid rgba(108,75,199,0.10); border-radius: 24px; padding: 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.05); transition: all .25s;">
-      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;"><span style="width: 50px; height: 50px; border-radius: 17px; background: rgba(139,91,214,0.10); display: grid; place-items: center; font-size: 25px; color: #8B5BD6; flex-shrink: 0;"><span class="ms">extension</span></span><h3 style="font-weight: 800; font-size: 18px; margin: 0;">Пакет «10 в 1»</h3></div>
-      <p style="font-size: 14.5px; color: #6B6580; margin: 0;">При желании продлёнку можно дополнить пакетом «10 в 1» — 10 направлений для общего развития ребёнка.</p>
+    <div class="curriculum reveal-stagger">
+      <div class="curr-item">
+        <span class="ric"><span class="ms">assignment</span></span>
+        <div>
+          <strong>Домашние задания</strong>
+          <p>Выполняем и проверяем уроки по всем предметам, разбираем сложные места, помогаем разобраться в материале.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">menu_book</span></span>
+        <div>
+          <strong>Навыки чтения</strong>
+          <p>Читаем вслух, тренируем технику и скорость чтения, учимся понимать и пересказывать прочитанное.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">stylus_note</span></span>
+        <div>
+          <strong>Красивое письмо</strong>
+          <p>Ставим руку и аккуратный почерк, тренируем чистописание и правильную посадку за партой.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">groups</span></span>
+        <div>
+          <strong>Мини-группа</strong>
+          <p>До 10 учеников в группе — педагог видит каждого ребёнка и помогает именно там, где нужно.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">directions_bus</span></span>
+        <div>
+          <strong>Развозка</strong>
+          <p>Забираем ребёнка из школы в центр и отвозим обратно — родителям не нужно подстраивать день.</p>
+        </div>
+      </div>
+      <div class="curr-item">
+        <span class="ric"><span class="ms">extension</span></span>
+        <div>
+          <strong>Пакет «10 в 1»</strong>
+          <p>При желании продлёнку можно дополнить пакетом «10 в 1» — 10 направлений для общего развития ребёнка.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ КАК ПРОХОДИТ ДЕНЬ ══════════ -->
-<section id="schedule" style="background: #F8F6FE;">
-  <div class="container-narrow" style="padding: 64px 24px;">
-    <div class="section-head" style="max-width: 620px; margin-bottom: 40px;">
-      <span class="eyebrow eyebrow--green">Как проходит день</span>
-      <h2 style="font-size: clamp(26px, 3vw, 38px);">От школы до готовых уроков</h2>
+<section id="schedule" class="section surface-lav">
+  <div class="container-narrow">
+    <div class="sec-head">
+      <h2>От школы <span class="hl">до готовых уроков</span></h2>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #1F8A5B, #6C4BC7); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">1</div>
-        <div class="ms" style="font-size: 34px; color: #1F8A5B; margin: 14px 0 12px;">directions_bus</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Забираем из школы</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">После уроков ребёнка отвозят из школы в центр развозкой.</p>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <span class="snum">1</span>
+        <h3>Забираем из школы</h3>
+        <p>После уроков ребёнка отвозят из школы в центр развозкой.</p>
       </div>
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #1F8A5B, #6C4BC7); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">2</div>
-        <div class="ms" style="font-size: 34px; color: #6C4BC7; margin: 14px 0 12px;">restaurant</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Отдых и перекус</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">Небольшой отдых после школы, чтобы переключиться. <!-- TODO: питание уточняется --><span style="color:#9A94AE;">(питание уточняется)</span></p>
+      <div class="step">
+        <span class="snum">2</span>
+        <h3>Отдых и перекус</h3>
+        <p>Небольшой отдых после школы, чтобы переключиться. <!-- TODO: питание уточняется --><span style="color:#8D87A3;">(питание уточняется)</span></p>
       </div>
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #1F8A5B, #6C4BC7); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">3</div>
-        <div class="ms" style="font-size: 34px; color: #1F8A5B; margin: 14px 0 12px;">assignment_turned_in</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Домашние задания</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">Выполняем и проверяем уроки, читаем и тренируем письмо.</p>
+      <div class="step">
+        <span class="snum">3</span>
+        <h3>Домашние задания</h3>
+        <p>Выполняем и проверяем уроки, читаем и тренируем письмо.</p>
       </div>
-      <div class="lift-sm" style="position: relative; background: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 8px 24px rgba(76,42,133,0.06); transition: all .25s;">
-        <div style="position: absolute; top: -14px; left: 24px; width: 44px; height: 44px; border-radius: 16px; background: linear-gradient(120deg, #1F8A5B, #6C4BC7); color: #fff; display: grid; place-items: center; font-family: 'Nunito'; font-weight: 900; font-size: 19px; box-shadow: 0 10px 22px rgba(108,75,199,0.35);">4</div>
-        <div class="ms" style="font-size: 34px; color: #6C4BC7; margin: 14px 0 12px;">home</div>
-        <h3 style="font-weight: 800; font-size: 18px; margin: 0 0 6px;">Домой без уроков</h3>
-        <p style="font-size: 14px; color: #6B6580; margin: 0;">Развозим ребёнка обратно — вечер свободен для семьи.</p>
+      <div class="step">
+        <span class="snum">4</span>
+        <h3>Домой без уроков</h3>
+        <p>Развозим ребёнка обратно — вечер свободен для семьи.</p>
       </div>
     </div>
-    <div style="margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; background: rgba(31,138,91,0.06); border: 1px solid rgba(31,138,91,0.15); border-radius: 20px; padding: 18px 22px;">
+    <div style="margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; background: rgba(31,138,91,0.06); border: 1px solid rgba(31,138,91,0.15); border-radius: 20px; padding: 18px 22px;">
       <span class="ms" style="font-size: 22px; color: #1F8A5B;">schedule</span>
       <span style="font-size: 14.5px; font-weight: 700; color: #1F6B49;">Работаем 5 дней в неделю в будни. Точное время подстраиваем под смену вашего ребёнка. <!-- TODO: цена — клиент пришлёт новый прайс -->Стоимость уточняется.</span>
     </div>
@@ -322,56 +333,63 @@
 </section>
 
 <!-- ══════════ ЗАПИСЬ ══════════ -->
-<section id="price" class="container-narrow" style="padding: 72px 24px 80px;">
-  <div style="position: relative; overflow: clip; border-radius: 36px; background: linear-gradient(115deg, #1F8A5B 0%, #6C4BC7 55%, #4C2A85 100%); color: #fff; padding: clamp(28px, 5vw, 52px); box-shadow: 0 30px 70px rgba(76,42,133,0.30); display: flex; flex-wrap: wrap; gap: 36px; align-items: center;">
-    <div style="position: absolute; top: -70px; right: 16%; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.08);"></div>
-    <div style="flex: 1.2; min-width: 300px; position: relative;">
-      <h2 style="font-size: clamp(26px, 3.2vw, 40px); margin: 0 0 12px;">Начните с бесплатного пробного дня</h2>
-      <p style="margin: 0 0 22px; color: rgba(255,255,255,0.85); max-width: 460px; text-wrap: pretty;">Приведите ребёнка на пробный день продлёнки. Посмотрите, как проходят занятия, познакомьтесь с педагогом — и только потом решайте.</p>
-      <div style="display: grid; gap: 10px; max-width: 420px;">
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600;"><span class="ms" style="font-size: 18px; color: #A7F3C9;">check_circle</span> Бесплатный пробный день</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600;"><span class="ms" style="font-size: 18px; color: #A7F3C9;">check_circle</span> Развозка из школы и в школу</div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600;"><span class="ms" style="font-size: 18px; color: #A7F3C9;">check_circle</span> Домашние задания под присмотром</div>
+<section id="price" class="section">
+  <div class="container-narrow">
+    <div class="band band--green">
+      <div class="band-split">
+        <div>
+          <h2>Начните с бесплатного пробного дня</h2>
+          <p class="lead">Приведите ребёнка на пробный день продлёнки. Посмотрите, как проходят занятия, познакомьтесь с педагогом — и только потом решайте.</p>
+          <ul class="band-list" style="grid-template-columns: 1fr; margin-bottom: 0;">
+            <li><span class="ms">check_circle</span> Бесплатный пробный день</li>
+            <li><span class="ms">check_circle</span> Развозка из школы и в школу</li>
+            <li><span class="ms">check_circle</span> Домашние задания под присмотром</li>
+          </ul>
+        </div>
+        <div class="lead-card">
+          <div class="lc-title">Записаться на пробный день</div>
+          <div class="lc-sub">Свяжемся с вами в WhatsApp и по телефону.</div>
+          <form class="lead-form" data-lead-form-inline novalidate>
+            <input class="field" name="name" placeholder="Ваше имя" required autocomplete="name">
+            <input class="field" name="child" placeholder="Имя ребёнка и возраст">
+            <input class="field" name="phone" type="tel" placeholder="Телефон / WhatsApp" required autocomplete="tel">
+            <input type="hidden" name="group" value="Продлёнка">
+            <button class="btn btn-submit" type="submit">Записаться бесплатно</button>
+          </form>
+          <div class="form-note" data-inline-note>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</div>
+        </div>
       </div>
-    </div>
-    <div style="flex: 1; min-width: 300px; position: relative; background: #fff; border-radius: 28px; padding: 28px; color: #241E38; box-shadow: 0 24px 60px rgba(0,0,0,0.25);">
-      <div style="font-family: 'Nunito'; font-weight: 900; font-size: 21px; margin-bottom: 4px;">Записаться на пробный день</div>
-      <div style="font-size: 13.5px; color: #6B6580; margin-bottom: 18px;">Свяжемся с вами в WhatsApp и по телефону.</div>
-      <form data-lead-form-inline novalidate style="display: grid; gap: 12px;">
-        <input class="field" name="name" placeholder="Ваше имя" required autocomplete="name">
-        <input class="field" name="child" placeholder="Имя ребёнка и возраст">
-        <input class="field" name="phone" type="tel" placeholder="Телефон / WhatsApp" required autocomplete="tel">
-        <input type="hidden" name="group" value="Продлёнка">
-        <button class="btn" type="submit" style="background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 15.5px; padding: 15px; border-radius: 16px; box-shadow: 0 12px 28px rgba(31,138,91,0.35);">Записаться бесплатно</button>
-      </form>
-      <div class="form-note" data-inline-note>Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</div>
     </div>
   </div>
 </section>
 
 <!-- ══════════ FAQ ══════════ -->
-<section id="faq" style="max-width: 820px; margin: 0 auto; padding: 0 24px 80px;">
-  <h2 style="font-size: clamp(24px, 2.8vw, 34px); margin: 0 0 28px; text-align: center;">Вопросы о продлёнке</h2>
-  <div class="faq-list">
-    <div class="faq-item open">
-      <button class="faq-q" type="button" aria-expanded="true"><span>Есть ли развозка из школы и обратно?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Да, для групп продлёнки организована развозка: ребёнка забирают из школы в центр, а после занятий отвозят домой или в школу. Маршрут уточняется при записи.</div>
+<section id="faq" class="section--tight" style="padding-top: 0;">
+  <div class="container-narrow" style="max-width: 840px;">
+    <div class="sec-head">
+      <h2>Вопросы о продлёнке</h2>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Сколько дней в неделю работает продлёнка?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Продлёнка работает 5 дней в неделю, в будни, после школьных уроков. Точное время подстраивается под смену вашего ребёнка.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Помогают ли с домашними заданиями?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Да. Педагог помогает выполнить домашние задания по всем предметам, проверяет их, а также занимается чтением и красивым письмом. Ребёнок уходит домой с готовыми уроками.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Организовано ли питание?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Вопрос питания уточняется — расскажем подробно на бесплатном пробном дне.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" type="button" aria-expanded="false"><span>Пробный день действительно бесплатный?</span><span class="faq-icon" aria-hidden="true">+</span></button>
-      <div class="faq-a">Да, первый пробный день бесплатный и ни к чему не обязывает. Ребёнок познакомится с педагогом и форматом продлёнки.</div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q" type="button" aria-expanded="true"><span>Есть ли развозка из школы и обратно?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Да, для групп продлёнки организована развозка: ребёнка забирают из школы в центр, а после занятий отвозят домой или в школу. Маршрут уточняется при записи.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Сколько дней в неделю работает продлёнка?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Продлёнка работает 5 дней в неделю, в будни, после школьных уроков. Точное время подстраивается под смену вашего ребёнка.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Помогают ли с домашними заданиями?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Да. Педагог помогает выполнить домашние задания по всем предметам, проверяет их, а также занимается чтением и красивым письмом. Ребёнок уходит домой с готовыми уроками.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Организовано ли питание?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Вопрос питания уточняется — расскажем подробно на бесплатном пробном дне.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>Пробный день действительно бесплатный?</span><span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a-wrap"><div class="faq-a"><p>Да, первый пробный день бесплатный и ни к чему не обязывает. Ребёнок познакомится с педагогом и форматом продлёнки.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -380,19 +398,19 @@
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="site-footer">
-  <div class="footer-inner" style="max-width: 1180px; padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+  <div class="footer-inner" style="padding: 40px clamp(20px, 4vw, 32px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
     <a class="logo-link" href="../index.html" aria-label="A School — на главную">
-      <img src="../assets/img/logo-mark.png" alt="A School" style="height:46px;width:auto;">
+      <img src="../assets/img/logo-mark.png" alt="A School">
       <span class="logo-word">A SCHOOL</span>
     </a>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px;">
-      <a href="../index.html" style="color: #B9B3CC; text-decoration: none;">Главная</a>
-      <a href="../index.html#programs" style="color: #B9B3CC; text-decoration: none;">Все программы</a>
-      <a href="../index.html#contacts" style="color: #B9B3CC; text-decoration: none;">Контакты</a>
-      <a href="tel:+77004349775" style="color: #B9B3CC; text-decoration: none;">+7 700 434 9775</a>
-      <a href="https://acamp.kz" target="_blank" rel="noopener" style="color: #B9B3CC; text-decoration: none;">Летний лагерь A CAMP</a>
+    <div class="footer-links" style="display: flex; flex-wrap: wrap; gap: 20px;">
+      <a href="../index.html">Главная</a>
+      <a href="../index.html#programs">Все программы</a>
+      <a href="../index.html#contacts">Контакты</a>
+      <a href="tel:+77004349775">+7 700 434 9775</a>
+      <a href="https://acamp.kz" target="_blank" rel="noopener">Летний лагерь A CAMP</a>
     </div>
-    <span style="font-size: 13px; color: #7A7492;">© 2026 A School</span>
+    <span style="font-size: 13px; color: #948DAD;">© 2026 A School</span>
   </div>
 </footer>
 
@@ -408,19 +426,19 @@
     <div data-modal-form>
       <div class="modal-badge" aria-hidden="true"><span class="ms">auto_stories</span></div>
       <h2 id="modalTitle">Пробный день — бесплатно</h2>
-      <p class="modal-sub">Продлёнка для 1–5 класса. Свяжемся с вами в WhatsApp и по телефону в рабочее время.</p>
+      <p class="modal-sub">Продлёнка, 1–5 класс. Свяжемся с вами в WhatsApp и по телефону в рабочее время.</p>
       <form class="modal-form" novalidate>
         <input class="field" name="name" placeholder="Ваше имя" required autocomplete="name">
         <input class="field" name="child" placeholder="Имя ребёнка и возраст">
         <select class="field" name="group" aria-label="Какая группа интересует">
-          <option value="Продлёнка">Продлёнка</option>
+          <option value="Продлёнка" selected>Продлёнка</option>
           <option value="Подготовка к школе (рус.)">Подготовка к школе (рус.)</option>
           <option value="Мектепке дайындық (каз.)">Мектепке дайындық (каз.)</option>
           <option value="Пакет «10 в 1»">Пакет «10 в 1»</option>
           <option value="Английский, IELTS">Английский, IELTS</option>
         </select>
         <input class="field" name="phone" type="tel" placeholder="Телефон / WhatsApp" required autocomplete="tel">
-        <button class="btn" type="submit" style="background: linear-gradient(120deg, #23996A, #1F8A5B); color: #fff; font-weight: 800; font-size: 16px; padding: 16px; border-radius: 16px; box-shadow: 0 12px 28px rgba(31,138,91,0.35);">Записаться бесплатно</button>
+        <button class="btn btn-submit" type="submit">Записаться бесплатно</button>
       </form>
       <div class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</div>
     </div>
@@ -435,7 +453,7 @@
 
 <script src="../assets/js/main.js"></script>
 <script>
-  /* Встроенные формы (запись) используют ту же логику отправки, что и модалка */
+  /* Встроенные формы (hero-запись) используют ту же логику отправки, что и модалка */
   (function inlineLeadForms() {
     var forms = document.querySelectorAll('[data-lead-form-inline]');
     Array.prototype.forEach.call(forms, function (form) {
@@ -460,7 +478,7 @@
         reachGoal('whatsapp_click');
         window.open(waUrl, '_blank');
         var note = form.parentNode.querySelector('[data-inline-note]');
-        if (note) { note.textContent = 'Спасибо! Заявка отправлена — мы открыли WhatsApp и продублировали её на почту.'; note.style.color = '#1F8A5B'; note.style.fontWeight = '700'; }
+        if (note) { note.textContent = 'Спасибо! Заявка отправлена — мы открыли WhatsApp и продублировали её на почту.'; note.style.color = '#1F6B49'; note.style.fontWeight = '700'; }
         form.reset();
       });
     });

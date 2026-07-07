@@ -195,6 +195,29 @@ function reachGoal(goal, params) {
 }());
 
 /* ============================================================
+   Появление секций при скролле (reveal / reveal-stagger)
+   Элементы видимы по умолчанию; скрытие включается классом .js
+   на <html> (ставится в <head>), поэтому без JS всё видно.
+   ============================================================ */
+(function scrollReveal() {
+  const targets = document.querySelectorAll('.reveal, .reveal-stagger');
+  if (!targets.length) return;
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((t) => t.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach((t) => io.observe(t));
+}());
+
+/* ============================================================
    Цели метрики на клики по соцсетям / телефону / whatsapp
    ============================================================ */
 (function trackClicks() {
