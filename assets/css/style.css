@@ -698,6 +698,21 @@ html:not(.icons-loaded) .nav-group > .nav-link::after { opacity: 0; }
 .arch-photo .slot-inner .ms { font-size: 52px; color: var(--purple); opacity: 0.7; }
 .arch-photo .slot-caption { font-size: 12.5px; font-weight: 700; color: var(--muted); max-width: 22ch; }
 
+/* Video */
+.video-frame {
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 26px;
+  overflow: clip;
+  background: #0d0b16;
+  box-shadow: var(--shadow-1);
+  position: relative;
+}
+.video-frame video { display: block; width: 100%; height: auto; }
+.prog-feature-media .video-frame { width: min(100%, 340px); }
+.video-band .video-frame { max-width: 320px; }
+.video-band .why-grid { align-items: center; }
+
 /* Ряд трёх программ */
 .prog-row {
   display: grid;

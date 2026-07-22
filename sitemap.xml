@@ -83,6 +83,16 @@
   </url>
 
   <url>
+    <loc>https://timon7182.github.io/aschool/programs/art-studiya.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/art-studiya.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/oner-studiyasy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/art-studiya.html"/>
+  </url>
+
+  <url>
     <loc>https://timon7182.github.io/aschool/about.html</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -220,6 +230,16 @@
     <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/shahmaty.html"/>
     <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/shahmat.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/shahmaty.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/oner-studiyasy.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/art-studiya.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/oner-studiyasy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/art-studiya.html"/>
   </url>
 
   <url>
