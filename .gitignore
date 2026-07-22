@@ -12,3 +12,7 @@ npm-debug.log*
 .idea/
 *.swp
 *.swo
+
+# Клиентские материалы ТЗ и черновики
+тз/
+demo-variants.html

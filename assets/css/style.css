@@ -396,6 +396,52 @@ h3 { font-size: 1.25rem; line-height: 1.25; margin: 0 0 8px; }
 }
 .nav-link:hover { background: rgba(108, 75, 199, 0.08); color: var(--purple-dark); }
 
+/* Выпадающее подменю (десктоп) */
+.nav-group { position: relative; }
+.nav-group > .nav-link { cursor: pointer; }
+.nav-group > .nav-link::after {
+  content: '\e5cf'; /* expand_more */
+  font-family: 'Material Symbols Rounded';
+  font-variation-settings: 'FILL' 1, 'wght' 500;
+  font-size: 17px; margin-left: 2px;
+  transition: transform var(--dur-1) ease;
+}
+html:not(.icons-loaded) .nav-group > .nav-link::after { opacity: 0; }
+.nav-group:hover > .nav-link::after,
+.nav-group:focus-within > .nav-link::after { transform: rotate(180deg); }
+.nav-menu {
+  position: absolute; top: 100%; left: 0;
+  min-width: 232px;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-2);
+  padding: 8px;
+  display: grid; gap: 2px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--dur-1) ease, visibility var(--dur-1) ease, transform var(--dur-1) var(--ease-out);
+  z-index: 5;
+}
+.nav-group:hover > .nav-menu,
+.nav-group:focus-within > .nav-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-menu a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 13px; border-radius: var(--r-sm);
+  font-size: 14px; font-weight: 700; color: var(--ink-2);
+  text-decoration: none; white-space: nowrap;
+}
+.nav-menu a .ms { font-size: 18px; color: var(--purple); }
+.nav-menu a:hover { background: rgba(108, 75, 199, 0.08); color: var(--purple-dark); }
+
+/* Секции-разделители в мобильном меню */
+.mob-label {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--faint);
+  padding: 14px 14px 4px;
+}
+.mobile-nav a.mob-sub { padding-left: 26px; font-weight: 600; font-size: 15px; }
+
 .header-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
 /* Переключатель языка */
@@ -1391,6 +1437,165 @@ select.field { color: var(--ink); }
   margin: 0 auto;
 }
 .final-cta .btn-green { margin-top: 6px; }
+
+/* ============================================================
+   Прайс-лист (страница «Цены» и блоки цен)
+   ============================================================ */
+.price-group {
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+.price-group-head {
+  display: flex; align-items: center; gap: 13px;
+  padding: 20px clamp(18px, 3vw, 28px);
+  background: var(--lav-1);
+  border-bottom: 1px solid var(--line-soft);
+}
+.price-group--green .price-group-head { background: var(--mint-1); }
+.price-group-head .pg-ic {
+  width: 44px; height: 50px;
+  border-radius: var(--r-arch);
+  background: #fff;
+  display: grid; place-items: center;
+  font-size: 22px; color: var(--purple); flex-shrink: 0;
+}
+.price-group--green .price-group-head .pg-ic { color: var(--green); }
+.price-group-head h3 { margin: 0; font-size: clamp(1.15rem, 2vw, 1.4rem); }
+.price-group-head .pg-sub { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+.price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr) auto;
+  gap: 10px clamp(14px, 2.5vw, 28px);
+  align-items: center;
+  padding: 18px clamp(18px, 3vw, 28px);
+  border-top: 1px solid var(--line-soft);
+}
+.price-row:first-of-type { border-top: none; }
+.price-row .pr-name { font-family: var(--font-head); font-weight: 800; font-size: 15.5px; color: var(--ink); }
+.price-row .pr-name .pr-sub { display: block; font-family: var(--font-body); font-size: 13px; color: var(--muted); font-weight: 600; margin-top: 2px; }
+.price-row .pr-when { font-size: 14px; color: var(--ink-2); font-weight: 600; }
+.price-row .pr-cost {
+  justify-self: end; text-align: right;
+  font-family: var(--font-head); font-weight: 900;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  color: var(--purple-dark); white-space: nowrap;
+}
+.price-row .pr-cost .pr-unit { display: block; font-family: var(--font-body); font-size: 12px; color: var(--muted); font-weight: 600; }
+.pr-badge {
+  display: inline-block; margin-top: 5px;
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 800; letter-spacing: 0.02em;
+  color: var(--green-dark); background: rgba(31, 138, 91, 0.1);
+  padding: 3px 9px; border-radius: var(--r-pill);
+}
+@media (max-width: 620px) {
+  .price-row { grid-template-columns: 1fr auto; }
+  .price-row .pr-when { grid-column: 1 / -1; order: 3; }
+  .price-row .pr-cost { order: 2; }
+}
+
+/* Пакет «10 в 1» — сетка вложений (на светлом фоне) */
+.pack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+.pack-item {
+  display: flex; align-items: center; gap: 11px;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  padding: 13px 16px;
+  font-size: 14.5px; font-weight: 700; color: var(--ink);
+  box-shadow: var(--shadow-1);
+}
+.pack-item .pn { font-family: var(--font-head); font-weight: 900; color: var(--purple); width: 22px; flex-shrink: 0; }
+.pack-item .ms { font-size: 20px; color: var(--green); }
+
+/* Ленты-баллы IELTS */
+.band-scores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 12px; margin: 6px 0 0;
+}
+.band-scores .bs {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-md);
+  padding: 14px 12px; text-align: center;
+}
+.band-scores .bs .bv { font-family: var(--font-head); font-weight: 900; font-size: 26px; line-height: 1; }
+.band-scores .bs .bk { font-size: 12.5px; font-weight: 700; color: rgba(255, 255, 255, 0.85); margin-top: 6px; }
+
+/* Плитки-статистика (О центре, IELTS) */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+.stat {
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 24px 22px;
+  box-shadow: var(--shadow-1);
+}
+.stat .sv { font-family: var(--font-head); font-weight: 900; font-size: clamp(1.8rem, 3.4vw, 2.4rem); color: var(--purple); line-height: 1; }
+.stat--green .sv { color: var(--green); }
+.stat .sk { font-size: 14px; color: var(--muted); font-weight: 600; margin-top: 8px; }
+
+/* Мероприятия */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.event-card {
+  display: flex; flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  overflow: clip;
+  box-shadow: var(--shadow-1);
+  transition: transform var(--dur-1) var(--ease-out), box-shadow var(--dur-1) var(--ease-out);
+}
+.event-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-2); }
+.event-card .ev-top {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(150deg, var(--lav-1), var(--mint-1));
+  display: grid; place-items: center;
+  position: relative;
+}
+.event-card .ev-top .ms { font-size: 46px; color: var(--purple); opacity: 0.65; }
+.event-card .ev-tag {
+  position: absolute; top: 14px; left: 14px;
+  font-size: 12px; font-weight: 800;
+  color: var(--purple-dark); background: rgba(255, 255, 255, 0.92);
+  padding: 6px 12px; border-radius: var(--r-pill);
+}
+.event-card .ev-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.event-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.event-card p { font-size: 14.5px; color: var(--muted); margin: 0 0 14px; }
+.event-card .ev-meta { margin-top: auto; display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: var(--green-dark); }
+.event-card .ev-meta .ms { font-size: 18px; color: var(--green); }
+
+/* Сертификат-плашка */
+.cert-note {
+  display: flex; align-items: center; gap: 16px;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--green);
+  border-radius: var(--r-md);
+  padding: 18px 22px;
+  box-shadow: var(--shadow-1);
+}
+.cert-note .ms { font-size: 34px; color: var(--green); flex-shrink: 0; }
+.cert-note strong { display: block; font-family: var(--font-head); font-size: 16px; }
+.cert-note span.sub { font-size: 14px; color: var(--muted); }
 
 /* ============================================================
    Motion: появление при скролле (включается только при JS)

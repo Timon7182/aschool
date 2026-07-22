@@ -2,10 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- ── Главная (RU) ── -->
   <url>
     <loc>https://timon7182.github.io/aschool/index.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/index.html"/>
@@ -13,10 +12,19 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/index.html"/>
   </url>
 
-  <!-- ── Программа «Подготовка к школе» (RU) ── -->
+  <url>
+    <loc>https://timon7182.github.io/aschool/prices.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/prices.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagalar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/prices.html"/>
+  </url>
+
   <url>
     <loc>https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
@@ -24,92 +32,254 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
   </url>
 
-  <!-- ── Главная (KZ) ── -->
+  <url>
+    <loc>https://timon7182.github.io/aschool/programs/prodlenka.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/prodlenka.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/uzartylgan-kun-toby.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/prodlenka.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/programs/angliyskiy-detyam.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/angliyskiy-detyam.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/agylshyn-balalarga.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/angliyskiy-detyam.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/programs/ielts.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/ielts.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/ielts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/ielts.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/programs/tancy.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/tancy.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/bi-studiyasy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/tancy.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/programs/shahmaty.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/shahmaty.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/shahmat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/shahmaty.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/about.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/about.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/ortalyq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/about.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/camp.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/camp.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/a-camp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/camp.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/contacts.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/contacts.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/baylanys.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/contacts.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/team.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/team.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/ujym.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/team.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/events.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/events.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/is-sharalar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/events.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/reviews.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/reviews.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/pikirler.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/reviews.html"/>
+  </url>
+
   <url>
     <loc>https://timon7182.github.io/aschool/kz/index.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/index.html"/>
     <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/index.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/index.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/index.html"/>
   </url>
 
-  <!-- ── «Мектепке дайындық» (KZ) ── -->
   <url>
-    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/mektepke-dayindyk.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <loc>https://timon7182.github.io/aschool/kz/bagalar.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/mektepke-dayindyk.html"/>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/prices.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagalar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/prices.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/mektepke-dayindyk.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/mektepke-dayindyk.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/podgotovka-k-shkole.html"/>
   </url>
 
-  <!-- ── Программа «Продлёнка» (RU) ── -->
-  <url>
-    <loc>https://timon7182.github.io/aschool/programs/prodlenka.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/prodlenka.html"/>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/uzartylgan-kun-toby.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/prodlenka.html"/>
-  </url>
-
-  <!-- ── Пакет «10 в 1» (RU) ── -->
-  <url>
-    <loc>https://timon7182.github.io/aschool/programs/paket-10-v-1.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/paket-10-v-1.html"/>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/paket-10-1.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/paket-10-v-1.html"/>
-  </url>
-
-  <!-- ── Английский · IELTS (RU) ── -->
-  <url>
-    <loc>https://timon7182.github.io/aschool/programs/english-ielts.html</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/english-ielts.html"/>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/agylshyn-ielts.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/english-ielts.html"/>
-  </url>
-
-  <!-- ── «Ұзартылған күн тобы» (KZ) ── -->
   <url>
     <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/uzartylgan-kun-toby.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/uzartylgan-kun-toby.html"/>
     <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/prodlenka.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/uzartylgan-kun-toby.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/prodlenka.html"/>
   </url>
 
-  <!-- ── «10-ы 1-де» пакеті (KZ) ── -->
   <url>
-    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/paket-10-1.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/agylshyn-balalarga.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/paket-10-1.html"/>
-    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/paket-10-v-1.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/paket-10-v-1.html"/>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/angliyskiy-detyam.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/agylshyn-balalarga.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/angliyskiy-detyam.html"/>
   </url>
 
-  <!-- ── Ағылшын тілі және IELTS (KZ) ── -->
   <url>
-    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/agylshyn-ielts.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/ielts.html</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/agylshyn-ielts.html"/>
-    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/english-ielts.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/english-ielts.html"/>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/ielts.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/ielts.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/ielts.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/bi-studiyasy.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/tancy.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/bi-studiyasy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/tancy.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/bagdarlamalar/shahmat.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/programs/shahmaty.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/bagdarlamalar/shahmat.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/programs/shahmaty.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/ortalyq.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/about.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/ortalyq.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/about.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/a-camp.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/camp.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/a-camp.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/camp.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/baylanys.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/contacts.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/baylanys.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/contacts.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/ujym.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/team.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/ujym.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/team.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/is-sharalar.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/events.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/is-sharalar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/events.html"/>
+  </url>
+
+  <url>
+    <loc>https://timon7182.github.io/aschool/kz/pikirler.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru"        href="https://timon7182.github.io/aschool/reviews.html"/>
+    <xhtml:link rel="alternate" hreflang="kk"        href="https://timon7182.github.io/aschool/kz/pikirler.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timon7182.github.io/aschool/reviews.html"/>
   </url>
 
 </urlset>
