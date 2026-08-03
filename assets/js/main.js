@@ -7,8 +7,7 @@
 const WHATSAPP_PHONE = '77004349775';
 // TODO: заменить на реальный email для дублирования заявок
 const LEAD_EMAIL = 'info@aschool.kz';
-// TODO: вставить номер счётчика Яндекс.Метрики (число), пока метрика отключена
-const YM_COUNTER_ID = null;
+const YM_COUNTER_ID = 111274056;
 
 /* ---- Локализация текстов WhatsApp-заявки (определяется по lang="kk" на <html>) ---- */
 const IS_KK = document.documentElement.lang === 'kk';

@@ -4,4 +4,61 @@ Allow: /
 # Исключаем технические параметры UTM и рекламных систем из индексации
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid /
 
+# ── ИИ-поисковики и ассистенты: явно разрешаем индексацию ──
+# OpenAI (ChatGPT, поиск SearchGPT)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot / Bing AI
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Amazon (Alexa / Rufus)
+User-agent: Amazonbot
+Allow: /
+
+# Common Crawl (датасеты для обучения LLM)
+User-agent: CCBot
+Allow: /
+
+# Краткая сводка о сайте для LLM: https://timon7182.github.io/aschool/llms.txt
+
 Sitemap: https://timon7182.github.io/aschool/sitemap.xml
