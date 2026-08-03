@@ -911,6 +911,7 @@ html:not(.icons-loaded) .nav-group > .nav-link::after { opacity: 0; }
   width: 128px;
   aspect-ratio: 4 / 5;
   flex-shrink: 0;
+  align-self: flex-start;
   box-shadow: none;
 }
 .teacher-card--green .arch-photo { background: linear-gradient(180deg, #fff, var(--mint-1)); }
