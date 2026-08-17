@@ -59,6 +59,6 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Краткая сводка о сайте для LLM: https://timon7182.github.io/aschool/llms.txt
+# Краткая сводка о сайте для LLM: https://aschoolastana.kz/llms.txt
 
-Sitemap: https://timon7182.github.io/aschool/sitemap.xml
+Sitemap: https://aschoolastana.kz/sitemap.xml

@@ -5,7 +5,7 @@
 
 ## Технологии
 - Чистый статический сайт: HTML + CSS + vanilla JS. Без фреймворков и сборщиков.
-- Хостинг: GitHub Pages (репозиторий `aschool`, базовый URL `https://timon7182.github.io/aschool/`).
+- Хостинг: GitHub Pages (репозиторий `aschool`, базовый URL `https://aschoolastana.kz/`).
 - ВАЖНО: все пути между страницами и к ассетам — ОТНОСИТЕЛЬНЫЕ (сайт живёт в подпапке /aschool/).
 - Google Fonts: Nunito (600–900), Manrope (400–800), Material Symbols Rounded.
 
