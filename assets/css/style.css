@@ -264,6 +264,9 @@ h3 { font-size: 1.25rem; line-height: 1.25; margin: 0 0 8px; }
 }
 .btn:active { transform: translateY(1px) scale(0.985); }
 
+/* Крупная кнопка — переход на сайт лагеря */
+.btn.btn-lg { font-size: 19px; padding: 21px 42px; }
+
 /* Главный CTA — зелёный */
 .btn-green {
   background: var(--green);
